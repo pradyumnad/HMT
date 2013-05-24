@@ -6,6 +6,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import helpers.WSHelper;
+import helpers.WSListener;
+import helpers.WSType;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
@@ -38,8 +41,24 @@ public class LoginActivity extends Activity  {
 			
 			@Override
 			public void onClick(View v) {
-			 LoginTask loginTask = new LoginTask();
-			 loginTask.execute("");
+				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+				nameValuePairs.add(new BasicNameValuePair("email", ((EditText)findViewById(R.id.editTextLoginEmail)).getText().toString().trim() ));
+				nameValuePairs.add(new BasicNameValuePair("password", ((EditText)findViewById(R.id.editTextLoginPassword)).getText().toString().trim()));
+
+				WSHelper wsHelper = new WSHelper("http://becognizant.net/HMT/login.php", nameValuePairs, getApplicationContext());
+				wsHelper.addWSListener(new WSListener() {
+					@Override
+					public void onRequestCompleted(String response) {
+						Log.d(this.getClass().toString(), response);
+						//Parse the JSON and get the parameters
+					}
+
+					@Override
+					public void onRequestFailed(Exception exception) {
+						Log.d(this.getClass().toString(), exception.getMessage());
+					}
+				});
+				wsHelper.processRequest(WSType.WSPOST);
 			 }
 		});
 		Button signupButton = (Button)findViewById(R.id.signup_button);
@@ -47,64 +66,9 @@ public class LoginActivity extends Activity  {
 			
 			@Override
 			public void onClick(View v) {
+				Log.e(">>>"+this.getClass().toString(), "Sign Up");
 			  startActivity(new Intent(LoginActivity.this, SignupActivity.class));	
 			}
 		});
 	}
-
-	class LoginTask extends AsyncTask<String, Void, String> {
-
-        private Exception exception;
-
-        protected String doInBackground(String... urls) {
-            try {
-            	HttpClient httpclient = new DefaultHttpClient();
-          	    HttpPost httppost = new HttpPost("http://becognizant.net/HMT/login.php");
-
-          	    try {
-          	        // Add your data
-          	        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-          	        nameValuePairs.add(new BasicNameValuePair("email", ((EditText)findViewById(R.id.editTextLoginEmail)).getText().toString().trim() ));
-          	        nameValuePairs.add(new BasicNameValuePair("password", ((EditText)findViewById(R.id.editTextLoginPassword)).getText().toString().trim()));
-          	        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-          	        
-          	        // Execute HTTP Post Request
-          	        HttpResponse response = httpclient.execute(httppost);
-          	        System.out.println(response.toString());
-	          	    BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
-	          	    String json = reader.readLine();
-	          	    Log.e("Res", json);
-	          	  	JSONObject jsonObject = new JSONObject(json);
-	          	  	Log.e("jsonMesage",jsonObject.get("message").toString());
-	          	  
-	          	  if (jsonObject.getString("status").equals("1")) {
-					startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-				} else {
-					Log.e("LLogin error", "Login error");
-					Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
-				}
-          	        
-          	    } catch (ClientProtocolException e) {
-          	    	e.printStackTrace();
-          	        // TODO Auto-generated catch block
-          	    } catch (IOException e) {
-          	      e.printStackTrace();	
-          	        // TODO Auto-generated catch block
-          	    }
-
-              } catch (Exception e) {
-                this.exception = e;
-                return null;
-            }
-			return null;
-        }
-
-        protected void onPostExecute(String feed) {
-            // TODO: check this.exception 
-            // TODO: do something with the feed
-        	System.out.println("Fininsheed" + feed);
-        }
-     }
-	
-	 
 }
