@@ -18,7 +18,9 @@
             android:layout_marginTop="57dp"
             android:hint="User Id"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            android:lines="1"
+            android:longClickable="false"/>
 
     <EditText
             android:layout_width="220dp"
@@ -28,7 +30,9 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="109dp"
             android:layout_alignRight="@+id/editText"
-            android:hint="Password"/>
+            android:hint="Password"
+            android:password="true"
+            android:lines="1"/>
 
     <Button
             android:layout_width="fill_parent"
