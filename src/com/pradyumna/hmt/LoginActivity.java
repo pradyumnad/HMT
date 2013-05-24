@@ -50,7 +50,6 @@ public class LoginActivity extends Activity  {
 			  startActivity(new Intent(LoginActivity.this, SignupActivity.class));	
 			}
 		});
-
 	}
 
 	class LoginTask extends AsyncTask<String, Void, String> {
@@ -63,9 +62,6 @@ public class LoginActivity extends Activity  {
           	    HttpPost httppost = new HttpPost("http://becognizant.net/HMT/login.php");
 
           	    try {
-          	    	
-          	    	
-          	    	
           	        // Add your data
           	        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
           	        nameValuePairs.add(new BasicNameValuePair("email", ((EditText)findViewById(R.id.editTextLoginEmail)).getText().toString().trim() ));
@@ -78,8 +74,8 @@ public class LoginActivity extends Activity  {
 	          	    BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
 	          	    String json = reader.readLine();
 	          	    Log.e("Res", json);
-	          	  JSONObject jsonObject = new JSONObject(json);
-	          	  Log.e("jsonMesage",jsonObject.get("message").toString());
+	          	  	JSONObject jsonObject = new JSONObject(json);
+	          	  	Log.e("jsonMesage",jsonObject.get("message").toString());
 	          	  
 	          	  if (jsonObject.getString("status").equals("1")) {
 					startActivity(new Intent(LoginActivity.this, HomeActivity.class));
