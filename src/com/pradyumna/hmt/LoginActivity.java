@@ -54,7 +54,14 @@ public class LoginActivity extends Activity  {
 						//Parse the JSON and get the parameters
 						try {
 							JSONObject jsonObject = new JSONObject(response);
-//							AppSettings.userType = UserType.SENIOR_MANAGEMENT;
+							String type = jsonObject.getString("role");
+							if (type.equals("Senior Management")) {
+								AppSettings.userType = UserType.SENIOR_MANAGEMENT;
+							} else if (type.equals("Admin")) {
+								AppSettings.userType = UserType.ADMIN;
+							} else if (type.equals("Requesting Manger")) {
+								AppSettings.userType = UserType.REQUESTING_MANAGER;
+							}
 						} catch (JSONException e) {
 							e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
 						}
