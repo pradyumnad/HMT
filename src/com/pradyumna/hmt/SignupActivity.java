@@ -56,58 +56,56 @@ public class SignupActivity extends Activity  {
 		});
 
 	}
-	
 
-	
-		class RegisterTask extends AsyncTask<String, Void, String> {
 
-        private Exception exception;
 
-        protected String doInBackground(String... urls) {
-            try {
-            	  HttpClient httpclient = new DefaultHttpClient();
-          	    HttpPost httppost = new HttpPost("http://becognizant.net/HMT/register.php");
+	class RegisterTask extends AsyncTask<String, Void, String> {
 
-          	    try {
-          	    	
-          	    	
-          	        // Add your data
-          	        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-          	        nameValuePairs.add(new BasicNameValuePair("username", ((EditText)findViewById(R.id.editTextUserName)).getText().toString().trim() ));
-          	        nameValuePairs.add(new BasicNameValuePair("password", ((EditText)findViewById(R.id.editTextPassword)).getText().toString().trim()));
-          	        nameValuePairs.add(new BasicNameValuePair("email", ((EditText)findViewById(R.id.editTextMail)).getText().toString().trim()));
-          	        nameValuePairs.add(new BasicNameValuePair("role", ((EditText)findViewById(R.id.editTextRole)).getText().toString().trim()));
-          	        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+		private Exception exception;
 
-          	        // Execute HTTP Post Request
-          	        HttpResponse response = httpclient.execute(httppost);
-	          	    BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
-	          	    String json = reader.readLine();
-	          	  JSONObject jsonObject = new JSONObject(json);
-	          	  Log.e("jsonMesage",jsonObject.get("message").toString());
-	          	  
-	          	  if (jsonObject.getString("message").startsWith("U")) {
-					startActivity(new Intent(SignupActivity.this, LoginActivity.class));
-				} else {
-					Toast.makeText(SignupActivity.this, "Registraton Failed", Toast.LENGTH_SHORT).show();
+		protected String doInBackground(String... urls) {
+			try {
+				HttpClient httpclient = new DefaultHttpClient();
+				HttpPost httppost = new HttpPost("http://becognizant.net/HMT/register.php");
+
+				try {
+					// Add your data
+					List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+					nameValuePairs.add(new BasicNameValuePair("username", ((EditText)findViewById(R.id.editTextUserName)).getText().toString().trim() ));
+					nameValuePairs.add(new BasicNameValuePair("password", ((EditText)findViewById(R.id.editTextPassword)).getText().toString().trim()));
+					nameValuePairs.add(new BasicNameValuePair("email", ((EditText)findViewById(R.id.editTextMail)).getText().toString().trim()));
+					nameValuePairs.add(new BasicNameValuePair("role", ((EditText)findViewById(R.id.editTextRole)).getText().toString().trim()));
+					httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+					// Execute HTTP Post Request
+					HttpResponse response = httpclient.execute(httppost);
+					BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
+					String json = reader.readLine();
+					JSONObject jsonObject = new JSONObject(json);
+					Log.e("jsonMesage",jsonObject.get("message").toString());
+
+					if (jsonObject.getString("message").startsWith("U")) {
+						startActivity(new Intent(SignupActivity.this, LoginActivity.class));
+					} else {
+						Toast.makeText(SignupActivity.this, "Registraton Failed", Toast.LENGTH_SHORT).show();
+					}
+
+				} catch (ClientProtocolException e) {
+					// TODO Auto-generated catch block
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
 				}
-          	        
-          	    } catch (ClientProtocolException e) {
-          	        // TODO Auto-generated catch block
-          	    } catch (IOException e) {
-          	        // TODO Auto-generated catch block
-          	    }
 
-              } catch (Exception e) {
-                this.exception = e;
-                return null;
-            }
+			} catch (Exception e) {
+				this.exception = e;
+				return null;
+			}
 			return null;
-        }
+		}
 
-        protected void onPostExecute(String feed) {
-            // TODO: check this.exception 
-            // TODO: do something with the feed
-        }
-     }
+		protected void onPostExecute(String feed) {
+			// TODO: check this.exception
+			// TODO: do something with the feed
+		}
+	}
 }

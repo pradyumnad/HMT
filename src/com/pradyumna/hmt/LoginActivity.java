@@ -54,11 +54,10 @@ public class LoginActivity extends Activity  {
 						//Parse the JSON and get the parameters
 						try {
 							JSONObject jsonObject = new JSONObject(response);
-
+//							AppSettings.userType = UserType.SENIOR_MANAGEMENT;
 						} catch (JSONException e) {
 							e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
 						}
-
 					}
 
 					@Override
