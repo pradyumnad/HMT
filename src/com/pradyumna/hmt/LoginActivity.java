@@ -17,6 +17,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Intent;
@@ -51,6 +52,13 @@ public class LoginActivity extends Activity  {
 					public void onRequestCompleted(String response) {
 						Log.d(this.getClass().toString(), response);
 						//Parse the JSON and get the parameters
+						try {
+							JSONObject jsonObject = new JSONObject(response);
+
+						} catch (JSONException e) {
+							e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+						}
+
 					}
 
 					@Override
