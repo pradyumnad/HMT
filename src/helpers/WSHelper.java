@@ -75,15 +75,22 @@ public class WSHelper {
 //						httpGet.setEntity(new UrlEncodedFormEntity(params));
 						StringBuffer paramString = new StringBuffer("?");
 
-						for (NameValuePair obj:params) {
-							 paramString.append(obj.getName()+"="+obj.getValue()+"&");
+						if (params != null) {
+							for (NameValuePair obj:params) {
+								paramString.append(obj.getName()+"="+obj.getValue()+"&");
+							}
+
+							Character endingChar = paramString.charAt(paramString.length()-1);
+							if (endingChar.compareTo('&') == 0 || endingChar.compareTo('?') == 0) {
+								paramString.deleteCharAt(paramString.length()-1);
+							}
+							if (paramString.length() == 1) {
+
+							} else {
+								url = url+""+paramString;
+							}
 						}
 
-						Character endingChar = paramString.charAt(paramString.length()-1);
-						if (endingChar.compareTo('&') == 0 || endingChar.compareTo('?') == 0) {
-							paramString.deleteCharAt(paramString.length()-1);
-						}
-						url = url+""+paramString;
 						Log.d(this.getClass().toString(), url);
 						HttpGet httpGet = new HttpGet(url);
 						// Execute HTTP Post Request

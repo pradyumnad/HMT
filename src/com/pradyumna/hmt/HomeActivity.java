@@ -3,11 +3,13 @@ package com.pradyumna.hmt;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import com.pradyumna.hmt.models.Resource;
 import helpers.WSHelper;
 import helpers.WSListener;
+import helpers.WSType;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,6 +55,8 @@ public class HomeActivity extends Activity implements TabHost.OnTabChangeListene
 		tabHost.addTab(spec1);
 		tabHost.addTab(spec2);
 		tabHost.addTab(spec3);
+
+		updateTabContent(Tab.INTERNAL_POOL_TAB);
 	}
 
 	@Override
@@ -75,6 +79,7 @@ public class HomeActivity extends Activity implements TabHost.OnTabChangeListene
 	 * @description Used to update content when tapped on a Tab
 	 */
 	public void updateTabContent(Tab tab) {
+		requestContentInTab(tab);
 		switch (tab) {
 			case INTERNAL_POOL_TAB:
 
@@ -91,7 +96,7 @@ public class HomeActivity extends Activity implements TabHost.OnTabChangeListene
 	}
 
 	private void requestContentInTab(Tab tab) {
-		String url;
+		String url = null;
 		switch (tab) {
 			case BENCH_TAB:
 				url = "http://becognizant.net/HMT/bench.php";
@@ -102,11 +107,10 @@ public class HomeActivity extends Activity implements TabHost.OnTabChangeListene
 				break;
 
 			case HIRING_STATUS_TAB:
-				return;
 				break;
 		}
 
-		WSHelper helper = new WSHelper(url, null);
+		WSHelper helper = new WSHelper(url, null, HomeActivity.this);
 		helper.addWSListener(new WSListener() {
 			@Override
 			public void onRequestCompleted(String response) {
@@ -125,15 +129,19 @@ public class HomeActivity extends Activity implements TabHost.OnTabChangeListene
 						resources.add(i, resource);
 					}
 
+					ListView listView = (ListView)findViewById(R.id.internal_pool_listview);
+					ResourceAdapter adapter = new ResourceAdapter(HomeActivity.this, R.layout.ip_list_row, resources);
+					listView.setAdapter(adapter);
+
 				} catch (JSONException e) {
 					e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
 				}
 			}
-
 			@Override
 			public void onRequestFailed(Exception exception) {
 				exception.printStackTrace();
 			}
 		});
+		helper.processRequest(WSType.WSGET);
 	}
 }
