@@ -28,22 +28,20 @@
     <option name="TOOL_WINDOW_LOG_LEVEL" value="DEBUG" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47e45541-46e8-4cfd-8197-b6402242a321" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/pradyumna/hmt/models/Resource.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/pradyumna/hmt/ResourceAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/ip_list_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    <list default="true" id="47e45541-46e8-4cfd-8197-b6402242a321" name="Default" comment="Changed No of lines to 1 for EditTexts and Fixed Password text.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/pradyumna/hmt/HomeActivity.java" afterPath="$PROJECT_DIR$/src/com/pradyumna/hmt/HomeActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/pradyumna/hmt/ResourceAdapter.java" afterPath="$PROJECT_DIR$/src/com/pradyumna/hmt/ResourceAdapter.java" />
     </list>
     <ignored path="HMT.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="gen/" />
     <file path="/fragment.java" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1369428413278" ignored="false" />
     <file path="/activity_login.xml" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1367945052235" ignored="false" />
-    <file path="/Dummy.txt" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1369764988411" ignored="false" />
+    <file path="/Dummy.txt" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1369771995317" ignored="false" />
     <file path="/LoginActivity.java" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1369761592098" ignored="false" />
     <file path="/SignupActivity.java" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1367949271699" ignored="false" />
     <file path="/activity_home.xml" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1367951481944" ignored="false" />
-    <file path="/HomeActivity.java" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1369764245701" ignored="false" />
+    <file path="/HomeActivity.java" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1369771853829" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/android/lib/android.jar!/org/jetbrains/android/android.xsd" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1368203241086" ignored="false" />
     <file path="/WSHelper.java" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1369428660262" ignored="false" />
     <file path="/WSListener.java" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1369410894021" ignored="false" />
@@ -120,10 +118,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ResourceAdapter.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/pradyumna/hmt/ResourceAdapter.java">
+      <file leaf-file-name="LoginActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/pradyumna/hmt/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="33" selection-start="558" selection-end="558" vertical-scroll-proportion="0.2240356">
+            <state line="50" column="77" selection-start="1821" selection-end="1848" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -134,8 +132,19 @@
       <file leaf-file-name="Resource.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/pradyumna/hmt/models/Resource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="22" selection-start="515" selection-end="515" vertical-scroll-proportion="0.0">
+            <state line="24" column="11" selection-start="588" selection-end="588" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/pradyumna/hmt/HomeActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="130" column="21" selection-start="3174" selection-end="3174" vertical-scroll-proportion="0.68229955">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -170,9 +179,9 @@
         <option value="$PROJECT_DIR$/res/layout/activity_home.xml" />
         <option value="$PROJECT_DIR$/res/layout/custom views/ip_list_row.xml" />
         <option value="$PROJECT_DIR$/res/layout/ip_list_row.xml" />
-        <option value="$PROJECT_DIR$/src/com/pradyumna/hmt/HomeActivity.java" />
         <option value="$PROJECT_DIR$/src/com/pradyumna/hmt/models/Resource.java" />
         <option value="$PROJECT_DIR$/src/com/pradyumna/hmt/ResourceAdapter.java" />
+        <option value="$PROJECT_DIR$/src/com/pradyumna/hmt/HomeActivity.java" />
       </list>
     </option>
   </component>
@@ -183,9 +192,9 @@
     <scope name="Class" pattern="" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="118" />
+    <option name="x" value="440" />
     <option name="y" value="22" />
-    <option name="width" value="1214" />
+    <option name="width" value="1012" />
     <option name="height" value="822" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -283,6 +292,28 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="hmt" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HMT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HMT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hmt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HomeActivity.java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -554,7 +585,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="118" y="22" width="1214" height="822" extended-state="0" />
+    <frame x="440" y="22" width="1012" height="822" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25428084" sideWeight="0.7207977" order="4" side_tool="false" content_ui="tabs" x="1037" y="22" width="323" height="471" />
@@ -575,7 +606,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987013" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22003424" sideWeight="0.67094016" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26604554" sideWeight="0.67094016" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.4995671" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -730,15 +761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/pradyumna/hmt/HomeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="20" selection-start="1706" selection-end="1706" vertical-scroll-proportion="0.5334728">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/ip_list_row.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="24" selection-start="1113" selection-end="1113" vertical-scroll-proportion="0.33259425">
@@ -749,9 +771,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/pradyumna/hmt/LoginActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/pradyumna/hmt/ResourceAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="65" selection-start="2441" selection-end="2441" vertical-scroll-proportion="0.4372093">
+        <state line="50" column="12" selection-start="1608" selection-end="1608" vertical-scroll-proportion="0.8694362">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -760,14 +782,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/pradyumna/hmt/models/Resource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="22" selection-start="515" selection-end="515" vertical-scroll-proportion="0.0">
+        <state line="24" column="11" selection-start="588" selection-end="588" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/pradyumna/hmt/ResourceAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/com/pradyumna/hmt/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="33" selection-start="558" selection-end="558" vertical-scroll-proportion="0.2240356">
+        <state line="50" column="77" selection-start="1821" selection-end="1848" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/pradyumna/hmt/HomeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="130" column="21" selection-start="3174" selection-end="3174" vertical-scroll-proportion="0.68229955">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

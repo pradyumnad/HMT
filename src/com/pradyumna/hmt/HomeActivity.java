@@ -2,8 +2,17 @@ package com.pradyumna.hmt;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
+import com.pradyumna.hmt.models.Resource;
+import helpers.WSHelper;
+import helpers.WSListener;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.List;
 
 enum Tab {
 	INTERNAL_POOL_TAB,
@@ -79,5 +88,52 @@ public class HomeActivity extends Activity implements TabHost.OnTabChangeListene
 
 				break;
 		}
+	}
+
+	private void requestContentInTab(Tab tab) {
+		String url;
+		switch (tab) {
+			case BENCH_TAB:
+				url = "http://becognizant.net/HMT/bench.php";
+				break;
+
+			case INTERNAL_POOL_TAB:
+				url = "http://becognizant.net/HMT/internalpool.php";
+				break;
+
+			case HIRING_STATUS_TAB:
+				return;
+				break;
+		}
+
+		WSHelper helper = new WSHelper(url, null);
+		helper.addWSListener(new WSListener() {
+			@Override
+			public void onRequestCompleted(String response) {
+				try {
+					JSONObject responseObject = new JSONObject(response);
+					JSONArray results = responseObject.getJSONArray("results");
+					List<Resource> resources = null;
+					for (int i = 0; i < results.length(); i++) {
+						JSONObject object = results.getJSONObject(i);
+						Resource resource = new Resource(
+								object.getString("AscID"),
+								object.getString("Name"),
+								object.getInt("ExpInYrs"),
+								object.getString("Designation"),
+								object.getString("Technology"));
+						resources.add(i, resource);
+					}
+
+				} catch (JSONException e) {
+					e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+				}
+			}
+
+			@Override
+			public void onRequestFailed(Exception exception) {
+				exception.printStackTrace();
+			}
+		});
 	}
 }
