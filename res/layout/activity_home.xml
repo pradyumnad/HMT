@@ -38,15 +38,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:contentDescription="HOME" >
- 
-                            <TextView
-                                        android:id="@+id/textView1"
-                                        android:layout_width="204dp"
-                                        android:layout_height="match_parent"
-                                        android:paddingLeft="10dp"
-                                        android:text="TAB 1"/>
-                    
-                        </LinearLayout>
+
+                        <ListView
+                                android:layout_width="wrap_content"
+                                android:layout_height="fill_parent"
+                                android:id="@+id/internal_pool_listview"/>
+                    </LinearLayout>
 
 
                     <LinearLayout

@@ -29,10 +29,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47e45541-46e8-4cfd-8197-b6402242a321" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/pradyumna/hmt/AppSettings.java" afterPath="$PROJECT_DIR$/src/com/pradyumna/hmt/AppSettings.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/pradyumna/hmt/HomeActivity.java" afterPath="$PROJECT_DIR$/src/com/pradyumna/hmt/HomeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/pradyumna/hmt/LoginActivity.java" afterPath="$PROJECT_DIR$/src/com/pradyumna/hmt/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_home.xml" afterPath="$PROJECT_DIR$/res/layout/activity_home.xml" />
     </list>
     <ignored path="HMT.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,7 +41,7 @@
     <file path="/LoginActivity.java" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1369761592098" ignored="false" />
     <file path="/SignupActivity.java" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1367949271699" ignored="false" />
     <file path="/activity_home.xml" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1367951481944" ignored="false" />
-    <file path="/HomeActivity.java" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1367950756292" ignored="false" />
+    <file path="/HomeActivity.java" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1369764245701" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/android/lib/android.jar!/org/jetbrains/android/android.xsd" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1368203241086" ignored="false" />
     <file path="/WSHelper.java" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1369428660262" ignored="false" />
     <file path="/WSListener.java" changelist="47e45541-46e8-4cfd-8197-b6402242a321" time="1369410894021" ignored="false" />
@@ -126,10 +124,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="AppSettings.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/pradyumna/hmt/AppSettings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="4" selection-start="205" selection-end="251" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="HomeActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/pradyumna/hmt/HomeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="35" selection-start="412" selection-end="412" vertical-scroll-proportion="0.12162162">
+            <state line="66" column="14" selection-start="1620" selection-end="1620" vertical-scroll-proportion="0.25675675">
               <folding />
             </state>
           </provider>
@@ -137,12 +144,12 @@
       </file>
       <file leaf-file-name="activity_home.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/activity_home.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="29" selection-start="997" selection-end="997" vertical-scroll-proportion="1.1111112">
+          <provider editor-type-id="text-editor">
+            <state line="45" column="34" selection-start="1788" selection-end="1800" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="android-designer">
+          <provider selected="true" editor-type-id="android-designer">
             <state />
           </provider>
         </entry>
@@ -166,7 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/res/layout/activity_home.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_signup.xml" />
         <option value="$PROJECT_DIR$/src/helpers/WSListener.java" />
@@ -175,6 +181,7 @@
         <option value="$PROJECT_DIR$/src/helpers/WSType.java" />
         <option value="$PROJECT_DIR$/src/com/pradyumna/hmt/AppSettings.java" />
         <option value="$PROJECT_DIR$/src/com/pradyumna/hmt/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_home.xml" />
         <option value="$PROJECT_DIR$/src/com/pradyumna/hmt/HomeActivity.java" />
       </list>
     </option>
@@ -186,9 +193,9 @@
     <scope name="Class" pattern="" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-37" />
+    <option name="x" value="201" />
     <option name="y" value="22" />
-    <option name="width" value="1201" />
+    <option name="width" value="1214" />
     <option name="height" value="822" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -333,13 +340,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="project.scopes" />
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/gen" />
-    <property name="AndroidLayoutSelectedEditor" value="text-editor" />
+    <property name="AndroidLayoutSelectedEditor" value="android-designer" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="FullScreen" value="false" />
@@ -562,9 +570,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-37" y="22" width="1201" height="822" extended-state="0" />
+    <frame x="201" y="22" width="1214" height="822" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25428084" sideWeight="0.67236465" order="4" side_tool="false" content_ui="tabs" x="1037" y="22" width="323" height="471" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27311644" sideWeight="0.67236465" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987013" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964426" sideWeight="0.67094016" order="1" side_tool="false" content_ui="tabs" />
@@ -580,11 +590,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987013" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24848485" sideWeight="0.67236465" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22037037" sideWeight="0.67236465" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.4995671" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25454545" sideWeight="0.67094016" order="4" side_tool="false" content_ui="tabs" x="1037" y="22" width="323" height="471" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27359307" sideWeight="0.67094016" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
@@ -732,16 +740,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/pradyumna/hmt/AppSettings.java">
+    <entry file="file://$PROJECT_DIR$/src/com/pradyumna/hmt/SignupActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="30" selection-start="251" selection-end="251" vertical-scroll-proportion="0.19144145">
+        <state line="96" column="26" selection-start="3376" selection-end="3376" vertical-scroll-proportion="0.8955917">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/pradyumna/hmt/SignupActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/pradyumna/hmt/AppSettings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="26" selection-start="3376" selection-end="3376" vertical-scroll-proportion="0.8955917">
+        <state line="11" column="4" selection-start="205" selection-end="251" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -758,18 +766,18 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_home.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="29" selection-start="997" selection-end="997" vertical-scroll-proportion="1.1111112">
+      <provider editor-type-id="text-editor">
+        <state line="45" column="34" selection-start="1788" selection-end="1800" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
+      <provider selected="true" editor-type-id="android-designer">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/pradyumna/hmt/HomeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="35" selection-start="412" selection-end="412" vertical-scroll-proportion="0.12162162">
+        <state line="66" column="14" selection-start="1620" selection-end="1620" vertical-scroll-proportion="0.25675675">
           <folding />
         </state>
       </provider>
