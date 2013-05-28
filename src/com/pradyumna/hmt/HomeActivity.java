@@ -18,20 +18,21 @@ public class HomeActivity extends Activity {
 
 		setContentView(R.layout.activity_home);
 
-		tabHost = (TabHost) findViewById(R.id.tabHost);
+		tabHost = (TabHost)findViewById(R.id.tabHost);
 		tabHost.setup();
 
-		TabSpec spec1 = tabHost.newTabSpec("TAB 1");
+		TabSpec spec1 = tabHost.newTabSpec("Internal Pool");
 		spec1.setContent(R.id.tab1);
-		spec1.setIndicator("TAB 1");
+		spec1.setIndicator("Internal Pool");
 
-		TabSpec spec2 = tabHost.newTabSpec("TAB 2");
-		spec2.setIndicator("TAB 2");
+		TabSpec spec2 = tabHost.newTabSpec("Bench");
+		spec2.setIndicator("Bench");
 		spec2.setContent(R.id.tab2);
 
-		TabSpec spec3 = tabHost.newTabSpec("TAB 3");
+		TabSpec spec3 = tabHost.newTabSpec("Hiring Status");
 		spec3.setContent(R.id.tab3);
-		spec3.setIndicator("TAB 3");
+		spec3.setIndicator("Hiring Status");
+
 		tabHost.addTab(spec1);
 		tabHost.addTab(spec2);
 		tabHost.addTab(spec3);

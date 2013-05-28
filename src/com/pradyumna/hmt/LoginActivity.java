@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import helpers.WSHelper;
 import helpers.WSListener;
 import helpers.WSType;
@@ -54,13 +56,31 @@ public class LoginActivity extends Activity  {
 						//Parse the JSON and get the parameters
 						try {
 							JSONObject jsonObject = new JSONObject(response);
-							String type = jsonObject.getString("role");
-							if (type.equals("Senior Management")) {
-								AppSettings.userType = UserType.SENIOR_MANAGEMENT;
-							} else if (type.equals("Admin")) {
-								AppSettings.userType = UserType.ADMIN;
-							} else if (type.equals("Requesting Manger")) {
-								AppSettings.userType = UserType.REQUESTING_MANAGER;
+							Integer success = jsonObject.getInt("status");
+							if (success == 1) {
+								String type = jsonObject.getString("role");
+								Log.d("LoginActivity", type);
+								if (type.equals("Senior Management")) {
+									AppSettings.userType = UserType.SENIOR_MANAGEMENT;
+								} else if (type.equals("Admin")) {
+									AppSettings.userType = UserType.ADMIN;
+								} else if (type.equals("Requesting Manger")) {
+									AppSettings.userType = UserType.REQUESTING_MANAGER;
+								}
+								startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+							} else {
+								AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
+								alert.setTitle("Login");
+								alert.setMessage("Login failed!");
+								alert.setNegativeButton("Ok", new DialogInterface.OnClickListener()
+								{
+									public void onClick(DialogInterface dialog, int id)
+									{
+										// Action for 'Cancel' Button
+										dialog.cancel();
+									}
+								});
+								alert.show();
 							}
 						} catch (JSONException e) {
 							e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
