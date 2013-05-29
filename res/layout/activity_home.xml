@@ -43,6 +43,12 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="fill_parent"
                                 android:id="@+id/internal_pool_listview"/>
+                        <TextView
+                                android:id="@+id/empty"
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:text="No Results">
+                                </TextView>
                     </LinearLayout>
 
 

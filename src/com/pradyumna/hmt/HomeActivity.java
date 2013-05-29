@@ -135,6 +135,7 @@ public class HomeActivity extends Activity implements TabHost.OnTabChangeListene
 		}
 
 		WSHelper helper = new WSHelper(url, null, HomeActivity.this);
+		listView.setEmptyView(findViewById(R.id.empty));
 		final ListView finalListView = listView;
 		helper.addWSListener(new WSListener() {
 			@Override
