@@ -10,7 +10,7 @@
     android:layout_gravity="right|left">
 
     <EditText
-            android:layout_width="220dp"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/editTextLoginEmail"
             android:layout_centerHorizontal="true"
@@ -23,7 +23,7 @@
             android:longClickable="false"/>
 
     <EditText
-            android:layout_width="220dp"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/editTextLoginPassword"
             android:layout_alignLeft="@+id/editText"
