@@ -2,7 +2,6 @@ package com.pradyumna.hmt;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
@@ -14,6 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 enum Tab {
@@ -97,29 +97,41 @@ public class HomeActivity extends Activity implements TabHost.OnTabChangeListene
 
 	private void requestContentInTab(Tab tab) {
 		String url = null;
+		ListView listView = null;
 		switch (tab) {
 			case BENCH_TAB:
 				url = "http://becognizant.net/HMT/bench.php";
+				listView = (ListView)findViewById(R.id.bench_listView);
 				break;
 
 			case INTERNAL_POOL_TAB:
 				url = "http://becognizant.net/HMT/internalpool.php";
+				listView = (ListView)findViewById(R.id.internal_pool_listview);
 				break;
 
 			case HIRING_STATUS_TAB:
+				url = "http://becognizant.net/HMT/internalpool.php";
+				listView = (ListView)findViewById(R.id.requestStatus_listView);
 				break;
 		}
 
 		WSHelper helper = new WSHelper(url, null, HomeActivity.this);
+		final ListView finalListView = listView;
 		helper.addWSListener(new WSListener() {
 			@Override
 			public void onRequestCompleted(String response) {
 				try {
 					JSONObject responseObject = new JSONObject(response);
 					JSONArray results = responseObject.getJSONArray("results");
-					List<Resource> resources = null;
+					List<Resource> resources = new ArrayList<Resource>();
 					for (int i = 0; i < results.length(); i++) {
 						JSONObject object = results.getJSONObject(i);
+						String ascID = object.getString("AscID");
+						String name = object.getString("Name");
+						int exp = object.getInt("ExpInYrs");
+						String designation = object.getString("Designation");
+						String tech = object.getString("Technology");
+
 						Resource resource = new Resource(
 								object.getString("AscID"),
 								object.getString("Name"),
@@ -129,9 +141,9 @@ public class HomeActivity extends Activity implements TabHost.OnTabChangeListene
 						resources.add(i, resource);
 					}
 
-					ListView listView = (ListView)findViewById(R.id.internal_pool_listview);
 					ResourceAdapter adapter = new ResourceAdapter(HomeActivity.this, R.layout.ip_list_row, resources);
-					listView.setAdapter(adapter);
+					finalListView.setAdapter(adapter);
+					adapter.notifyDataSetChanged();
 
 				} catch (JSONException e) {
 					e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.

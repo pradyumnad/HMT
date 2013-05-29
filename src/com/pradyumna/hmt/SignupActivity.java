@@ -85,7 +85,8 @@ public class SignupActivity extends Activity  {
 					Log.e("jsonMesage",jsonObject.get("message").toString());
 
 					if (jsonObject.getString("message").startsWith("U")) {
-						startActivity(new Intent(SignupActivity.this, LoginActivity.class));
+//						startActivity(new Intent(SignupActivity.this, LoginActivity.class));
+						finish();
 					} else {
 						Toast.makeText(SignupActivity.this, "Registraton Failed", Toast.LENGTH_SHORT).show();
 					}
