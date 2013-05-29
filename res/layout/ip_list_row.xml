@@ -10,7 +10,8 @@
             android:layout_height="wrap_content"
             android:text="New Text"
             android:id="@+id/nameTextView"
-            android:layout_gravity="left|top"/>
+            android:layout_gravity="left|top"
+            android:layout_alignParentLeft="true"/>
 
     <TextView
             android:layout_width="wrap_content"
@@ -19,12 +20,13 @@
             android:id="@+id/designationTextView"
             android:layout_gravity="right|top"
             android:layout_alignLeft="@+id/nameTextView"
-            android:layout_alignParentTop="true"
+            android:layout_alignParentTop="false"
             android:layout_marginTop="20dp"
-            android:layout_alignRight="@+id/nameTextView"/>
+            android:layout_alignRight="@+id/nameTextView"
+            android:layout_alignParentLeft="true"/>
 
     <TextView
-            android:layout_width="52dp"
+            android:layout_width="76dp"
             android:layout_height="wrap_content"
             android:text="New Text"
             android:id="@+id/expTextView"
@@ -32,14 +34,17 @@
             android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/nameTextView"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="188dp"/>
+            android:layout_marginLeft="164dp"
+            android:layout_alignParentTop="false"/>
 
     <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="93dp"
             android:layout_height="wrap_content"
             android:text="New Text"
             android:id="@+id/techTextView"
             android:layout_alignRight="@+id/expTextView"
             android:layout_below="@+id/nameTextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/designationTextView"
             android:layout_alignLeft="@+id/expTextView"/>
 </RelativeLayout>

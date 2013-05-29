@@ -1,7 +1,12 @@
 package com.pradyumna.hmt;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
@@ -57,6 +62,20 @@ public class HomeActivity extends Activity implements TabHost.OnTabChangeListene
 		tabHost.addTab(spec3);
 
 		updateTabContent(Tab.INTERNAL_POOL_TAB);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main, menu);
+
+		return true;
+	}
+
+	public boolean onOptionsItemSelected(MenuItem item){
+		Intent myIntent = new Intent(getApplicationContext(), HiringRequest.class);
+		startActivityForResult(myIntent, 0);
+		return true;
 	}
 
 	@Override
