@@ -1,158 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
     <ScrollView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/scrollView">
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
 
         <LinearLayout
-                android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/editTexSONot"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="SONo" />
 
             <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText"
-                    android:layout_gravity="center"
-                    android:hint="Asc ID"/>
+                android:id="@+id/editTextReuqestingMgr"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Requesting Manager" />
 
             <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText1"
-                    android:layout_gravity="center"
-                    android:hint="Requesting Manager"/>
+                android:id="@+id/editTextRequestingMgrAscID"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Requesting Mgr AscID" />
 
             <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText2"
-                    android:hint="Additional Email"/>
+                android:id="@+id/editTextRequestingMgrEmailID"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Requesting Mgr AscID" />
+            
+            <EditText
+                android:id="@+id/editTextEmail1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Additional Email 1" />
 
             <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText3"
-                    android:hint="Job Description"/>
+                android:id="@+id/editTextEmail2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Additional Email 2" />
 
             <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText4"
-                    android:hint="Technology"/>
+                android:id="@+id/editTextJobDescription"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Job Description" />
 
             <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText5"
-                    android:hint="Certification Need"/>
+                android:id="@+id/editTextTechnology"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Technology" />
 
             <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText6"
-                    android:hint="Proposed Placement Project"/>
+                android:id="@+id/editTextCertificationNeed"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Certification Need" />
 
             <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText7"
-                    android:hint="Vertical"/>
+                android:id="@+id/editTextProposedPlacementProject"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Proposed Placement Project" />
 
             <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText8"
-                    android:hint="Proposed Rule"/>
+                android:id="@+id/editTextVertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Vertical" />
 
             <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText9"
-                    android:hint="Exp In Years"/>
+                android:id="@+id/editTextProposedRule"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Proposed Rule" />
 
             <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText10"
-                    android:hint="Desired Billing Rate"/>
+                android:id="@+id/editTextExpInYrs"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Exp In Years" />
 
             <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText11"
-                    android:hint="Joining Date NeededBy"/>
+                android:id="@+id/editTextDesiredBillingRate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Desired Billing Rate" />
 
             <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText12"
-                    android:hint="Project Start Date"/>
-
-            <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText13"
-                    android:hint="Project End Date"/>
-
-            <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText14"
-                    android:hint="Long Term/Short Term"/>
-
-            <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText15"
-                    android:hint="Preferred Visa Status"/>
-
-            <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText16"
-                    android:hint="Onsite/Offshore"/>
+                android:id="@+id/editTextJoiningDateNeededBy"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Joining Date NeededBy" />
 
             <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Address"
-                    android:id="@+id/textView"
-                    android:layout_gravity="center_vertical|left"
-                    android:background="#737373"
-                    android:textSize="20dp"
-                    android:textColor="#ffffff"
-                    android:textAlignment="center"/>
+                android:id="@+id/textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|left"
+                android:background="#737373"
+                android:text="Project Start Date"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+
+            <DatePicker
+                android:id="@+id/datePickerProjectStartDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|left"
+                android:background="#737373"
+                android:text="Project End Date"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+
+            <DatePicker
+                android:id="@+id/datePickerProjectEndDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText17"
-                    android:hint="City"/>
+                android:id="@+id/editTextLongTermShortTermProject"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Long Term/Short Term" />
 
             <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText18"
-                    android:hint="State"/>
+                android:id="@+id/editTextPreferredVisaStatus"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Preferred Visa Status" />
 
             <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText19"
-                    android:hint="Country"/>
+                android:id="@+id/editTextOnsite_Offshore"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Onsite/Offshore" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|left"
+                android:background="#737373"
+                android:text="Address"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
 
             <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editText20"
-                    android:hint="Additional Information"/>
+                android:id="@+id/editTextCity"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="City" />
+
+            <EditText
+                android:id="@+id/editTextState"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="State" />
+
+            <EditText
+                android:id="@+id/editTextCountry"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Country" />
+
+            <EditText
+                android:id="@+id/editTextAdditionalInformation"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Additional Information" />
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>

@@ -24,8 +24,10 @@ import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 /**
@@ -38,11 +40,18 @@ import android.widget.Toast;
 public class SignupActivity extends Activity  {
 	
 	Button buttonRegister;
+	Spinner spinnerRole;
+	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.activity_signup);
 		
+		//Adapter for roles 
+		String rolesArray[] = {"Senior Management","Requesting Manager","Admin"};
+		ArrayAdapter<String> rolesAdapter = new ArrayAdapter<String>(SignupActivity.this, android.R.layout.simple_list_item_1, rolesArray);
+		spinnerRole = (Spinner)findViewById(R.id.spinnerRole);
+		spinnerRole.setAdapter(rolesAdapter);
 		buttonRegister=(Button) findViewById(R.id.buttonRegister);
 		buttonRegister.setOnClickListener(new OnClickListener() {
 			
@@ -56,8 +65,6 @@ public class SignupActivity extends Activity  {
 		});
 
 	}
-
-
 
 	class RegisterTask extends AsyncTask<String, Void, String> {
 
@@ -74,7 +81,8 @@ public class SignupActivity extends Activity  {
 					nameValuePairs.add(new BasicNameValuePair("username", ((EditText)findViewById(R.id.editTextUserName)).getText().toString().trim() ));
 					nameValuePairs.add(new BasicNameValuePair("password", ((EditText)findViewById(R.id.editTextPassword)).getText().toString().trim()));
 					nameValuePairs.add(new BasicNameValuePair("email", ((EditText)findViewById(R.id.editTextMail)).getText().toString().trim()));
-					nameValuePairs.add(new BasicNameValuePair("role", ((EditText)findViewById(R.id.editTextRole)).getText().toString().trim()));
+					nameValuePairs.add(new BasicNameValuePair("role", spinnerRole.getSelectedItem().toString()));	
+					System.out.println(nameValuePairs);
 					httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
 					// Execute HTTP Post Request
