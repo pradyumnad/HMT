@@ -1,6 +1,5 @@
 package com.pradyumna.hmt;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +9,9 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
+import com.pradyumna.hmt.adapters.HiringRequestAdapter;
+import com.pradyumna.hmt.adapters.ResourceAdapter;
+import com.pradyumna.hmt.models.Request;
 import com.pradyumna.hmt.models.Resource;
 import helpers.WSHelper;
 import helpers.WSListener;
@@ -129,7 +131,7 @@ public class HomeActivity extends Activity implements TabHost.OnTabChangeListene
 				break;
 
 			case HIRING_STATUS_TAB:
-				url = "http://becognizant.net/HMT/internalpool.php";
+				url = "http://becognizant.net/HMT/hiringrequest.php";
 				listView = (ListView)findViewById(R.id.requestStatus_listView);
 				break;
 		}
@@ -143,27 +145,30 @@ public class HomeActivity extends Activity implements TabHost.OnTabChangeListene
 				try {
 					JSONObject responseObject = new JSONObject(response);
 					JSONArray results = responseObject.getJSONArray("results");
-					List<Resource> resources = new ArrayList<Resource>();
-					for (int i = 0; i < results.length(); i++) {
-						JSONObject object = results.getJSONObject(i);
-						String ascID = object.getString("AscID");
-						String name = object.getString("Name");
-						int exp = object.getInt("ExpInYrs");
-						String designation = object.getString("Designation");
-						String tech = object.getString("Technology");
 
-						Resource resource = new Resource(
-								object.getString("AscID"),
-								object.getString("Name"),
-								object.getInt("ExpInYrs"),
-								object.getString("Designation"),
-								object.getString("Technology"));
-						resources.add(i, resource);
+					if (currentTab == Tab.HIRING_STATUS_TAB) {
+						List<Request> requests = new ArrayList<Request>();
+						for (int i = 0; i < results.length(); i++) {
+							JSONObject object = results.getJSONObject(i);
+							Request resource = new Request(object);
+							requests.add(i, resource);
+						}
+
+						HiringRequestAdapter adapter = new HiringRequestAdapter(HomeActivity.this, R.layout.hr_list_row, requests);
+						finalListView.setAdapter(adapter);
+						adapter.notifyDataSetChanged();
+					} else {
+						List<Resource> resources = new ArrayList<Resource>();
+						for (int i = 0; i < results.length(); i++) {
+							JSONObject object = results.getJSONObject(i);
+							Resource resource = new Resource(object);
+							resources.add(i, resource);
+						}
+
+						ResourceAdapter adapter = new ResourceAdapter(HomeActivity.this, R.layout.ip_list_row, resources);
+						finalListView.setAdapter(adapter);
+						adapter.notifyDataSetChanged();
 					}
-
-					ResourceAdapter adapter = new ResourceAdapter(HomeActivity.this, R.layout.ip_list_row, resources);
-					finalListView.setAdapter(adapter);
-					adapter.notifyDataSetChanged();
 
 				} catch (JSONException e) {
 					e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.

@@ -31,14 +31,12 @@ import android.widget.EditText;
 public class HiringRequest extends Activity implements WSListener{
 	@Override
 	public void onRequestCompleted(String response) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void onRequestFailed(Exception exception) {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void onCreate(Bundle savedInstanceState) {

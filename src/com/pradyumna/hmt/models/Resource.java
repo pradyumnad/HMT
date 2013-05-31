@@ -1,5 +1,8 @@
 package com.pradyumna.hmt.models;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created with IntelliJ IDEA.
  * User: pradyumnad
@@ -14,11 +17,15 @@ public class Resource {
 	public int experience;
 	public String technology;
 
-	public Resource(String ascId, String designation, int experience, String name, String technology) {
-		this.ascId = ascId;
-		this.designation = designation;
-		this.experience = experience;
-		this.name = name;
-		this.technology = technology;
+	public Resource(JSONObject object) {
+		try {
+			this.ascId = object.getString("AscID");
+			this.designation = object.getString("Designation");
+			this.experience = object.getInt("ExpInYrs");
+			this.name = object.getString("Name");
+			this.technology = object.getString("Technology");
+		} catch (JSONException e) {
+			e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+		}
 	}
 }
