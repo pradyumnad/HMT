@@ -56,6 +56,8 @@ public class LoginActivity extends Activity  {
 								} else if (type.equals("Requesting Manger")) {
 									AppSettings.userType = UserType.REQUESTING_MANAGER;
 								}
+								
+								AppSettings.userId = jsonObject.getString("user_id");
 								startActivity(new Intent(LoginActivity.this, HomeActivity.class));
 							} else {
 								AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);

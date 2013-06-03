@@ -16,7 +16,7 @@ enum UserType {
 
 public class AppSettings {
 	public static UserType userType;
-
+	public static String userId;
 	private static AppSettings ourInstance = new AppSettings();
 
 	public static AppSettings getInstance() {

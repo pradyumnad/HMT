@@ -11,6 +11,7 @@ import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import com.pradyumna.hmt.adapters.HiringRequestAdapter;
 import com.pradyumna.hmt.adapters.ResourceAdapter;
+import com.pradyumna.hmt.models.HiringStatus;
 import com.pradyumna.hmt.models.Request;
 import com.pradyumna.hmt.models.Resource;
 import helpers.WSHelper;
@@ -22,6 +23,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.pradyumna.*;
 
 enum Tab {
 	INTERNAL_POOL_TAB,
@@ -141,7 +143,7 @@ public class HomeActivity extends Activity implements TabHost.OnTabChangeListene
 				break;
 
 			case HIRING_STATUS_TAB:
-				url = "http://becognizant.net/HMT/hiringrequest.php";
+				url = "http://becognizant.net/HMT/hiringstatus.php";
 				listView = (ListView)findViewById(R.id.requestStatus_listView);
 				break;
 		}
@@ -155,15 +157,15 @@ public class HomeActivity extends Activity implements TabHost.OnTabChangeListene
 				try {
 					JSONObject responseObject = new JSONObject(response);
 					JSONArray results = responseObject.getJSONArray("results");
-
+					
 					if (currentTab == Tab.HIRING_STATUS_TAB) {
-						List<Request> requests = new ArrayList<Request>();
+						List<HiringStatus> requests = new ArrayList<HiringStatus>();
 						for (int i = 0; i < results.length(); i++) {
 							JSONObject object = results.getJSONObject(i);
-							Request resource = new Request(object);
+							HiringStatus resource = new HiringStatus(object);
 							requests.add(i, resource);
 						}
-
+				
 						HiringRequestAdapter adapter = new HiringRequestAdapter(HomeActivity.this, R.layout.hr_list_row, requests);
 						finalListView.setAdapter(adapter);
 						adapter.notifyDataSetChanged();

@@ -6,11 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.pradyumna.hmt.HiringRequest;
 import com.pradyumna.hmt.R;
+import com.pradyumna.hmt.models.HiringStatus;
 import com.pradyumna.hmt.models.Request;
 
 import java.util.List;
-
+import com.pradyumna.*;
 /**
  * Created with IntelliJ IDEA.
  * User: pradyumnad
@@ -18,14 +21,15 @@ import java.util.List;
  * Time: 11:27 PM
  * To change this template use File | Settings | File Templates.
  */
-public class HiringRequestAdapter extends ArrayAdapter<Request> {
+public class HiringRequestAdapter extends ArrayAdapter<HiringStatus> {
 	Context context;
-	List<Request> requestList;
+	List<HiringStatus> requestList;
 
-	public HiringRequestAdapter(Context context, int textViewResourceId, List<Request> objects) {
+	public HiringRequestAdapter(Context context, int textViewResourceId, List<HiringStatus> objects) {
+	
 		super(context, textViewResourceId, objects);
 		this.context = context;
-		this.requestList = objects;
+		this.requestList = objects;	
 	}
 
 	@Override
@@ -33,16 +37,20 @@ public class HiringRequestAdapter extends ArrayAdapter<Request> {
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View rowView = inflater.inflate(R.layout.hr_list_row, parent, false);
 
-		Request hiringRequest = requestList.get(position);
+		HiringStatus hiringRequest = requestList.get(position);
 
-		TextView nameTextView = (TextView) rowView.findViewById(R.id.mngr_email_textView);
-		nameTextView.setText(hiringRequest.requestingMgrEmailID);
+		TextView nameTextView = (TextView) rowView.findViewById(R.id.textViewRequestingMgrEmailID);
+		nameTextView.setText(hiringRequest.RequestingMgrEmailID);
 
-		TextView expTextView = (TextView) rowView.findViewById(R.id.exp_textView);
-		expTextView.setText(hiringRequest.experience+" years");
+		TextView expTextView = (TextView) rowView.findViewById(R.id.textViewExperience);
+		expTextView.setText("Exp #"+hiringRequest.ExpInYrs+" years");
 
-		TextView techTextView = (TextView) rowView.findViewById(R.id.soNo_textView);
-		techTextView.setText("SONo #"+hiringRequest.soNo);
+		TextView techTextView = (TextView) rowView.findViewById(R.id.textViewTechnology);
+		techTextView.setText("Stauts #"+hiringRequest.InterviewStatus);
+		
+		TextView statusTextView = (TextView) rowView.findViewById(R.id.textViewStatus);
+		statusTextView.setText("Remarks #"+hiringRequest.Remarks);
+		
 		return rowView;
 	}
 }
