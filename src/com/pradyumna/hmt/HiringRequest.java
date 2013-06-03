@@ -106,7 +106,7 @@ public class HiringRequest extends Activity implements WSListener{
 		
 		System.out.println(nameValuePairs);
 		
-		WSHelper helper = new WSHelper("", nameValuePairs, HiringRequest.this);
+		WSHelper helper = new WSHelper("http://becognizant.net/HMT/hiringrequest.php", nameValuePairs, HiringRequest.this);
 		
 		helper.processRequest(WSType.WSPOST);
 

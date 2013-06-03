@@ -110,8 +110,6 @@ public class WSHelper {
 				BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
 				json = reader.readLine();
 				Log.d(this.getClass().toString(), json);
-
-
 			} catch (Exception e) {
 				this.exception = e;
 				return null;

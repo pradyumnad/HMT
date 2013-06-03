@@ -75,8 +75,18 @@ public class HomeActivity extends Activity implements TabHost.OnTabChangeListene
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item){
-		Intent myIntent = new Intent(getApplicationContext(), HiringRequest.class);
-		startActivityForResult(myIntent, 0);
+		switch (item.getItemId()) {
+			case R.id.search : {
+				Intent myIntent = new Intent(getApplicationContext(), SearchActivity.class);
+				startActivityForResult(myIntent, 0);
+				break;
+			}
+			case R.id.new_request : {
+				Intent myIntent = new Intent(getApplicationContext(), HiringRequest.class);
+				startActivityForResult(myIntent, 0);
+				break;
+			}
+		}
 		return true;
 	}
 
