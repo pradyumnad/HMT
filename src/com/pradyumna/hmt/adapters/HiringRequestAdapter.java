@@ -7,9 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.pradyumna.hmt.HiringRequest;
 import com.pradyumna.hmt.R;
-import com.pradyumna.hmt.models.HiringStatus;
 import com.pradyumna.hmt.models.Request;
 
 import java.util.List;
@@ -21,11 +19,11 @@ import com.pradyumna.*;
  * Time: 11:27 PM
  * To change this template use File | Settings | File Templates.
  */
-public class HiringRequestAdapter extends ArrayAdapter<HiringStatus> {
+public class HiringRequestAdapter extends ArrayAdapter<Request> {
 	Context context;
-	List<HiringStatus> requestList;
+	List<Request> requestList;
 
-	public HiringRequestAdapter(Context context, int textViewResourceId, List<HiringStatus> objects) {
+	public HiringRequestAdapter(Context context, int textViewResourceId, List<Request> objects) {
 	
 		super(context, textViewResourceId, objects);
 		this.context = context;
@@ -37,19 +35,26 @@ public class HiringRequestAdapter extends ArrayAdapter<HiringStatus> {
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View rowView = inflater.inflate(R.layout.hr_list_row, parent, false);
 
-		HiringStatus hiringRequest = requestList.get(position);
+		Request hiringRequest = requestList.get(position);
 
 		TextView nameTextView = (TextView) rowView.findViewById(R.id.textViewRequestingMgrEmailID);
-		nameTextView.setText(hiringRequest.RequestingMgrEmailID);
+		nameTextView.setText(hiringRequest.requestingMgrEmailID);
 
 		TextView expTextView = (TextView) rowView.findViewById(R.id.textViewExperience);
-		expTextView.setText("Exp #"+hiringRequest.ExpInYrs+" years");
+		expTextView.setText("Exp #"+hiringRequest.experience+" years");
 
 		TextView techTextView = (TextView) rowView.findViewById(R.id.textViewTechnology);
-		techTextView.setText("Stauts #"+hiringRequest.InterviewStatus);
+		if (hiringRequest.interviewStatus != null) {
+			if (hiringRequest.interviewStatus.length() == 0) {
+				hiringRequest.interviewStatus = "PENDING";
+			}
+		} else {
+			hiringRequest.interviewStatus = "PENDING";
+		}
+		techTextView.setText("Status #"+hiringRequest.interviewStatus);
 		
 		TextView statusTextView = (TextView) rowView.findViewById(R.id.textViewStatus);
-		statusTextView.setText("Remarks #"+hiringRequest.Remarks);
+		statusTextView.setText("Remarks #"+hiringRequest.remarks);
 		
 		return rowView;
 	}

@@ -10,11 +10,14 @@ import org.json.JSONObject;
  * Time: 9:56 PM
  * To change this template use File | Settings | File Templates.
  */
+
 public class Request {
 	public String requestId;
 	public String requestingMgrEmailID;
 	public int experience;
 	public int soNo;
+	public String interviewStatus;
+	public String remarks;
 
 	public Request(JSONObject request) {
 		try {
@@ -24,6 +27,19 @@ public class Request {
 			this.soNo = request.getInt("SONo");
 		} catch (JSONException e) {
 			e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+		}
+	}
+
+	public Request(JSONObject request, int type) {
+		if (type == 1) {
+		try {
+			this.requestId = request.getString("RequestIdentifierNo");
+			this.requestingMgrEmailID = request.getString("RequestingMgrEmailID");
+			this.experience = request.getInt("ExpInYrs");
+			this.remarks = request.getString("Remarks");
+		} catch (JSONException e) {
+			e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+		}
 		}
 	}
 }

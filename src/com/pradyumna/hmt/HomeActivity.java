@@ -11,7 +11,6 @@ import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import com.pradyumna.hmt.adapters.HiringRequestAdapter;
 import com.pradyumna.hmt.adapters.ResourceAdapter;
-import com.pradyumna.hmt.models.HiringStatus;
 import com.pradyumna.hmt.models.Request;
 import com.pradyumna.hmt.models.Resource;
 import helpers.WSHelper;
@@ -159,10 +158,10 @@ public class HomeActivity extends Activity implements TabHost.OnTabChangeListene
 					JSONArray results = responseObject.getJSONArray("results");
 					
 					if (currentTab == Tab.HIRING_STATUS_TAB) {
-						List<HiringStatus> requests = new ArrayList<HiringStatus>();
+						List<Request> requests = new ArrayList<Request>();
 						for (int i = 0; i < results.length(); i++) {
 							JSONObject object = results.getJSONObject(i);
-							HiringStatus resource = new HiringStatus(object);
+							Request resource = new Request(object, 1);
 							requests.add(i, resource);
 						}
 				
