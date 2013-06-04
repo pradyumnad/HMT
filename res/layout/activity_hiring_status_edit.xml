@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/editTextSONo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+
+            <Spinner
+                android:id="@+id/spinnerReqAssignedTo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true" />
+
+            <EditText
+                android:id="@+id/editTextInternalHiringPOC"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTextExternalHiringPOC"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTextIdentifiedProfile"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTextCurrentPhaseStatus"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTextInterviewerIdentified"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTextInterviewerAscID"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+            
+                        <EditText
+                android:id="@+id/editTextInterviewerEmailID"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTextInterviewerPhone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+
+               <DatePicker
+                android:id="@+id/datePickerInterviewDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/editTextInterviewStatus"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTextSelectionConfirmed"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTextApprovers1Email"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTextApprovers2Email"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTextApprovers3Email"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTextApprovers4Email"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTextRemarks"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
