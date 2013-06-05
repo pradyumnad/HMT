@@ -72,18 +72,6 @@ public class SignupActivity extends Activity  {
 		actionBar.setDisplayHomeAsUpEnabled(true);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-//		MenuInflater inflater = getMenuInflater();
-//		inflater.inflate(R.menu.hiring_request, menu);
-		return true;
-	}
-
-	public boolean onOptionsItemSelected(MenuItem item){
-		finish();
-		return true;
-	}
-
 	class RegisterTask extends AsyncTask<String, Void, String> {
 
 		private Exception exception;

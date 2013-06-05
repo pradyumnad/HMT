@@ -39,6 +39,10 @@
             android:name="com.pradyumna.hmt.HiringStatusEditActivity"
             android:label="@string/title_activity_hiring_status_edit" >
         </activity>
+        <activity
+            android:name="com.pradyumna.hmt.BaseActivity"
+            android:label="@string/title_activity_base" >
+        </activity>
     </application>
 
 </manifest>

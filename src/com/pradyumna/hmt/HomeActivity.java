@@ -34,7 +34,7 @@ enum Tab {
  * Created with IntelliJ IDEA. User: pradyumnad Date: 07/05/13 Time: 11:43 PM To
  * change this template use File | Settings | File Templates.
  */
-public class HomeActivity extends Activity implements TabHost.OnTabChangeListener {
+public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeListener {
 	private TabHost tabHost;
 	private Tab currentTab;
 
@@ -48,29 +48,36 @@ public class HomeActivity extends Activity implements TabHost.OnTabChangeListene
 		tabHost.setOnTabChangedListener(this);
 		tabHost.setup();
 
-		TabSpec spec1 = tabHost.newTabSpec("Internal Pool");
-		spec1.setContent(R.id.tab1);
-		spec1.setIndicator("Internal Pool");
+		TabSpec tabInternalPool = tabHost.newTabSpec("Internal Pool");
+		tabInternalPool.setContent(R.id.tab1);
+		tabInternalPool.setIndicator("Internal Pool");
 
-		TabSpec spec2 = tabHost.newTabSpec("Bench");
-		spec2.setIndicator("Bench");
-		spec2.setContent(R.id.tab2);
+		TabSpec tabBench = tabHost.newTabSpec("Bench");
+		tabBench.setIndicator("Bench");
+		tabBench.setContent(R.id.tab2);
 
-		TabSpec spec3 = tabHost.newTabSpec("Hiring Status");
-		spec3.setContent(R.id.tab3);
-		spec3.setIndicator("Hiring Status");
+		TabSpec tabHiringStatus = tabHost.newTabSpec("Hiring Status");
+		tabHiringStatus.setContent(R.id.tab3);
+		tabHiringStatus.setIndicator("Hiring Status");
 
-		tabHost.addTab(spec1);
-		tabHost.addTab(spec2);
-		tabHost.addTab(spec3);
-
+		if (AppSettings.userType == UserType.ADMIN || AppSettings.userType == UserType.EXECUTIVE_MANAGER) {
+			tabHost.addTab(tabHiringStatus);
+			tabHost.addTab(tabInternalPool);
+			tabHost.addTab(tabBench);
+		} else {
+		tabHost.addTab(tabInternalPool);
+		tabHost.addTab(tabBench);
+		tabHost.addTab(tabHiringStatus);
+		}
 		updateTabContent(Tab.INTERNAL_POOL_TAB);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.main, menu);
+//		getMenuInflater().inflate(R.menu.base, menu);
 
 		return true;
 	}
@@ -87,6 +94,8 @@ public class HomeActivity extends Activity implements TabHost.OnTabChangeListene
 				startActivityForResult(myIntent, 0);
 				break;
 			}
+			default:
+				super.onOptionsItemSelected(item);
 		}
 		return true;
 	}

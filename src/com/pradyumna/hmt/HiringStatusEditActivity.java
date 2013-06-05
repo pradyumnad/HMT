@@ -18,7 +18,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class HiringStatusEditActivity extends Activity {
+public class HiringStatusEditActivity extends BaseActivity {
 
 	public String RequestIdentifierNo;
 
@@ -30,7 +30,7 @@ public class HiringStatusEditActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
+		super.onCreateOptionsMenu(menu);
 		getMenuInflater().inflate(R.menu.hiring_status_edit, menu);
 		return true;
 	}
@@ -41,6 +41,8 @@ public class HiringStatusEditActivity extends Activity {
 			savHiringStatus();
 			break;
 		}
+		default:
+			super.onOptionsItemSelected(item);
 		}
 		return true;
 	}

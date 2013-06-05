@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-public class HiringStatusDetailActivity extends Activity {
+public class HiringStatusDetailActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class HiringStatusDetailActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
+		super.onCreateOptionsMenu(menu);
 		getMenuInflater().inflate(R.menu.edit_hiring_status, menu);
 		return true;
 	}
@@ -29,6 +29,8 @@ public class HiringStatusDetailActivity extends Activity {
 				startActivityForResult(myIntent, 0);
 				break;
 			}
+			default:
+				super.onOptionsItemSelected(item);
 		}
 		return true;
 	}

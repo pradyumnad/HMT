@@ -28,7 +28,7 @@ import android.widget.EditText;
  * Time: 1:21 PM
  * To change this template use File | Settings | File Templates.
  */
-public class HiringRequest extends Activity implements WSListener{
+public class HiringRequest extends BaseActivity implements WSListener{
 	@Override
 	public void onRequestCompleted(String response) {
 		
@@ -49,17 +49,20 @@ public class HiringRequest extends Activity implements WSListener{
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.hiring_request, menu);
 		return true;
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item){
+		super.onOptionsItemSelected(item);
 		switch (item.getItemId()) {
 			case R.id.req_save:
 				saveNewHiringRequest();
 				break;
 			default:
+				super.onOptionsItemSelected(item);
 				finish();
 				break;
 		}

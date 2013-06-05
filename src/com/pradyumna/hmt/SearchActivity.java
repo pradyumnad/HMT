@@ -3,6 +3,7 @@ package com.pradyumna.hmt;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +15,7 @@ import android.widget.Button;
  * Time: 8:47 PM
  * To change this template use File | Settings | File Templates.
  */
-public class SearchActivity extends Activity {
+public class SearchActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search);
@@ -31,8 +32,15 @@ public class SearchActivity extends Activity {
 		});
 	}
 
-	public boolean onOptionsItemSelected(MenuItem item){
-		finish();
-		return true;
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		return super.onCreateOptionsMenu(menu);
 	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		return super.onOptionsItemSelected(item);
+	}
+
+	
 }
