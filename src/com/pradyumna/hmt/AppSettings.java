@@ -10,7 +10,7 @@ package com.pradyumna.hmt;
 
 enum UserType {
 	ADMIN,
-	SENIOR_MANAGEMENT,
+	EXECUTIVE_MANAGER,
 	REQUESTING_MANAGER
 }
 

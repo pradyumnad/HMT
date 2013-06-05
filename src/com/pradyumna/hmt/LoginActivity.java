@@ -49,8 +49,8 @@ public class LoginActivity extends Activity  {
 							if (success == 1) {
 								String type = jsonObject.getString("role");
 								Log.d("LoginActivity", type);
-								if (type.equals("Senior Management")) {
-									AppSettings.userType = UserType.SENIOR_MANAGEMENT;
+								if (type.equals("Executive Manager")) {
+									AppSettings.userType = UserType.EXECUTIVE_MANAGER;
 								} else if (type.equals("Admin")) {
 									AppSettings.userType = UserType.ADMIN;
 								} else if (type.equals("Requesting Manger")) {

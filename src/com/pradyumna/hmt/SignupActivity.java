@@ -52,7 +52,7 @@ public class SignupActivity extends Activity  {
 		setContentView(R.layout.activity_signup);
 		
 		//Adapter for roles 
-		String rolesArray[] = {"Senior Management","Requesting Manager","Admin"};
+		String rolesArray[] = {"Executive Manager","Requesting Manager","Admin"};
 		ArrayAdapter<String> rolesAdapter = new ArrayAdapter<String>(SignupActivity.this, android.R.layout.simple_list_item_1, rolesArray);
 		spinnerRole = (Spinner)findViewById(R.id.spinnerRole);
 		spinnerRole.setAdapter(rolesAdapter);
