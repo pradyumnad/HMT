@@ -3,8 +3,4 @@
 
 *.class
 
-bin/classes/HMT.apk
-
-bin/classes/HMT.unaligned.apk
-
-bin/classes/HMT.unaligned.apk
+bin/*
