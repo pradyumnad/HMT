@@ -30,7 +30,6 @@ public class LoginActivity extends Activity  {
 		setContentView(R.layout.activity_login);
 		Button loginButton = (Button)findViewById(R.id.login_button);
 		loginButton.setOnClickListener(new OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
 				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
@@ -49,11 +48,11 @@ public class LoginActivity extends Activity  {
 							if (success == 1) {
 								String type = jsonObject.getString("role");
 								Log.d("LoginActivity", type);
-								if (type.equals("Executive Manager")) {
+								if (type.equalsIgnoreCase("Executive Manager")) {
 									AppSettings.userType = UserType.EXECUTIVE_MANAGER;
-								} else if (type.equals("Admin")) {
+								} else if (type.equalsIgnoreCase("Admin")) {
 									AppSettings.userType = UserType.ADMIN;
-								} else if (type.equals("Requesting Manger")) {
+								} else if (type.equalsIgnoreCase("Requesting Manger")) {
 									AppSettings.userType = UserType.REQUESTING_MANAGER;
 								}
 								
@@ -74,7 +73,7 @@ public class LoginActivity extends Activity  {
 								alert.show();
 							}
 						} catch (JSONException e) {
-							e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+							e.printStackTrace();
 						}
 					}
 

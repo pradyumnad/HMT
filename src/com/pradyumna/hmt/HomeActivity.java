@@ -1,17 +1,17 @@
 package com.pradyumna.hmt;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import com.pradyumna.hmt.adapters.HiringRequestAdapter;
 import com.pradyumna.hmt.adapters.ResourceAdapter;
-import com.pradyumna.hmt.models.HiringStatus;
 import com.pradyumna.hmt.models.HiringStatus;
 import com.pradyumna.hmt.models.Resource;
 import helpers.WSHelper;
@@ -23,7 +23,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.pradyumna.*;
 
 enum Tab {
 	INTERNAL_POOL_TAB,
@@ -160,6 +159,14 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 		WSHelper helper = new WSHelper(url, null, HomeActivity.this);
 		listView.setEmptyView(findViewById(R.id.empty));
 		final ListView finalListView = listView;
+		finalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				 //Write code to handle View..
+
+			}
+		});
+
 		helper.addWSListener(new WSListener() {
 			@Override
 			public void onRequestCompleted(String response) {
@@ -192,7 +199,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 					}
 
 				} catch (JSONException e) {
-					e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+					e.printStackTrace();
 				}
 			}
 			@Override
