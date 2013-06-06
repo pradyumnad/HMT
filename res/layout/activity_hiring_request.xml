@@ -112,10 +112,9 @@
                 android:id="@+id/textView"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|left"
+                android:layout_gravity="center_vertical"
                 android:background="#737373"
                 android:text="Project Start Date"
-                android:textAlignment="center"
                 android:textColor="#ffffff"
                 android:textSize="20dp" />
 
@@ -131,7 +130,6 @@
                 android:layout_gravity="center_vertical|left"
                 android:background="#737373"
                 android:text="Project End Date"
-                android:textAlignment="center"
                 android:textColor="#ffffff"
                 android:textSize="20dp" />
 
@@ -165,7 +163,6 @@
                 android:layout_gravity="center_vertical|left"
                 android:background="#737373"
                 android:text="Address"
-                android:textAlignment="center"
                 android:textColor="#ffffff"
                 android:textSize="20dp" />
 
