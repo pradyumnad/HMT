@@ -21,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +38,8 @@ enum Tab {
 public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeListener {
 	private TabHost tabHost;
 	private Tab currentTab;
+
+	List<HiringStatus> requests;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -65,9 +68,9 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 			tabHost.addTab(tabInternalPool);
 			tabHost.addTab(tabBench);
 		} else {
-		tabHost.addTab(tabInternalPool);
-		tabHost.addTab(tabBench);
-		tabHost.addTab(tabHiringStatus);
+			tabHost.addTab(tabInternalPool);
+			tabHost.addTab(tabBench);
+			tabHost.addTab(tabHiringStatus);
 		}
 		updateTabContent(Tab.INTERNAL_POOL_TAB);
 	}
@@ -163,7 +166,11 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				 //Write code to handle View..
-
+				 if (finalListView.getId() == R.id.requestStatus_listView) {
+					 Intent myIntent = new Intent(getApplicationContext(), HiringStatusDetailActivity.class);
+					 myIntent.putExtra("hiringStatus", requests.get(position));
+					 startActivityForResult(myIntent, 0);
+				 }
 			}
 		});
 
@@ -175,7 +182,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 					JSONArray results = responseObject.getJSONArray("results");
 					
 					if (currentTab == Tab.HIRING_STATUS_TAB) {
-						List<HiringStatus> requests = new ArrayList<HiringStatus>();
+						requests = new ArrayList<HiringStatus>();
 						for (int i = 0; i < results.length(); i++) {
 							JSONObject object = results.getJSONObject(i);
 							HiringStatus resource = new HiringStatus(object);

@@ -3,33 +3,14 @@ package com.pradyumna.hmt.models;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class HiringStatus {
+import java.io.Serializable;
+
+public class HiringStatus implements Serializable {
 
 	public String RequestIdentifierNo ;
 	public String SONo;
-	public String ReuqestingMgr;
-	public String RequestingMgrAscID;
 	public String RequestingMgrEmailID;
-	public String AdditionalEmailID1;
-	public String AdditionalEmailID2;
-	public String JobDescription;
-	public String Technology;
-	public String CertificationNeed;
-	public String ProposedPlacementProject ;
-	public String Vertical;
-	public String ProposedRule;
 	public String ExpInYrs;
-	public String DesiredBillingRate;
-	public String JoiningDateNeededBy;
-	public String ProjectStartDate;
-	public String ProjectEndDate;
-	public String LongTermShortTermProject;
-	public String OnsiteOffshore;
-	public String City;
-	public String State;
-	public String Country;
-	public String AdditionalInformation;
-	public String user_id;
 	public String ReqAssignedTo;
 	public String InternalHiringPOC;
 	public String ExternalHiringPOC;
@@ -47,7 +28,7 @@ public class HiringStatus {
 	public String Approvers3Email;
 	public String Approvers4Email;
 	public String Remarks;
-	
+
 	public  HiringStatus(JSONObject statusObject) {
 		try {
 			this.RequestingMgrEmailID = statusObject.getString("RequestingMgrEmailID");
