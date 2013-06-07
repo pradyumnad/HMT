@@ -3,6 +3,6 @@
 
 *.class
 
-bin/*
+bin/
 
 *.class

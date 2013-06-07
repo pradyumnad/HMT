@@ -1,17 +1,16 @@
 package com.pradyumna.hmt.adapters;
 
-import java.util.List;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import com.pradyumna.hmt.R;
 import com.pradyumna.hmt.models.HiringStatus;
-import com.pradyumna.*;;
+
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: pradyumnad

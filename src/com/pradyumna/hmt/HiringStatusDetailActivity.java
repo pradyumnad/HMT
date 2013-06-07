@@ -1,25 +1,37 @@
 package com.pradyumna.hmt;
 
-import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import com.pradyumna.hmt.models.HiringStatus;
+import android.widget.ListView;
+import helpers.PDJSONAdapter;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class HiringStatusDetailActivity extends BaseActivity {
-	private HiringStatus hiringStatus;
+	private JSONObject hiringStatus;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_hiring_status_detail);
+		//Have to convert to JSON
+		String hiringStatusString =  (String)getIntent().getStringExtra("hiringStatus");
+		try {
+			hiringStatus = new JSONObject(hiringStatusString);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 
-		hiringStatus = (HiringStatus)getIntent().getExtras().getSerializable("hiringStatus");
+		Log.d(this.getClass().toString(), ">>> Id : "+hiringStatus);
 
-		Log.d(this.getClass().toString(), ">>> Id : "+hiringStatus.RequestIdentifierNo);
+		ListView listView = (ListView)findViewById(R.id.hiring_status_details_listView);
+
+		PDJSONAdapter pdjsonAdapter = new PDJSONAdapter(hiringStatus);
+		listView.setAdapter(pdjsonAdapter);
+		pdjsonAdapter.notifyDataSetChanged();
 	}
 
 	@Override

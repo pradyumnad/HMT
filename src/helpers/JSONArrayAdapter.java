@@ -1,24 +1,18 @@
 package helpers;
 
-import java.lang.Integer;import java.lang.Object;import java.lang.Override;import java.lang.String;import java.lang.SuppressWarnings;import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import android.content.Context;
 import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.Filter;
-import android.widget.Filterable;
-import android.widget.ImageView;
-import android.widget.SimpleAdapter;
+import android.widget.*;
 import android.widget.SimpleAdapter.ViewBinder;
-import android.widget.TextView;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * An easy adapter to map JSON data to views defined in an XML layout. Basically a wrapper around

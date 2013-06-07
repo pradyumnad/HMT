@@ -21,7 +21,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +38,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 	private TabHost tabHost;
 	private Tab currentTab;
 
+	JSONArray results;
 	List<HiringStatus> requests;
 
 	@Override
@@ -179,7 +179,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 			public void onRequestCompleted(String response) {
 				try {
 					JSONObject responseObject = new JSONObject(response);
-					JSONArray results = responseObject.getJSONArray("results");
+					results = responseObject.getJSONArray("results");
 					
 					if (currentTab == Tab.HIRING_STATUS_TAB) {
 						requests = new ArrayList<HiringStatus>();
