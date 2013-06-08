@@ -2,9 +2,11 @@ package com.pradyumna.hmt;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.*;
@@ -62,6 +64,11 @@ public class SignupActivity extends Activity  {
 		actionBar.setDisplayHomeAsUpEnabled(true);
 	}
 
+	public boolean onOptionsItemSelected(MenuItem item) {
+		finish();
+		return true;
+	}
+	
 	class RegisterTask extends AsyncTask<String, Void, String> {
 
 		private Exception exception;

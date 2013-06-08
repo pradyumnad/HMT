@@ -24,20 +24,20 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int Edit=0x7f08004c;
-        public static final int StatusSave=0x7f08004f;
-        public static final int action_Logout=0x7f08004b;
-        public static final int action_settings=0x7f08004e;
+        public static final int Edit=0x7f08004d;
+        public static final int StatusSave=0x7f080050;
+        public static final int action_Logout=0x7f08004c;
+        public static final int action_settings=0x7f08004f;
         public static final int bench_listView=0x7f080032;
-        public static final int buttonRegister=0x7f080041;
+        public static final int buttonRegister=0x7f080042;
         public static final int datePickerInterviewDate=0x7f080025;
         public static final int datePickerProjectEndDate=0x7f080012;
         public static final int datePickerProjectStartDate=0x7f080011;
-        public static final int designationTextView=0x7f080048;
+        public static final int designationTextView=0x7f080049;
         public static final int editTexSONot=0x7f080001;
         public static final int editText=0x7f080037;
-        public static final int editText1=0x7f08003a;
-        public static final int editText2=0x7f08003b;
+        public static final int editText1=0x7f08003b;
+        public static final int editText2=0x7f08003c;
         public static final int editTextAdditionalInformation=0x7f080019;
         public static final int editTextApprovers1Email=0x7f080028;
         public static final int editTextApprovers2Email=0x7f080029;
@@ -64,9 +64,9 @@ public final class R {
         public static final int editTextLoginEmail=0x7f080035;
         public static final int editTextLoginPassword=0x7f080036;
         public static final int editTextLongTermShortTermProject=0x7f080013;
-        public static final int editTextMail=0x7f080040;
+        public static final int editTextMail=0x7f080041;
         public static final int editTextOnsite_Offshore=0x7f080015;
-        public static final int editTextPassword=0x7f08003f;
+        public static final int editTextPassword=0x7f080040;
         public static final int editTextPreferredVisaStatus=0x7f080014;
         public static final int editTextProposedPlacementProject=0x7f08000a;
         public static final int editTextProposedRule=0x7f08000c;
@@ -78,34 +78,35 @@ public final class R {
         public static final int editTextSelectionConfirmed=0x7f080027;
         public static final int editTextState=0x7f080017;
         public static final int editTextTechnology=0x7f080008;
-        public static final int editTextUserName=0x7f08003e;
+        public static final int editTextUserName=0x7f08003f;
         public static final int editTextVertical=0x7f08000b;
         public static final int empty=0x7f080030;
-        public static final int expTextView=0x7f080049;
-        public static final int go_button=0x7f08003c;
+        public static final int expTextView=0x7f08004a;
+        public static final int go_button=0x7f08003d;
         public static final int hiring_status_details_listView=0x7f08001a;
         public static final int internal_pool_listview=0x7f08002f;
-        public static final int linearLayout1=0x7f08003d;
+        public static final int linearLayout1=0x7f08003e;
+        public static final int listView=0x7f08003a;
         public static final int login_button=0x7f080038;
-        public static final int nameTextView=0x7f080047;
-        public static final int new_request=0x7f080051;
-        public static final int req_save=0x7f08004d;
+        public static final int nameTextView=0x7f080048;
+        public static final int new_request=0x7f080052;
+        public static final int req_save=0x7f08004e;
         public static final int requestStatus_listView=0x7f080034;
         public static final int scrollView=0x7f080000;
-        public static final int search=0x7f080050;
+        public static final int search=0x7f080051;
         public static final int signup_button=0x7f080039;
         public static final int spinnerReqAssignedTo=0x7f08001c;
-        public static final int spinnerRole=0x7f080042;
+        public static final int spinnerRole=0x7f080043;
         public static final int tab1=0x7f08002e;
         public static final int tab2=0x7f080031;
         public static final int tab3=0x7f080033;
         public static final int tabHost=0x7f08002d;
-        public static final int techTextView=0x7f08004a;
+        public static final int techTextView=0x7f08004b;
         public static final int textView=0x7f080010;
-        public static final int textViewExperience=0x7f080044;
-        public static final int textViewRequestingMgrEmailID=0x7f080043;
-        public static final int textViewStatus=0x7f080046;
-        public static final int textViewTechnology=0x7f080045;
+        public static final int textViewExperience=0x7f080045;
+        public static final int textViewRequestingMgrEmailID=0x7f080044;
+        public static final int textViewStatus=0x7f080047;
+        public static final int textViewTechnology=0x7f080046;
     }
     public static final class layout {
         public static final int activity_base=0x7f030000;
@@ -114,10 +115,11 @@ public final class R {
         public static final int activity_hiring_status_edit=0x7f030003;
         public static final int activity_home=0x7f030004;
         public static final int activity_login=0x7f030005;
-        public static final int activity_search=0x7f030006;
-        public static final int activity_signup=0x7f030007;
-        public static final int hr_list_row=0x7f030008;
-        public static final int ip_list_row=0x7f030009;
+        public static final int activity_resource_detail=0x7f030006;
+        public static final int activity_search=0x7f030007;
+        public static final int activity_signup=0x7f030008;
+        public static final int hr_list_row=0x7f030009;
+        public static final int ip_list_row=0x7f03000a;
     }
     public static final class menu {
         public static final int base=0x7f070000;

@@ -181,10 +181,34 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 						e.printStackTrace();
 					}
 					 startActivityForResult(myIntent, 0);
-				 } else if (finalListView.getId() == R.id.internal_pool_listview) {
-					 
 				 } else {
+					 Intent myIntent = new Intent(getApplicationContext(), ResourceDetail.class);
+					 JSONObject jsonResource = null;
+					 Resource resource = null;
+					 String type;
+					 if (finalListView.getId() == R.id.internal_pool_listview) {
+						 try {
+							 jsonResource = (JSONObject) internalPoolResults.get(position);
+						 } catch (JSONException e) {
+							 e.printStackTrace();
+							 return;
+						 }
+						 type = "IP";
+						 resource = new Resource(jsonResource);
+					 } else {
+						 try {
+							 jsonResource = (JSONObject) benchResults.get(position);
+						 } catch (JSONException e) {
+							 e.printStackTrace();
+							 return;
+						 }
+						 type = "B";
+						 resource = new Resource(jsonResource);
+					 }
 					 
+					 myIntent.putExtra("resourceId", resource.ascId);
+					 myIntent.putExtra("type", type);
+					 startActivity(myIntent);
 				 }
 			}
 		});
