@@ -1,5 +1,6 @@
 package com.pradyumna.hmt;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,7 @@ public class HiringStatusDetailActivity extends BaseActivity {
 		setContentView(R.layout.activity_hiring_status_detail);
 		//Have to convert to JSON
 		String hiringStatusString =  (String)getIntent().getStringExtra("hiringStatus");
+		Log.d(this.getClass().toString(), hiringStatusString);
 		try {
 			hiringStatus = new JSONObject(hiringStatusString);
 		} catch (JSONException e) {
@@ -29,9 +31,12 @@ public class HiringStatusDetailActivity extends BaseActivity {
 
 		ListView listView = (ListView)findViewById(R.id.hiring_status_details_listView);
 
-		PDJSONAdapter pdjsonAdapter = new PDJSONAdapter(hiringStatus);
+		PDJSONAdapter pdjsonAdapter = new PDJSONAdapter(hiringStatus, getApplicationContext());
 		listView.setAdapter(pdjsonAdapter);
 		pdjsonAdapter.notifyDataSetChanged();
+		
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
 	}
 
 	@Override
@@ -45,14 +50,15 @@ public class HiringStatusDetailActivity extends BaseActivity {
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item){
+		Log.d("HiringStatusDetailActivity", ""+item.getItemId());
 		switch (item.getItemId()) {
 			case R.id.Edit : {
-				Intent myIntent = new Intent(getApplicationContext(), SearchActivity.class);
+				Intent myIntent = new Intent(getApplicationContext(), HiringStatusEditActivity.class);
 				startActivityForResult(myIntent, 0);
 				break;
 			}
 			default:
-				super.onOptionsItemSelected(item);
+				finish();
 		}
 		return true;
 	}

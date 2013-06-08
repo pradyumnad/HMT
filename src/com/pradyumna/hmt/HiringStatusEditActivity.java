@@ -1,5 +1,6 @@
 package com.pradyumna.hmt;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +23,9 @@ public class HiringStatusEditActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_hiring_status_edit);
+		
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
 	}
 
 	@Override
@@ -38,7 +42,7 @@ public class HiringStatusEditActivity extends BaseActivity {
 			break;
 		}
 		default:
-			super.onOptionsItemSelected(item);
+			finish();
 		}
 		return true;
 	}

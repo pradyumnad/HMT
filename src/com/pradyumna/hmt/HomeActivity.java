@@ -2,6 +2,8 @@ package com.pradyumna.hmt;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.renderscript.Element;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -38,7 +40,10 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 	private TabHost tabHost;
 	private Tab currentTab;
 
-	JSONArray results;
+	JSONArray internalPoolResults;
+	JSONArray benchResults;
+	JSONArray hiringStatusResults;
+	
 	List<HiringStatus> requests;
 
 	@Override
@@ -67,12 +72,13 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 			tabHost.addTab(tabHiringStatus);
 			tabHost.addTab(tabInternalPool);
 			tabHost.addTab(tabBench);
+			updateTabContent(Tab.HIRING_STATUS_TAB);			
 		} else {
 			tabHost.addTab(tabInternalPool);
 			tabHost.addTab(tabBench);
 			tabHost.addTab(tabHiringStatus);
+			updateTabContent(Tab.INTERNAL_POOL_TAB);			
 		}
-		updateTabContent(Tab.INTERNAL_POOL_TAB);
 	}
 
 	@Override
@@ -168,8 +174,17 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 				 //Write code to handle View..
 				 if (finalListView.getId() == R.id.requestStatus_listView) {
 					 Intent myIntent = new Intent(getApplicationContext(), HiringStatusDetailActivity.class);
-					 myIntent.putExtra("hiringStatus", requests.get(position));
+					 try {
+						 Log.d(this.getClass().toString(), hiringStatusResults.toString());
+						myIntent.putExtra("hiringStatus", hiringStatusResults.get(position).toString());
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
 					 startActivityForResult(myIntent, 0);
+				 } else if (finalListView.getId() == R.id.internal_pool_listview) {
+					 
+				 } else {
+					 
 				 }
 			}
 		});
@@ -179,7 +194,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 			public void onRequestCompleted(String response) {
 				try {
 					JSONObject responseObject = new JSONObject(response);
-					results = responseObject.getJSONArray("results");
+					JSONArray results = responseObject.getJSONArray("results");
 					
 					if (currentTab == Tab.HIRING_STATUS_TAB) {
 						requests = new ArrayList<HiringStatus>();
@@ -188,7 +203,9 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 							HiringStatus resource = new HiringStatus(object);
 							requests.add(i, resource);
 						}
-				
+						//Assigning json objects
+						hiringStatusResults = results;
+						
 						HiringRequestAdapter adapter = new HiringRequestAdapter(HomeActivity.this, R.layout.hr_list_row, requests);
 						finalListView.setAdapter(adapter);
 						adapter.notifyDataSetChanged();
@@ -199,7 +216,13 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 							Resource resource = new Resource(object);
 							resources.add(i, resource);
 						}
-
+						
+						if (currentTab == Tab.INTERNAL_POOL_TAB) {
+							internalPoolResults = results;
+						} else {
+							benchResults = results;
+						}
+						
 						ResourceAdapter adapter = new ResourceAdapter(HomeActivity.this, R.layout.ip_list_row, resources);
 						finalListView.setAdapter(adapter);
 						adapter.notifyDataSetChanged();
