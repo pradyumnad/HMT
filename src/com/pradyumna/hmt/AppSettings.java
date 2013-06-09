@@ -1,5 +1,7 @@
 package com.pradyumna.hmt;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: pradyumnad
@@ -28,5 +30,18 @@ public class AppSettings {
 
 	public static void showAlert() {
 
+	}
+	
+	/**
+	 * 
+	 * @return String that defines the Phase of Hiring Request Status
+	 * @description Need to send email after every status update
+	 */
+	public static String[] currentPhaseStatusList () {
+		String[] list = {"New", "PDP Verification", "CDP Verification", 
+				"CDP-Interview", "External Hiring", "Rate Verification", 
+				"Approval Requested", "Approved", "Hired", "Rejected"}; 
+		
+		return list;
 	}
 }
