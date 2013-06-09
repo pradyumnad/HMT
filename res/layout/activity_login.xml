@@ -50,4 +50,17 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentTop="false"
             android:layout_alignParentBottom="true"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password"
+            android:id="@+id/forgotPwdBtn"
+            android:textColor="#122dff"
+            android:background="@null"
+            android:layout_alignLeft="@+id/editTextLoginEmail"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="208dp"
+            android:layout_alignRight="@+id/editTextLoginEmail"
+            android:textSize="16dp"/>
 </RelativeLayout>

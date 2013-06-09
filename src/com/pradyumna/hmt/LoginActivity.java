@@ -93,5 +93,13 @@ public class LoginActivity extends Activity  {
 			  startActivity(new Intent(LoginActivity.this, SignupActivity.class));	
 			}
 		});
+
+		Button forgotPwdButton = (Button)findViewById(R.id.forgotPwdBtn);
+		forgotPwdButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
+			}
+		});
 	}
 }
