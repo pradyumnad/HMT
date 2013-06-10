@@ -60,7 +60,7 @@ public class LoginActivity extends Activity  {
 							} else {
 								AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
 								alert.setTitle("Login");
-								alert.setMessage("Login failed!");
+								alert.setMessage("Enter Valid User-ID & Password");
 								alert.setNegativeButton("Ok", new DialogInterface.OnClickListener()
 								{
 									public void onClick(DialogInterface dialog, int id)

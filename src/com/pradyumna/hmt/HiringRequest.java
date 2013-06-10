@@ -23,15 +23,18 @@ import java.util.List;
  * Time: 1:21 PM
  * To change this template use File | Settings | File Templates.
  */
-public class HiringRequest extends BaseActivity implements WSListener{
+public class HiringRequest extends BaseActivity implements WSListener {
+
 	@Override
 	public void onRequestCompleted(String response) {
-		
+		// TODO Auto-generated method stub
+		System.out.println(response);
 	}
 
 	@Override
 	public void onRequestFailed(Exception exception) {
-
+		// TODO Auto-generated method stub
+		
 	}
 
 	public void onCreate(Bundle savedInstanceState) {
@@ -51,7 +54,6 @@ public class HiringRequest extends BaseActivity implements WSListener{
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item){
-		super.onOptionsItemSelected(item);
 		switch (item.getItemId()) {
 			case R.id.req_save:
 				saveNewHiringRequest();
@@ -73,6 +75,7 @@ public class HiringRequest extends BaseActivity implements WSListener{
 		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
 		nameValuePairs.add(new BasicNameValuePair("SONo", ((EditText)findViewById(R.id.editTexSONot)).getText().toString().trim() ));
 		nameValuePairs.add(new BasicNameValuePair("ReuqestingMgr", ((EditText)findViewById(R.id.editTextReuqestingMgr)).getText().toString().trim()));
+		nameValuePairs.add(new BasicNameValuePair("user_id", AppSettings.userId));
 		nameValuePairs.add(new BasicNameValuePair("RequestingMgrAscID", ((EditText)findViewById(R.id.editTextRequestingMgrAscID)).getText().toString().trim()));
 		nameValuePairs.add(new BasicNameValuePair("RequestingMgrEmailID", ((EditText)findViewById(R.id.editTextRequestingMgrEmailID)).getText().toString().trim()));
 		nameValuePairs.add(new BasicNameValuePair("AdditionalEmailID1", ((EditText)findViewById(R.id.editTextEmail1)).getText().toString().trim()));
@@ -104,8 +107,21 @@ public class HiringRequest extends BaseActivity implements WSListener{
 		
 		System.out.println(nameValuePairs);
 		
-		WSHelper helper = new WSHelper("http://becognizant.net/HMT/hiringrequest.php", nameValuePairs, HiringRequest.this);
-		
+		WSHelper helper = new WSHelper("http://becognizant.net/HMT/hiringrequest.php", nameValuePairs, getApplicationContext());
+//		helper.addWSListener(new WSListener() {
+//			
+//			@Override
+//			public void onRequestFailed(Exception exception) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//			
+//			@Override
+//			public void onRequestCompleted(String response) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//		});
 		helper.processRequest(WSType.WSPOST);
 
 	}
