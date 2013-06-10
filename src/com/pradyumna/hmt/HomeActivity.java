@@ -30,7 +30,8 @@ enum Tab {
 	INTERNAL_POOL_TAB,
 	BENCH_TAB,
 	HIRING_STATUS_TAB,
-	APPROVAL_STATUS_TAB
+	APPROVAL_STATUS_TAB,
+	NEW_HIRING_REQUEST_TAB
 }
 
 /**
@@ -66,19 +67,24 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 		tabBench.setIndicator("Bench");
 		tabBench.setContent(R.id.tab2);
 
-		TabSpec tabHiringStatus = tabHost.newTabSpec("New Hiring Status");
+		TabSpec tabHiringStatus = tabHost.newTabSpec("Hiring Status");
 		tabHiringStatus.setContent(R.id.tab3);
-		tabHiringStatus.setIndicator("New Hiring Status");
+		tabHiringStatus.setIndicator("Hiring Status");
 
 		TabSpec approvalStatusTab = tabHost.newTabSpec("Approval Requests");
 		approvalStatusTab.setContent(R.id.tab4);
 		approvalStatusTab.setIndicator("Approval Requests");
 
+		TabSpec newHiringRequestsTab = tabHost.newTabSpec("New Hiring Requests");
+		newHiringRequestsTab.setContent(R.id.tab4);
+		newHiringRequestsTab.setIndicator("New Hiring Requests");
+		
 		if (AppSettings.userType == UserType.ADMIN) {
+			tabHost.addTab(newHiringRequestsTab);
 			tabHost.addTab(tabHiringStatus);
-			//tabHost.addTab(tabInternalPool);
+			tabHost.addTab(tabInternalPool);
 			tabHost.addTab(tabBench);
-			updateTabContent(Tab.HIRING_STATUS_TAB);			
+			updateTabContent(Tab.NEW_HIRING_REQUEST_TAB);			
 		} else if (AppSettings.userType == UserType.EXECUTIVE_MANAGER) {
 			tabHost.addTab(approvalStatusTab);
 			tabHost.addTab(tabHiringStatus);
@@ -126,10 +132,12 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 			currentTab = Tab.INTERNAL_POOL_TAB;
 		} else if (tabId.equals("Bench")) {
 			currentTab = Tab.BENCH_TAB;
-		} else if (tabId.equals("New Hiring Status")) {
+		} else if (tabId.equals("Hiring Status")) {
 			currentTab = Tab.HIRING_STATUS_TAB;
 		} else if (tabId.equals("Approval Requests")) {
 			currentTab = Tab.APPROVAL_STATUS_TAB;
+		} else if (tabId.equals("New Hiring Requests")) {
+			currentTab = Tab.NEW_HIRING_REQUEST_TAB;
 		}
 
 		updateTabContent(currentTab);
@@ -160,11 +168,15 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 				break;
 
 			case HIRING_STATUS_TAB:
-				url = "http://becognizant.net/HMT/hiringstatus.php?status=New";
+				url = "http://becognizant.net/HMT/hiringstatus.php";
 				listView = (ListView)findViewById(R.id.requestStatus_listView);
 				break;
 			case APPROVAL_STATUS_TAB:
 				url = "http://becognizant.net/HMT/hiringstatus.php?status=Approval%20Requested";
+				listView = (ListView)findViewById(R.id.approvalRequest_listView);
+				break;
+			case NEW_HIRING_REQUEST_TAB:
+				url = "http://becognizant.net/HMT/hiringstatus.php?status=New";
 				listView = (ListView)findViewById(R.id.approvalRequest_listView);
 				break;
 		}

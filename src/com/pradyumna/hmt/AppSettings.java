@@ -33,11 +33,6 @@ public class AppSettings {
 
 	}
 	
-	/**
-	 * 
-	 * @return String that defines the Phase of Hiring Request Status
-	 * @description Need to send email after every status update
-	 */
 	public static String[] currentPhaseStatusList () {
 		String[] list = {"New", "PDP Verification", "CDP Verification", 
 				"CDP-Interview", "External Hiring", "Rate Verification", 

@@ -2,6 +2,7 @@ package com.pradyumna.hmt;
 
 import android.app.ActionBar;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.DatePicker;
@@ -11,18 +12,30 @@ import helpers.WSHelper;
 import helpers.WSType;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HiringStatusEditActivity extends BaseActivity {
-
+	private JSONObject hiringStatus;
 	public String RequestIdentifierNo;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_hiring_status_edit);
+		
+		String hiringStatusString =  (String)getIntent().getStringExtra("hiringStatus");
+		Log.d(this.getClass().toString(), hiringStatusString);
+		try {
+			hiringStatus = new JSONObject(hiringStatusString);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println(hiringStatus.toString());
 		
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);

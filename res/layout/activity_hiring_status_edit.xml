@@ -16,107 +16,125 @@
 
             <EditText
                 android:id="@+id/editTextSONo"
+                android:hint = "SONo"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
 
             <Spinner
                 android:id="@+id/spinnerReqAssignedTo"
+                android:hint = "ReqAssignedTo"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true" />
 
             <EditText
                 android:id="@+id/editTextInternalHiringPOC"
+                android:hint="InternalHiringPOC"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextExternalHiringPOC"
+                android:hint="ExternalHiringPOC"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextIdentifiedProfile"
+                android:hint = "IdentifiedProfile"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextCurrentPhaseStatus"
+                android:hint = "CurrentPhaseStatus"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextInterviewerIdentified"
+                android:hint = "InterviewerIdentified"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextInterviewerAscID"
+                android:hint = "InterviewerAscID"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
             
-                        <EditText
+             <EditText
                 android:id="@+id/editTextInterviewerEmailID"
+                android:hint = "InterviewerEmailID"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextInterviewerPhone"
+                android:hint = "InterviewerPhone"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
 
                <DatePicker
                 android:id="@+id/datePickerInterviewDate"
+                android:hint = "InterviewDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <EditText
                 android:id="@+id/editTextInterviewStatus"
+                android:hint="InterviewStatus"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextSelectionConfirmed"
+                android:hint="SelectionConfirmed"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextApprovers1Email"
+                android:hint = "Approvers1Email"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextApprovers2Email"
+                android:hint="Approvers2Email"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextApprovers3Email"
+                android:hint="Approvers3Email"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextApprovers4Email"
+                android:hint = "Approvers4Email"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextRemarks"
+                android:hint = "TextRemarks"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
