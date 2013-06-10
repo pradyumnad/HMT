@@ -75,7 +75,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 
 		if (AppSettings.userType == UserType.ADMIN) {
 			tabHost.addTab(tabHiringStatus);
-			tabHost.addTab(tabInternalPool);
+			//tabHost.addTab(tabInternalPool);
 			tabHost.addTab(tabBench);
 			updateTabContent(Tab.HIRING_STATUS_TAB);			
 		} else if (AppSettings.userType == UserType.EXECUTIVE_MANAGER) {
