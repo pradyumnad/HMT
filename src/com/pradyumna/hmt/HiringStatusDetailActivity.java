@@ -54,6 +54,7 @@ public class HiringStatusDetailActivity extends BaseActivity {
 		switch (item.getItemId()) {
 			case R.id.Edit : {
 				Intent myIntent = new Intent(getApplicationContext(), HiringStatusEditActivity.class);
+				myIntent.putExtra("hiringStatus", hiringStatus.toString());
 				startActivityForResult(myIntent, 0);
 				break;
 			}
