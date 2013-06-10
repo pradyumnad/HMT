@@ -44,6 +44,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 	JSONArray internalPoolResults;
 	JSONArray benchResults;
 	JSONArray hiringStatusResults;
+	JSONArray approvalRequestsResults;
 	
 	List<HiringStatus> requests;
 
@@ -65,9 +66,9 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 		tabBench.setIndicator("Bench");
 		tabBench.setContent(R.id.tab2);
 
-		TabSpec tabHiringStatus = tabHost.newTabSpec("Hiring Status");
+		TabSpec tabHiringStatus = tabHost.newTabSpec("New Hiring Status");
 		tabHiringStatus.setContent(R.id.tab3);
-		tabHiringStatus.setIndicator("Hiring Status");
+		tabHiringStatus.setIndicator("New Hiring Status");
 
 		TabSpec approvalStatusTab = tabHost.newTabSpec("Approval Requests");
 		approvalStatusTab.setContent(R.id.tab4);
@@ -97,12 +98,11 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 		super.onCreateOptionsMenu(menu);
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.main, menu);
-//		getMenuInflater().inflate(R.menu.base, menu);
-
 		return true;
 	}
-
-	public boolean onOptionsItemSelected(MenuItem item){
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 			case R.id.search : {
 				Intent myIntent = new Intent(getApplicationContext(), SearchActivity.class);
@@ -126,7 +126,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 			currentTab = Tab.INTERNAL_POOL_TAB;
 		} else if (tabId.equals("Bench")) {
 			currentTab = Tab.BENCH_TAB;
-		} else if (tabId.equals("Hiring Status")) {
+		} else if (tabId.equals("New Hiring Status")) {
 			currentTab = Tab.HIRING_STATUS_TAB;
 		} else if (tabId.equals("Approval Requests")) {
 			currentTab = Tab.APPROVAL_STATUS_TAB;
@@ -143,19 +143,6 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 	 */
 	public void updateTabContent(Tab tab) {
 		requestContentInTab(tab);
-		switch (tab) {
-			case INTERNAL_POOL_TAB:
-
-				break;
-
-			case BENCH_TAB:
-
-			 	break;
-
-			case HIRING_STATUS_TAB:
-
-				break;
-		}
 	}
 
 	private void requestContentInTab(Tab tab) {
@@ -178,7 +165,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 				break;
 			case APPROVAL_STATUS_TAB:
 				url = "http://becognizant.net/HMT/hiringstatus.php?status=Approval%20Requested";
-				listView = (ListView)findViewById(R.id.requestStatus_listView);
+				listView = (ListView)findViewById(R.id.approvalRequest_listView);
 				break;
 		}
 
@@ -193,7 +180,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 					 Intent myIntent = new Intent(getApplicationContext(), HiringStatusDetailActivity.class);
 					 try {
 						 Log.d(this.getClass().toString(), hiringStatusResults.toString());
-						myIntent.putExtra("hiringStatus", hiringStatusResults.get(position).toString());
+						 myIntent.putExtra("hiringStatus", hiringStatusResults.get(position).toString());
 					} catch (JSONException e) {
 						e.printStackTrace();
 					}
@@ -237,7 +224,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 					JSONObject responseObject = new JSONObject(response);
 					JSONArray results = responseObject.getJSONArray("results");
 					
-					if (currentTab == Tab.HIRING_STATUS_TAB) {
+					if (currentTab == Tab.HIRING_STATUS_TAB || currentTab == Tab.APPROVAL_STATUS_TAB) {
 						requests = new ArrayList<HiringStatus>();
 						for (int i = 0; i < results.length(); i++) {
 							JSONObject object = results.getJSONObject(i);
