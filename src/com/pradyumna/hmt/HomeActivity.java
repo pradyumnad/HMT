@@ -29,7 +29,8 @@ import java.util.List;
 enum Tab {
 	INTERNAL_POOL_TAB,
 	BENCH_TAB,
-	HIRING_STATUS_TAB
+	HIRING_STATUS_TAB,
+	APPROVAL_STATUS_TAB
 }
 
 /**
@@ -68,11 +69,21 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 		tabHiringStatus.setContent(R.id.tab3);
 		tabHiringStatus.setIndicator("Hiring Status");
 
-		if (AppSettings.userType == UserType.ADMIN || AppSettings.userType == UserType.EXECUTIVE_MANAGER) {
+		TabSpec approvalStatusTab = tabHost.newTabSpec("Approval Requests");
+		approvalStatusTab.setContent(R.id.tab4);
+		approvalStatusTab.setIndicator("Approval Requests");
+
+		if (AppSettings.userType == UserType.ADMIN) {
 			tabHost.addTab(tabHiringStatus);
 			tabHost.addTab(tabInternalPool);
 			tabHost.addTab(tabBench);
 			updateTabContent(Tab.HIRING_STATUS_TAB);			
+		} else if (AppSettings.userType == UserType.EXECUTIVE_MANAGER) {
+			tabHost.addTab(approvalStatusTab);
+			tabHost.addTab(tabHiringStatus);
+			tabHost.addTab(tabInternalPool);
+			tabHost.addTab(tabBench);
+			updateTabContent(Tab.APPROVAL_STATUS_TAB);
 		} else {
 			tabHost.addTab(tabInternalPool);
 			tabHost.addTab(tabBench);
@@ -117,6 +128,8 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 			currentTab = Tab.BENCH_TAB;
 		} else if (tabId.equals("Hiring Status")) {
 			currentTab = Tab.HIRING_STATUS_TAB;
+		} else if (tabId.equals("Approval Requests")) {
+			currentTab = Tab.APPROVAL_STATUS_TAB;
 		}
 
 		updateTabContent(currentTab);
@@ -160,7 +173,11 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 				break;
 
 			case HIRING_STATUS_TAB:
-				url = "http://becognizant.net/HMT/hiringstatus.php";
+				url = "http://becognizant.net/HMT/hiringstatus.php?status=New";
+				listView = (ListView)findViewById(R.id.requestStatus_listView);
+				break;
+			case APPROVAL_STATUS_TAB:
+				url = "http://becognizant.net/HMT/hiringstatus.php?status=Approval%20Requested";
 				listView = (ListView)findViewById(R.id.requestStatus_listView);
 				break;
 		}
@@ -172,7 +189,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				 //Write code to handle View..
-				 if (finalListView.getId() == R.id.requestStatus_listView) {
+				 if (finalListView.getId() == R.id.requestStatus_listView || finalListView.getId() == R.id.approvalRequest_listView) {
 					 Intent myIntent = new Intent(getApplicationContext(), HiringStatusDetailActivity.class);
 					 try {
 						 Log.d(this.getClass().toString(), hiringStatusResults.toString());

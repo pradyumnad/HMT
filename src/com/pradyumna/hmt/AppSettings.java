@@ -26,6 +26,7 @@ public class AppSettings {
 	}
 
 	private AppSettings() {
+
 	}
 
 	public static void showAlert() {
