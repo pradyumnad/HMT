@@ -7,10 +7,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import com.pradyumna.hmt.adapters.HiringRequestAdapter;
+import com.pradyumna.hmt.adapters.ResourceAdapter;
+import com.pradyumna.hmt.models.HiringStatus;
 import com.pradyumna.hmt.models.Resource;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,6 +28,17 @@ import org.json.JSONObject;
 public class ResultsActivity extends Activity {
 	public static JSONArray results;
 	public static Tab dataType;
+
+	JSONArray internalPoolResults;
+	JSONArray benchResults;
+	JSONArray hiringStatusResults;
+	JSONArray approvalRequestsResults;
+
+	List<HiringStatus> requests;
+
+	public ResultsActivity () {
+		super();
+	}
 
 	public ResultsActivity (JSONArray results, Tab type) {
 		super();
@@ -35,6 +52,66 @@ public class ResultsActivity extends Activity {
 
 		ListView listView = (ListView)findViewById(R.id.results_listView);
 
+		if (dataType == Tab.HIRING_STATUS_TAB) {
+			 requests = new ArrayList<HiringStatus>();
+			for (int i = 0; i < results.length(); i++) {
+				JSONObject object = null;
+				try {
+					object = results.getJSONObject(i);
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				HiringStatus resource = new HiringStatus(object);
+				requests.add(i, resource);
+			}
+
+			//Assigning json objects
+			hiringStatusResults = results;
+
+			HiringRequestAdapter adapter = new HiringRequestAdapter(ResultsActivity.this, R.layout.hr_list_row, requests);
+			listView.setAdapter(adapter);
+			adapter.notifyDataSetChanged();
+		} else if (dataType == Tab.APPROVAL_STATUS_TAB) {
+			requests = new ArrayList<HiringStatus>();
+			for (int i = 0; i < results.length(); i++) {
+				JSONObject object = null;
+				try {
+					object = results.getJSONObject(i);
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				HiringStatus resource = new HiringStatus(object);
+				requests.add(i, resource);
+			}
+			//Assigning json objects
+			approvalRequestsResults = results;
+
+			HiringRequestAdapter adapter = new HiringRequestAdapter(ResultsActivity.this, R.layout.hr_list_row, requests);
+			listView.setAdapter(adapter);
+			adapter.notifyDataSetChanged();
+		} else {
+			List<Resource> resources = new ArrayList<Resource>();
+			for (int i = 0; i < results.length(); i++) {
+				JSONObject object = null;
+				try {
+					object = results.getJSONObject(i);
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				Resource resource = new Resource(object);
+				resources.add(i, resource);
+			}
+
+			if (dataType == Tab.INTERNAL_POOL_TAB) {
+				internalPoolResults = results;
+			} else {
+				benchResults = results;
+			}
+
+			ResourceAdapter adapter = new ResourceAdapter(ResultsActivity.this, R.layout.ip_list_row, resources);
+			listView.setAdapter(adapter);
+			adapter.notifyDataSetChanged();
+		}
 
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override

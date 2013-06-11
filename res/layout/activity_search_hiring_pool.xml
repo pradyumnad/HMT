@@ -21,7 +21,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:ems="10"
-                android:text="Enter Req Technology" />
+                android:hint="Technology"/>
 
             <LinearLayout
                 android:id="@+id/hirPoollinearLayout1"
@@ -34,10 +34,9 @@
                     android:id="@+id/hirPooleditText2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:text="City" >
+                    android:hint="City">
 
                     <requestFocus />
                 </EditText>
@@ -46,10 +45,9 @@
                     android:id="@+id/hirPooleditText3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:text="Country" />
+                    android:hint="Country"/>
             </LinearLayout>
 
             <TextView
@@ -71,7 +69,8 @@
                     android:id="@+id/hirPoolspinner1"
                     android:layout_width="107dp"
                     android:layout_height="fill_parent"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:spinnerMode="dropdown"/>
 
                 <DatePicker
                     android:id="@+id/hirPooldpResult"
@@ -96,16 +95,16 @@
                 android:layout_below="@+id/hirPoolenddatetv" >
 
                 <Spinner
-                    android:id="@+id/hirPoolspinner4"
+                    android:id="@+id/hirPoolspinner2"
                     android:layout_width="133dp"
                     android:layout_height="fill_parent"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:spinnerMode="dropdown"/>
 
                 <DatePicker
                     android:id="@+id/hirPoolenddatepicker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="17dp"
                     android:layout_weight="100"/>
             </LinearLayout>
 

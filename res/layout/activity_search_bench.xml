@@ -89,7 +89,7 @@
                     android:checked="false"/>
 
             <Button
-                    android:id="@+id/hirPoolsearchBut"
+                    android:id="@+id/bench_searchBtn"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="205dp"
                     android:layout_height="wrap_content"
