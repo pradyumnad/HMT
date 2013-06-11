@@ -30,7 +30,7 @@
         <activity android:name="com.pradyumna.hmt.HomeActivity" />
         <activity android:name="com.pradyumna.hmt.HiringRequest" />
         <activity android:name="com.pradyumna.hmt.ResourceDetail" />
-        <activity android:name="com.pradyumna.hmt.SearchActivity" />
+        <activity android:name="com.pradyumna.hmt.SearchActivityOld" />
         <activity
             android:name="com.pradyumna.hmt.HiringStatusDetailActivity"
             android:label="@string/title_activity_hiring_status_detail" >
@@ -44,6 +44,23 @@
             android:label="@string/title_activity_base" >
         </activity>
         <activity android:name=".ForgotPasswordActivity"/>
+        <activity
+            android:name="com.pradyumna.hmt.SearchTabActivity"
+            android:label="@string/title_activity_search_tab" >
+        </activity>
+        <activity
+            android:name="com.pradyumna.hmt.SearchBench"
+            android:label="@string/title_activity_search_bench" >
+        </activity>
+        <activity
+            android:name="com.pradyumna.hmt.SearchHiringPool"
+            android:label="@string/title_activity_search_hiring_pool" >
+        </activity>
+        <activity
+            android:name="com.pradyumna.hmt.SearchHiringReq"
+            android:label="@string/title_activity_search_hiring_req" >
+        </activity>
+        <activity android:name=".ResultsActivity"/>
     </application>
 
 </manifest>

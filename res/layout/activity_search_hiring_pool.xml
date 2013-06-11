@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+            <EditText
+                android:id="@+id/hirPoolReqTech"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:ems="10"
+                android:text="Enter Req Technology" />
+
+            <LinearLayout
+                android:id="@+id/hirPoollinearLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/hirPoolReqTech" >
+
+                <EditText
+                    android:id="@+id/hirPooleditText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:text="City" >
+
+                    <requestFocus />
+                </EditText>
+
+                <EditText
+                    android:id="@+id/hirPooleditText3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:text="Country" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/hirPooltextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/hrPooltvDate"
+                android:layout_below="@+id/hirPoollinearLayout1"
+                android:text="Project Start Date" />
+
+            <LinearLayout
+                android:id="@+id/hirPoollinearLayout2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/hirPooltextView1"
+                android:layout_below="@+id/hirPooltextView1" >
+
+                <Spinner
+                    android:id="@+id/hirPoolspinner1"
+                    android:layout_width="107dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1" />
+
+                <DatePicker
+                    android:id="@+id/hirPooldpResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/hirPoolenddatetv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/hirPoollinearLayout2"
+                android:text="Project End Date" />
+
+            <LinearLayout
+                android:id="@+id/hirPoollinearLayout3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/hirPoolenddatetv" >
+
+                <Spinner
+                    android:id="@+id/hirPoolspinner4"
+                    android:layout_width="133dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1" />
+
+                <DatePicker
+                    android:id="@+id/hirPoolenddatepicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17dp"
+                    android:layout_weight="100"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/hirPoolsearchBut"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="205dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hirPoolspinner3"
+                android:layout_toRightOf="@+id/hirPoolenddatetv"
+                android:text="Search"
+                android:layout_gravity="center"/>
+
+            <Spinner
+                android:id="@+id/hirPoolspinner3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/hirPoollinearLayout3" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -6,21 +6,35 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.DatePicker;
+import android.widget.DatePicker.OnDateChangedListener;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import helpers.WSHelper;
+import helpers.WSListener;
 import helpers.WSType;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.pradyumna.hmt.models.HiringStatus;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
-public class HiringStatusEditActivity extends BaseActivity {
+public class HiringStatusEditActivity extends BaseActivity implements OnDateChangedListener {
+	
+	@Override
+	public void onDateChanged(DatePicker view, int year, int monthOfYear,
+			int dayOfMonth) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	private JSONObject hiringStatus;
-	public String RequestIdentifierNo;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +42,68 @@ public class HiringStatusEditActivity extends BaseActivity {
 		setContentView(R.layout.activity_hiring_status_edit);
 		
 		String hiringStatusString =  (String)getIntent().getStringExtra("hiringStatus");
+
 		Log.d(this.getClass().toString(), hiringStatusString);
 		try {
 			hiringStatus = new JSONObject(hiringStatusString);
+//			RequestIdentifierNo = hiringStatus.getString("");
+			((EditText)findViewById(R.id.editTextSONo)).setText(hiringStatus.getString("SONo"));
+			
+			WSHelper wsHelper = new WSHelper("http://becognizant.net/HMT/users.php", null, getApplicationContext());
+			wsHelper.addWSListener(new WSListener() {
+				
+				@Override
+				public void onRequestFailed(Exception exception) {
+				Log.e("onRequestFailed", exception.toString());	
+				}
+				
+				@Override
+				public void onRequestCompleted(String response) {
+					try {
+						Log.e("onRequestCompleted", response);	
+						JSONObject jsonObject = new JSONObject(response);
+						JSONArray usersArray = jsonObject.getJSONArray("results");
+						String array[]  = new String[usersArray.length()];
+						for (int i = 0; i < usersArray.length(); i++) {
+							JSONObject object = usersArray.getJSONObject(i);
+							array[i] = object.getString("username");
+						
+						}
+						System.out.println("Chi CHi " + array);
+						ArrayAdapter<String> rolesAdapter = new ArrayAdapter<String>(HiringStatusEditActivity.this, android.R.layout.simple_list_item_1, array);
+						((Spinner)findViewById(R.id.spinnerReqAssignedTo)).setAdapter(rolesAdapter);
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			});
+			wsHelper.processRequest(WSType.WSGET);
+			
+			((EditText)findViewById(R.id.editTextInternalHiringPOC)).setText(hiringStatus.getString("InternalHiringPOC"));
+			((EditText)findViewById(R.id.editTextExternalHiringPOC)).setText(hiringStatus.getString("ExternalHiringPOC"));
+			((EditText)findViewById(R.id.editTextIdentifiedProfile)).setText(hiringStatus.getString("IdentifiedProfile"));
+			((EditText)findViewById(R.id.editTextCurrentPhaseStatus)).setText(hiringStatus.getString("CurrentPhaseStatus"));
+			((EditText)findViewById(R.id.editTextInterviewerIdentified)).setText(hiringStatus.getString("InterviewerIdentified"));
+			((EditText)findViewById(R.id.editTextInterviewerAscID)).setText(hiringStatus.getString("InterviewerAscID"));
+			((EditText)findViewById(R.id.editTextInterviewerEmailID)).setText(hiringStatus.getString("InterviewerEmailID"));
+			((EditText)findViewById(R.id.editTextInterviewerPhone)).setText(hiringStatus.getString("InterviewerPhone"));
+			String dateString =  hiringStatus.getString("InterviewDate");
+			StringTokenizer tokenizer  = new StringTokenizer(dateString, "-");
+			DatePicker datePicker = (DatePicker)findViewById(R.id.datePickerInterviewDate);
+			datePicker.init(Integer.parseInt((String) tokenizer.nextElement()),Integer.parseInt((String) tokenizer.nextElement()), Integer.parseInt((String) tokenizer.nextElement()), this);
+			
+			((EditText)findViewById(R.id.editTextInterviewStatus)).setText(hiringStatus.getString("InterviewStatus"));
+			((EditText)findViewById(R.id.editTextSelectionConfirmed)).setText(hiringStatus.getString("SelectionConfirmed"));
+			((EditText)findViewById(R.id.editTextApprovers1Email)).setText(hiringStatus.getString("Approvers1Email"));
+			((EditText)findViewById(R.id.editTextApprovers2Email)).setText(hiringStatus.getString("Approvers2Email"));
+			((EditText)findViewById(R.id.editTextApprovers3Email)).setText(hiringStatus.getString("Approvers3Email"));
+			((EditText)findViewById(R.id.editTextApprovers4Email)).setText(hiringStatus.getString("Approvers4Email"));
+			((EditText)findViewById(R.id.editTextRemarks)).setText(hiringStatus.getString("Remarks"));
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		
-		System.out.println(hiringStatus.toString());
 		
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
@@ -61,9 +129,13 @@ public class HiringStatusEditActivity extends BaseActivity {
 	}
 	
 		private void savHiringStatus() {
-			
 			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-			nameValuePairs.add(new BasicNameValuePair("RequestIdentifierNo", RequestIdentifierNo));
+			try {
+				nameValuePairs.add(new BasicNameValuePair("requestIdentifierNo",hiringStatus.getString("RequestIdentifierNo")));
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			nameValuePairs.add(new BasicNameValuePair("SONo", ((EditText)findViewById(R.id.editTextSONo)).getText().toString().trim()));
 			nameValuePairs.add(new BasicNameValuePair("ReqAssignedTo", ((Spinner)findViewById(R.id.spinnerReqAssignedTo)).getSelectedItem().toString()));
 			nameValuePairs.add(new BasicNameValuePair("InternalHiringPOC", ((EditText)findViewById(R.id.editTextInternalHiringPOC)).getText().toString().trim()));
@@ -77,10 +149,6 @@ public class HiringStatusEditActivity extends BaseActivity {
 			
 			DatePicker datePicker = (DatePicker)findViewById(R.id.datePickerInterviewDate); 
 			String dateFormat = datePicker.getDayOfMonth()+"-"+datePicker.getMonth()+"-"+datePicker.getYear();
-			nameValuePairs.add(new BasicNameValuePair("ProjectStartDate", dateFormat));
-			datePicker = (DatePicker)findViewById(R.id.datePickerProjectEndDate); 
-			dateFormat = datePicker.getDayOfMonth()+"-"+datePicker.getMonth()+"-"+datePicker.getYear();
-			
 			nameValuePairs.add(new BasicNameValuePair("InterviewDate", dateFormat));
 			
 			nameValuePairs.add(new BasicNameValuePair("InterviewStatus", ((EditText)findViewById(R.id.editTextInterviewStatus)).getText().toString().trim()));
@@ -93,7 +161,21 @@ public class HiringStatusEditActivity extends BaseActivity {
 			System.out.println(nameValuePairs);
 			
 			WSHelper helper = new WSHelper("http://becognizant.net/HMT/hiringstatus.php", nameValuePairs, HiringStatusEditActivity.this);
-			
+			helper.addWSListener(new WSListener() {
+				
+				@Override
+				public void onRequestFailed(Exception exception) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void onRequestCompleted(String response) {
+					// TODO Auto-generated method stub
+					Log.e("EDIT Response", response);
+					finish();
+				}
+			});
 			helper.processRequest(WSType.WSPOST);
 
 		}

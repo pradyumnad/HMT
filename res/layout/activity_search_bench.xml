@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+    <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+            <EditText
+                    android:id="@+id/bench_TechnologyEditText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:ems="10"
+                    android:hint="Technology"/>
+
+            <requestFocus />
+
+            <LinearLayout
+                    android:id="@+id/hirPoollinearLayout1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/bench_TechnologyEditText" >
+
+                <EditText
+                        android:id="@+id/bench_cityEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="City">
+
+                </EditText>
+
+                <EditText
+                        android:id="@+id/bench_CountryEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="Country"
+                        android:longClickable="true"/>
+            </LinearLayout>
+
+            <TextView
+                    android:id="@+id/hirPooltextView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/hrPooltvDate"
+                    android:layout_below="@+id/hirPoollinearLayout1"
+                    android:text="Last Date On Project" />
+
+            <LinearLayout
+                    android:id="@+id/hirPoollinearLayout2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/hirPooltextView1"
+                    android:layout_below="@+id/hirPooltextView1" >
+
+                <Spinner
+                        android:id="@+id/lastDateOnProjectOperatorSpinner"
+                        android:layout_width="107dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:spinnerMode="dropdown"/>
+
+                <DatePicker
+                        android:id="@+id/lastDateOnProjectDatePicker"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="100"/>
+            </LinearLayout>
+
+            <CheckBox
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bench Policy Initiated ?"
+                    android:id="@+id/benchPolicyInitiatedcheckBox"
+                    android:checked="false"/>
+
+            <Button
+                    android:id="@+id/hirPoolsearchBut"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="205dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/hirPoolspinner3"
+                    android:layout_toRightOf="@+id/hirPoolenddatetv"
+                    android:text="Search"
+                    android:layout_gravity="center"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

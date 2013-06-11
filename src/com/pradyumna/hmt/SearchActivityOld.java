@@ -17,10 +17,10 @@ import java.util.List;
  * Time: 8:47 PM
  * To change this template use File | Settings | File Templates.
  */
-public class SearchActivity extends BaseActivity {
+public class SearchActivityOld extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_search);
+		setContentView(R.layout.activity_search_old);
 
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);

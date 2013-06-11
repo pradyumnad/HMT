@@ -111,7 +111,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 			case R.id.search : {
-				Intent myIntent = new Intent(getApplicationContext(), SearchActivity.class);
+				Intent myIntent = new Intent(getApplicationContext(), SearchTabActivity.class);
 				startActivityForResult(myIntent, 0);
 				break;
 			}

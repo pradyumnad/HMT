@@ -8,5 +8,10 @@
     <string name="title_activity_hiring_status_detail">HiringStatusDetailActivity</string>
     <string name="title_activity_hiring_status_edit">HiringStatusEditActivity</string>
     <string name="title_activity_base">BaseActivity</string>
+    <string name="title_activity_search_tab">SearchTabActivity</string>
+    <string name="title_activity_search_bench">SearchBench</string>
+    <string name="title_activity_search_hiring_pool">SearchHiringPool</string>
+    <string name="title_activity_search_hiring_req">SearchHiringReq</string>
+    <string name="search_hiring_req">Enter SONo #.</string>
 
 </resources>
