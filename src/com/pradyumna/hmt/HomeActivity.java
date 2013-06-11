@@ -188,7 +188,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				 //Write code to handle View..
-				 if (finalListView.getId() == R.id.requestStatus_listView || finalListView.getId() == R.id.approvalRequest_listView) {
+				 if (finalListView.getId() == R.id.requestStatus_listView) {
 					 Intent myIntent = new Intent(getApplicationContext(), HiringStatusDetailActivity.class);
 					 try {
 						 Log.d(this.getClass().toString(), hiringStatusResults.toString());
@@ -196,6 +196,15 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 					} catch (JSONException e) {
 						e.printStackTrace();
 					}
+					 startActivityForResult(myIntent, 0);
+				 } else if (finalListView.getId() == R.id.approvalRequest_listView) {
+					 Intent myIntent = new Intent(getApplicationContext(), HiringStatusDetailActivity.class);
+					 try {
+						 Log.d(this.getClass().toString(), approvalRequestsResults.toString());
+						 myIntent.putExtra("hiringStatus", approvalRequestsResults.get(position).toString());
+					 } catch (JSONException e) {
+						 e.printStackTrace();
+					 }
 					 startActivityForResult(myIntent, 0);
 				 } else {
 					 Intent myIntent = new Intent(getApplicationContext(), ResourceDetail.class);
@@ -236,7 +245,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 					JSONObject responseObject = new JSONObject(response);
 					JSONArray results = responseObject.getJSONArray("results");
 					
-					if (currentTab == Tab.HIRING_STATUS_TAB || currentTab == Tab.APPROVAL_STATUS_TAB) {
+					if (currentTab == Tab.HIRING_STATUS_TAB) {
 						requests = new ArrayList<HiringStatus>();
 						for (int i = 0; i < results.length(); i++) {
 							JSONObject object = results.getJSONObject(i);
@@ -246,6 +255,19 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 						//Assigning json objects
 						hiringStatusResults = results;
 						
+						HiringRequestAdapter adapter = new HiringRequestAdapter(HomeActivity.this, R.layout.hr_list_row, requests);
+						finalListView.setAdapter(adapter);
+						adapter.notifyDataSetChanged();
+					} else if (currentTab == Tab.APPROVAL_STATUS_TAB) {
+						requests = new ArrayList<HiringStatus>();
+						for (int i = 0; i < results.length(); i++) {
+							JSONObject object = results.getJSONObject(i);
+							HiringStatus resource = new HiringStatus(object);
+							requests.add(i, resource);
+						}
+						//Assigning json objects
+						approvalRequestsResults = results;
+
 						HiringRequestAdapter adapter = new HiringRequestAdapter(HomeActivity.this, R.layout.hr_list_row, requests);
 						finalListView.setAdapter(adapter);
 						adapter.notifyDataSetChanged();

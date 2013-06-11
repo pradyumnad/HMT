@@ -2,10 +2,13 @@ package com.pradyumna.hmt;
 
 import android.app.ActionBar;
 import android.os.Bundle;
-import android.view.Menu;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,11 +25,37 @@ public class SearchActivity extends BaseActivity {
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
+		//View change Handling
+		Spinner spinner = (Spinner)findViewById(R.id.type_spinner);
+		List<String> list = new ArrayList<String>();
+		list.add("Bench");
+		list.add("Internal Pool");
+		list.add("Hiring Request");
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, list);
+		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinner.setAdapter(dataAdapter);
+
+		spinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+			}
+		});
+
+		LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+		View view = inflater.inflate(R.layout.search_bench, null, false);
+
+		LinearLayout searchContainer = (LinearLayout)findViewById(R.id.search_container);
+		searchContainer.addView(searchContainer);
+
+		//Search Call
 		Button searchBtn = (Button)findViewById(R.id.go_button);
 		searchBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				//Implement Search call to Webservice
+
 			}
 		});
 	}
