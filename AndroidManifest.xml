@@ -61,6 +61,7 @@
             android:label="@string/title_activity_search_hiring_req" >
         </activity>
         <activity android:name=".ResultsActivity"/>
+                <activity android:name="com.pradyumna.hmt.StatisticsActivity"/>
     </application>
 
 </manifest>

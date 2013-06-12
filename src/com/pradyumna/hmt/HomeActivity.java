@@ -103,9 +103,10 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 		statisticsBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
+				startActivity(new Intent(getApplicationContext(), StatisticsActivity.class));
 			}
 		});
+		
 	}
 
 	@Override
