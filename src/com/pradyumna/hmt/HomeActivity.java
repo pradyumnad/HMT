@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
@@ -97,6 +98,14 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 			tabHost.addTab(tabHiringStatus);
 			updateTabContent(Tab.INTERNAL_POOL_TAB);			
 		}
+
+		Button statisticsBtn = (Button)findViewById(R.id.statistics_button);
+		statisticsBtn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+
+			}
+		});
 	}
 
 	@Override

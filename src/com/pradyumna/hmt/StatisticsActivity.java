@@ -34,6 +34,4 @@ private float[] calculateData(float[] data) {
     return data;
 
 }
-
-	
 }
