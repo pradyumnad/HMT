@@ -51,7 +51,7 @@ public class LoginActivity extends Activity  {
 								Log.d("LoginActivity", type);
 								if (type.equalsIgnoreCase("Executive Manager")) {
 									AppSettings.userType = UserType.EXECUTIVE_MANAGER;
-								} else if (type.equalsIgnoreCase("Admin")) {
+								} else if (type.equalsIgnoreCase("Hiring Admin")) {
 									AppSettings.userType = UserType.ADMIN;
 								} else if (type.equalsIgnoreCase("Requesting Manager")) {
 									AppSettings.userType = UserType.REQUESTING_MANAGER;
