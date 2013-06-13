@@ -46,13 +46,13 @@
                 android:id="@+id/editTextEmail1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="Additional Email 1" />
+                android:hint="Notification Email id 1" />
 
             <EditText
                 android:id="@+id/editTextEmail2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="Additional Email 2" />
+                android:hint="Notification Email id 2" />
 
             <EditText
                 android:id="@+id/editTextJobDescription"
@@ -88,7 +88,7 @@
                 android:id="@+id/editTextProposedRule"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="Proposed Rule" />
+                android:hint="Proposed Role" />
 
             <EditText
                 android:id="@+id/editTextExpInYrs"
@@ -100,7 +100,7 @@
                 android:id="@+id/editTextDesiredBillingRate"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="Desired Billing Rate" />
+                android:hint="Desired Billing Rate $" />
 
             <EditText
                 android:id="@+id/editTextJoiningDateNeededBy"

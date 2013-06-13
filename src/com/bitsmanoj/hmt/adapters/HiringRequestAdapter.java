@@ -45,13 +45,13 @@ public class HiringRequestAdapter extends ArrayAdapter<HiringStatus> {
 
 		TextView techTextView = (TextView) rowView.findViewById(R.id.textViewTechnology);
 		if (hiringRequest.InterviewStatus != null) {
-			if (hiringRequest.InterviewStatus.length() == 0) {
-				hiringRequest.InterviewStatus = "PENDING";
-			}
+//			if (hiringRequest.InterviewStatus.length() == 0) {
+//				hiringRequest.InterviewStatus = "PENDING";
+//			}
 		} else {
-			hiringRequest.InterviewStatus = "PENDING";
+			hiringRequest.InterviewStatus = "New";
 		}
-		techTextView.setText("Status #"+hiringRequest.InterviewStatus);
+		techTextView.setText("Status #"+hiringRequest.CurrentPhaseStatus);
 		
 		TextView statusTextView = (TextView) rowView.findViewById(R.id.textViewStatus);
 		statusTextView.setText("Remarks #"+hiringRequest.Remarks);

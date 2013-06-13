@@ -21,7 +21,10 @@ public class SearchTabActivity extends TabActivity {
         TabHost mTabHst = getTabHost();
         
         mTabHst.addTab(mTabHst.newTabSpec("displaytests").setIndicator("Hiring Request").setContent(testsIntent));
-        mTabHst.addTab(mTabHst.newTabSpec("common_tools").setIndicator("Internal Pool").setContent(toolsIntent));    
+        if (AppSettings.userType == UserType.REQUESTING_MANAGER) {		 	
+        } else {
+        	mTabHst.addTab(mTabHst.newTabSpec("common_tools").setIndicator("Internal Pool").setContent(toolsIntent));
+        }
         mTabHst.addTab(mTabHst.newTabSpec("stress_perf").setIndicator("Bench").setContent(perfToolsIntent));
         
         mTabHst.setCurrentTab(0);

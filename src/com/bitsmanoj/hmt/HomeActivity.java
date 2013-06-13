@@ -96,9 +96,8 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 			tabHost.addTab(tabBench);
 			updateTabContent(Tab.APPROVAL_STATUS_TAB);
 		} else {
-			tabHost.addTab(tabInternalPool);
-			tabHost.addTab(tabBench);
 			tabHost.addTab(tabHiringStatus);
+			tabHost.addTab(tabBench);
 			updateTabContent(Tab.INTERNAL_POOL_TAB);			
 		}
 
