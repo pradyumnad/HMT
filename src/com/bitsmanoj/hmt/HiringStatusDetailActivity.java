@@ -72,6 +72,9 @@ public class HiringStatusDetailActivity extends BaseActivity {
 
 	public boolean onOptionsItemSelected(MenuItem item){
 		Log.d("HiringStatusDetailActivity", ""+item.getItemId());
+		if (item.getTitle().equals("HMT")) {
+			finish();
+		}
 		switch (item.getItemId()) {
 			case R.id.Edit : {
 				Intent myIntent = new Intent(getApplicationContext(), HiringStatusEditActivity.class);

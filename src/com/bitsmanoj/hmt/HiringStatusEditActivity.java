@@ -31,8 +31,6 @@ public class HiringStatusEditActivity extends BaseActivity implements OnDateChan
 	@Override
 	public void onDateChanged(DatePicker view, int year, int monthOfYear,
 			int dayOfMonth) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	private JSONObject hiringStatus;
@@ -49,37 +47,6 @@ public class HiringStatusEditActivity extends BaseActivity implements OnDateChan
 			hiringStatus = new JSONObject(hiringStatusString);
 //			RequestIdentifierNo = hiringStatus.getString("");
 			((EditText)findViewById(R.id.editTextSONo)).setText(hiringStatus.getString("SONo"));
-			
-			WSHelper wsHelper = new WSHelper("http://becognizant.net/HMT/users.php", null, getApplicationContext());
-			wsHelper.addWSListener(new WSListener() {
-				
-				@Override
-				public void onRequestFailed(Exception exception) {
-				Log.e("onRequestFailed", exception.toString());	
-				}
-				
-				@Override
-				public void onRequestCompleted(String response) {
-					try {
-						Log.e("onRequestCompleted", response);	
-						JSONObject jsonObject = new JSONObject(response);
-						JSONArray usersArray = jsonObject.getJSONArray("results");
-						String array[]  = new String[usersArray.length()];
-						for (int i = 0; i < usersArray.length(); i++) {
-							JSONObject object = usersArray.getJSONObject(i);
-							array[i] = object.getString("username");
-						
-						}
-						System.out.println("Chi CHi " + array);
-						ArrayAdapter<String> rolesAdapter = new ArrayAdapter<String>(HiringStatusEditActivity.this, android.R.layout.simple_list_item_1, array);
-						((Spinner)findViewById(R.id.spinnerReqAssignedTo)).setAdapter(rolesAdapter);
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-			});
-			wsHelper.processRequest(WSType.WSGET);
 			
 			((EditText)findViewById(R.id.editTextInternalHiringPOC)).setText(hiringStatus.getString("InternalHiringPOC"));
 			((EditText)findViewById(R.id.editTextExternalHiringPOC)).setText(hiringStatus.getString("ExternalHiringPOC"));
@@ -118,14 +85,17 @@ public class HiringStatusEditActivity extends BaseActivity implements OnDateChan
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.StatusSave: {
-			savHiringStatus();
-			break;
-		}
-		default:
+		if (item.getTitle() == "HMT") {
 			finish();
 		}
+		switch (item.getItemId()) {
+			case R.id.StatusSave: {
+				savHiringStatus();
+				break;
+			}
+			default:
+				finish();
+			}
 		return true;
 	}
 	
@@ -138,7 +108,7 @@ public class HiringStatusEditActivity extends BaseActivity implements OnDateChan
 				e.printStackTrace();
 			}
 			nameValuePairs.add(new BasicNameValuePair("SONo", ((EditText)findViewById(R.id.editTextSONo)).getText().toString().trim()));
-			nameValuePairs.add(new BasicNameValuePair("ReqAssignedTo", ((Spinner)findViewById(R.id.spinnerReqAssignedTo)).getSelectedItem().toString()));
+			nameValuePairs.add(new BasicNameValuePair("ReqAssignedTo", AppSettings.currentUser.name));
 			nameValuePairs.add(new BasicNameValuePair("InternalHiringPOC", ((EditText)findViewById(R.id.editTextInternalHiringPOC)).getText().toString().trim()));
 			nameValuePairs.add(new BasicNameValuePair("ExternalHiringPOC", ((EditText)findViewById(R.id.editTextExternalHiringPOC)).getText().toString().trim()));
 			nameValuePairs.add(new BasicNameValuePair("IdentifiedProfile", ((EditText)findViewById(R.id.editTextIdentifiedProfile)).getText().toString().trim()));

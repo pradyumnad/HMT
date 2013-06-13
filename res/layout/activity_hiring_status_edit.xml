@@ -19,14 +19,7 @@
                 android:hint = "SONo"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
-
-            <Spinner
-                android:id="@+id/spinnerReqAssignedTo"
-                android:hint = "ReqAssignedTo"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true" />
+                android:inputType="numberDecimal"/>
 
             <EditText
                 android:id="@+id/editTextInternalHiringPOC"
@@ -75,14 +68,14 @@
                 android:hint = "InterviewerEmailID"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName|textEmailAddress" />
 
             <EditText
                 android:id="@+id/editTextInterviewerPhone"
                 android:hint = "InterviewerPhone"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
+                android:inputType="number"/>
 
                <DatePicker
                 android:id="@+id/datePickerInterviewDate"
@@ -109,35 +102,35 @@
                 android:hint = "Approvers1Email"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName|numberDecimal" />
 
             <EditText
                 android:id="@+id/editTextApprovers2Email"
                 android:hint="Approvers2Email"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName|numberDecimal" />
 
             <EditText
                 android:id="@+id/editTextApprovers3Email"
                 android:hint="Approvers3Email"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName|numberDecimal" />
 
             <EditText
                 android:id="@+id/editTextApprovers4Email"
                 android:hint = "Approvers4Email"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName|numberDecimal" />
 
             <EditText
                 android:id="@+id/editTextRemarks"
                 android:hint = "TextRemarks"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
+                android:inputType="textMultiLine" />
         </LinearLayout>
     </ScrollView>
 

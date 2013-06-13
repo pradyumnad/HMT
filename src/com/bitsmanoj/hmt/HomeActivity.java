@@ -278,7 +278,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 						HiringRequestAdapter adapter = new HiringRequestAdapter(HomeActivity.this, R.layout.hr_list_row, requests);
 						finalListView.setAdapter(adapter);
 						adapter.notifyDataSetChanged();
-					} else if (currentTab == Tab.APPROVAL_STATUS_TAB) {
+					} else if (currentTab == Tab.APPROVAL_STATUS_TAB || currentTab == Tab.NEW_HIRING_REQUEST_TAB) {
 						requests = new ArrayList<HiringStatus>();
 						for (int i = 0; i < results.length(); i++) {
 							JSONObject object = results.getJSONObject(i);

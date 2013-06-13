@@ -19,7 +19,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:hint="SONo" />
+                android:hint="SONo"
+                android:inputType="numberDecimal"/>
 
             <EditText
                 android:id="@+id/editTextReuqestingMgr"
@@ -40,19 +41,22 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:hint="Requesting Mgr EmailID" />
+                android:hint="Requesting Mgr EmailID"
+                android:inputType="textEmailAddress"/>
             
             <EditText
                 android:id="@+id/editTextEmail1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="Notification Email id 1" />
+                android:hint="Notification Email id 1"
+                android:inputType="textEmailAddress"/>
 
             <EditText
                 android:id="@+id/editTextEmail2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="Notification Email id 2" />
+                android:hint="Notification Email id 2"
+                android:inputType="textEmailAddress"/>
 
             <EditText
                 android:id="@+id/editTextJobDescription"
