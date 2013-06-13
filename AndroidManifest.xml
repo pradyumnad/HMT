@@ -61,7 +61,7 @@
             android:label="@string/title_activity_search_hiring_req" >
         </activity>
         <activity android:name="com.bitsmanoj.hmt.ResultsActivity"/>
-                <activity android:name="com.bitsmanoj.hmt.StatisticsActivity"/>
+        <activity android:name="com.bitsmanoj.hmt.StatisticsActivity"/>
     </application>
 
 </manifest>

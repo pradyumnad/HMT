@@ -5,13 +5,13 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="title_activity_hiring_status_detail">HiringStatusDetailActivity</string>
-    <string name="title_activity_hiring_status_edit">HiringStatusEditActivity</string>
+    <string name="title_activity_hiring_status_detail">Hiring Status Detail</string>
+    <string name="title_activity_hiring_status_edit">Edit Hiring Status</string>
     <string name="title_activity_base">BaseActivity</string>
     <string name="title_activity_search_tab">SearchTabActivity</string>
     <string name="title_activity_search_bench">SearchBench</string>
-    <string name="title_activity_search_hiring_pool">SearchHiringPool</string>
-    <string name="title_activity_search_hiring_req">SearchHiringReq</string>
+    <string name="title_activity_search_hiring_pool">Search Hiring Pool</string>
+    <string name="title_activity_search_hiring_req">Search Hiring Request</string>
     <string name="search_hiring_req">Enter SONo #.</string>
 
 </resources>
