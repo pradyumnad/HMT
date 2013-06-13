@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.bitsmanoj.hmt.AppSettings;
 import com.bitsmanoj.hmt.R;
 import com.bitsmanoj.hmt.models.Resource;
 
@@ -22,11 +23,13 @@ import java.util.List;
 public class ResourceAdapter extends ArrayAdapter<Resource> {
 	Context context;
 	List<Resource> resourcesList;
+	Boolean isInternalPool;
 
-	public ResourceAdapter(Context context, int textViewResourceId, List<Resource> objects) {
+	public ResourceAdapter(Context context, int textViewResourceId, List<Resource> objects, Boolean isInternalPool) {
 		super(context, textViewResourceId, objects);
 		this.context = context;
 		resourcesList = objects;
+		this.isInternalPool = isInternalPool;
 	}
 
 	@Override
@@ -35,18 +38,38 @@ public class ResourceAdapter extends ArrayAdapter<Resource> {
 		View rowView = inflater.inflate(R.layout.ip_list_row, parent, false);
 
 		Resource resource = resourcesList.get(position);
+		if (isInternalPool) {
+			TextView tx1 = (TextView) rowView.findViewById(R.id.ip_TextView1);
+			tx1.setText(resource.technology);
 
-		TextView nameTextView = (TextView) rowView.findViewById(R.id.nameTextView);
-		nameTextView.setText(resource.name);
+			TextView tx2 = (TextView) rowView.findViewById(R.id.ip_TextView2);
+			tx2.setText(resource.role);
 
-		TextView designationTextView = (TextView) rowView.findViewById(R.id.designationTextView);
-		designationTextView.setText(resource.designation);
+			TextView tx3 = (TextView) rowView.findViewById(R.id.ip_TextView3);
+			tx3.setText(resource.city);
 
-		TextView expTextView = (TextView) rowView.findViewById(R.id.expTextView);
-		expTextView.setText(resource.experience+" years");
+			TextView tx4 = (TextView) rowView.findViewById(R.id.ip_TextView4);
+			tx4.setText(resource.projectStartDate);
 
-		TextView techTextView = (TextView) rowView.findViewById(R.id.techTextView);
-		techTextView.setText(resource.technology);
+			TextView tx5 = (TextView) rowView.findViewById(R.id.ip_textView5);
+			tx5.setText(resource.projectStartDate);
+		} else {
+			TextView tx1 = (TextView) rowView.findViewById(R.id.ip_TextView1);
+			tx1.setText(resource.technology);
+
+			TextView tx2 = (TextView) rowView.findViewById(R.id.ip_TextView2);
+			tx2.setText(resource.role);
+
+			TextView tx3 = (TextView) rowView.findViewById(R.id.ip_TextView3);
+			tx3.setText(resource.experience+" years");
+
+			TextView tx4 = (TextView) rowView.findViewById(R.id.ip_TextView4);
+			tx4.setText(resource.onBenchStartingDate);
+
+			TextView tx5 = (TextView) rowView.findViewById(R.id.ip_textView5);
+			tx5.setText(resource.city);
+		}
+
 		return rowView;
 	}
 }

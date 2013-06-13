@@ -2,49 +2,92 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:layout_width="match_parent"
+              android:layout_width="fill_parent"
               android:layout_height="match_parent">
 
-    <TextView
-            android:layout_width="178dp"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/nameTextView"
-            android:layout_gravity="left|top"
-            android:layout_alignParentLeft="true"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/designationTextView"
-            android:layout_gravity="right|top"
-            android:layout_alignLeft="@+id/nameTextView"
-            android:layout_alignParentTop="false"
-            android:layout_marginTop="20dp"
-            android:layout_alignRight="@+id/nameTextView"
-            android:layout_alignParentLeft="true"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="25dp">
 
-    <TextView
-            android:layout_width="76dp"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/expTextView"
-            android:layout_gravity="left|center_vertical"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/nameTextView"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="164dp"
-            android:layout_alignParentTop="false"/>
+            <TextView
+                    android:layout_width="178dp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:id="@+id/ip_TextView1"
+                    android:layout_gravity="center"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"/>
 
-    <TextView
-            android:layout_width="93dp"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/techTextView"
-            android:layout_alignRight="@+id/expTextView"
-            android:layout_below="@+id/nameTextView"
-            android:layout_alignParentRight="true"
-            android:layout_alignBottom="@+id/designationTextView"
-            android:layout_alignLeft="@+id/expTextView"/>
+            <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:id="@+id/ip_TextView2"
+                    android:layout_gravity="center"
+                    android:layout_alignLeft="@+id/ip_TextView1"
+                    android:layout_alignParentTop="false"
+                    android:layout_alignRight="@+id/ip_TextView1"
+                    android:layout_alignParentLeft="true"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="30dp">
+
+            <TextView
+                    android:layout_width="132dp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:id="@+id/ip_TextView3"
+                    android:layout_alignRight="@+id/ip_TextView4"
+                    android:layout_below="@+id/ip_TextView1"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignBottom="@+id/ip_TextView4"
+                    android:layout_alignLeft="@+id/ip_TextView4"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"/>
+
+            <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:id="@+id/ip_TextView4"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/ip_TextView1"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="25dp">
+
+            <TextView
+                    android:layout_width="139dp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:id="@+id/ip_textView5"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"/>
+
+            <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:id="@+id/ip_textView6"
+                    android:layout_gravity="center"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
 </RelativeLayout>

@@ -239,7 +239,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 							 return;
 						 }
 						 type = "IP";
-						 resource = new Resource(jsonResource);
+						 resource = new Resource(jsonResource, true);
 					 } else {
 						 try {
 							 jsonResource = (JSONObject) benchResults.get(position);
@@ -248,7 +248,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 							 return;
 						 }
 						 type = "B";
-						 resource = new Resource(jsonResource);
+						 resource = new Resource(jsonResource, false);
 					 }
 					 
 					 myIntent.putExtra("resourceId", resource.ascId);
@@ -292,20 +292,22 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 						finalListView.setAdapter(adapter);
 						adapter.notifyDataSetChanged();
 					} else {
+						Boolean isIP = (currentTab == Tab.INTERNAL_POOL_TAB) ? true : false;
+
 						List<Resource> resources = new ArrayList<Resource>();
 						for (int i = 0; i < results.length(); i++) {
 							JSONObject object = results.getJSONObject(i);
-							Resource resource = new Resource(object);
+							Resource resource = new Resource(object, isIP);
 							resources.add(i, resource);
 						}
-						
+
 						if (currentTab == Tab.INTERNAL_POOL_TAB) {
 							internalPoolResults = results;
 						} else {
 							benchResults = results;
 						}
 						
-						ResourceAdapter adapter = new ResourceAdapter(HomeActivity.this, R.layout.ip_list_row, resources);
+						ResourceAdapter adapter = new ResourceAdapter(HomeActivity.this, R.layout.ip_list_row, resources, isIP);
 						finalListView.setAdapter(adapter);
 						adapter.notifyDataSetChanged();
 					}

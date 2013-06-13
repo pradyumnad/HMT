@@ -12,18 +12,38 @@ import org.json.JSONObject;
  */
 public class Resource {
 	public String ascId;
-	public String name;
-	public String designation;
+	/*
+	 * Bench
+	 */
+	//Technology
+	//Role
 	public int experience;
-	public String technology;
+	public String onBenchStartingDate;
+	//City
 
-	public Resource(JSONObject object) {
+	/*
+	 * IP
+	 */
+	public String technology;
+	public String role;
+	public String city;
+	public String projectStartDate;
+	public String projectEndDate;
+
+
+	public Resource(JSONObject object, Boolean isInternalPool) {
 		try {
-			this.ascId = object.getString("AscID");
-			this.designation = object.getString("Designation");
-			this.experience = object.getInt("ExpInYrs");
-			this.name = object.getString("Name");
 			this.technology = object.getString("Technology");
+			this.role = object.getString("Role");
+			this.city = object.getString("City");
+			this.ascId = object.getString("AscID");
+			if (!isInternalPool) {
+				this.onBenchStartingDate = object.getString("OnBenchStartingDate");
+				this.experience = object.getInt("ExpInYrs");
+			} else {
+				this.projectEndDate = object.getString("ProjectEndDate");
+				this.projectStartDate = object.getString("ProjectStartDate");
+			}
 		} catch (JSONException e) {
 			e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
 		}

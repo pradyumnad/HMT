@@ -93,6 +93,7 @@ public class ResultsActivity extends Activity {
 			listView.setAdapter(adapter);
 			adapter.notifyDataSetChanged();
 		} else {
+			Boolean isIP = (dataType == Tab.INTERNAL_POOL_TAB) ? true : false;
 			List<Resource> resources = new ArrayList<Resource>();
 			for (int i = 0; i < results.length(); i++) {
 				JSONObject object = null;
@@ -101,7 +102,7 @@ public class ResultsActivity extends Activity {
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				Resource resource = new Resource(object);
+				Resource resource = new Resource(object, isIP);
 				resources.add(i, resource);
 			}
 
@@ -111,7 +112,7 @@ public class ResultsActivity extends Activity {
 				benchResults = results;
 			}
 
-			ResourceAdapter adapter = new ResourceAdapter(ResultsActivity.this, R.layout.ip_list_row, resources);
+			ResourceAdapter adapter = new ResourceAdapter(ResultsActivity.this, R.layout.ip_list_row, resources, isIP);
 			listView.setAdapter(adapter);
 			adapter.notifyDataSetChanged();
 		}
@@ -142,7 +143,7 @@ public class ResultsActivity extends Activity {
 							return;
 						}
 						type = "IP";
-						resource = new Resource(jsonResource);
+						resource = new Resource(jsonResource, true);
 					} else {
 						try {
 							jsonResource = (JSONObject) results.get(position);
@@ -151,7 +152,7 @@ public class ResultsActivity extends Activity {
 							return;
 						}
 						type = "B";
-						resource = new Resource(jsonResource);
+						resource = new Resource(jsonResource, false);
 					}
 					myIntent.putExtra("resourceId", resource.ascId);
 					myIntent.putExtra("type", type);
