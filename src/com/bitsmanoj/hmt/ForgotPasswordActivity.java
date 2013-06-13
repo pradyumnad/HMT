@@ -1,4 +1,4 @@
-package com.pradyumna.hmt;
+package com.bitsmanoj.hmt;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -14,12 +14,14 @@ import helpers.WSType;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
+import com.bitsmanoj.hmt.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
- * User: pradyumnad
+ * User: BITSManoj
  * Date: 10/06/13
  * Time: 12:49 AM
  * To change this template use File | Settings | File Templates.

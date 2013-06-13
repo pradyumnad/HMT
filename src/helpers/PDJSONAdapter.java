@@ -9,7 +9,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.pradyumna.hmt.R;
+import com.bitsmanoj.hmt.R;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -23,7 +23,7 @@ import android.widget.TextView;
 
 /**
  * Created with IntelliJ IDEA.
- * User: pradyumnad
+ * User: BITSManoj
  * Date: 08/06/13
  * Time: 1:10 AM
  * To change this template use File | Settings | File Templates.

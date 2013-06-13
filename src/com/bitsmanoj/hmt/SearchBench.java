@@ -1,4 +1,4 @@
-package com.pradyumna.hmt;
+package com.bitsmanoj.hmt;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -19,6 +19,8 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.bitsmanoj.hmt.R;
 
 public class SearchBench extends Activity {
 	private DatePicker dpStartResult;

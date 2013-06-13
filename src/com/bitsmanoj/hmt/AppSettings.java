@@ -1,10 +1,10 @@
-package com.pradyumna.hmt;
+package com.bitsmanoj.hmt;
 
 import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
- * User: pradyumnad
+ * User: BITSManoj
  * Date: 27/05/13
  * Time: 8:10 PM
  * To change this template use File | Settings | File Templates.

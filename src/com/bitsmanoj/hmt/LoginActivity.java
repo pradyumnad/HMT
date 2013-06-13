@@ -1,4 +1,4 @@
-package com.pradyumna.hmt;
+package com.bitsmanoj.hmt;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -17,6 +17,8 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.bitsmanoj.hmt.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +53,7 @@ public class LoginActivity extends Activity  {
 									AppSettings.userType = UserType.EXECUTIVE_MANAGER;
 								} else if (type.equalsIgnoreCase("Admin")) {
 									AppSettings.userType = UserType.ADMIN;
-								} else if (type.equalsIgnoreCase("Requesting Manger")) {
+								} else if (type.equalsIgnoreCase("Requesting Manager")) {
 									AppSettings.userType = UserType.REQUESTING_MANAGER;
 								}
 								

@@ -1,4 +1,4 @@
-package com.pradyumna.hmt;
+package com.bitsmanoj.hmt;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.bitsmanoj.hmt.R;
 
 import java.io.BufferedReader;
 import java.util.ArrayList;

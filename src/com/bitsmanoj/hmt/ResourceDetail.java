@@ -1,7 +1,9 @@
-package com.pradyumna.hmt;
+package com.bitsmanoj.hmt;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.bitsmanoj.hmt.R;
 
 import helpers.PDJSONAdapter;
 import helpers.WSHelper;
@@ -16,7 +18,7 @@ import android.widget.ListView;
 
 /**
  * Created with IntelliJ IDEA.
- * User: pradyumnad
+ * User: BITSManoj
  * Date: 29/05/13
  * Time: 1:49 PM
  * To change this template use File | Settings | File Templates.

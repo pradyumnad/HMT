@@ -1,4 +1,4 @@
-package com.pradyumna.hmt;
+package com.bitsmanoj.hmt;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,15 +16,13 @@ import helpers.WSType;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-
-import com.pradyumna.*; 
+ 
+import com.bitsmanoj.hmt.R;
 
 enum Options{
 	By_Technology_Resource_Count,

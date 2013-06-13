@@ -1,11 +1,11 @@
-package com.pradyumna.hmt.models;
+package com.bitsmanoj.hmt.models;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
  * Created with IntelliJ IDEA.
- * User: pradyumnad
+ * User: BITSManoj
  * Date: 29/05/13
  * Time: 12:44 AM
  * To change this template use File | Settings | File Templates.

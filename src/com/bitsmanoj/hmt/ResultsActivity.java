@@ -1,4 +1,4 @@
-package com.pradyumna.hmt;
+package com.bitsmanoj.hmt;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,10 +7,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import com.pradyumna.hmt.adapters.HiringRequestAdapter;
-import com.pradyumna.hmt.adapters.ResourceAdapter;
-import com.pradyumna.hmt.models.HiringStatus;
-import com.pradyumna.hmt.models.Resource;
+
+import com.bitsmanoj.hmt.R;
+import com.bitsmanoj.hmt.adapters.HiringRequestAdapter;
+import com.bitsmanoj.hmt.adapters.ResourceAdapter;
+import com.bitsmanoj.hmt.models.HiringStatus;
+import com.bitsmanoj.hmt.models.Resource;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,7 +23,7 @@ import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
- * User: pradyumnad
+ * User: BITSManoj
  * Date: 12/06/13
  * Time: 2:03 AM
  * To change this template use File | Settings | File Templates.

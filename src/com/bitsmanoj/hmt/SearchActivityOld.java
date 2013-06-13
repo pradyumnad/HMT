@@ -1,4 +1,4 @@
-package com.pradyumna.hmt;
+package com.bitsmanoj.hmt;
 
 import android.app.ActionBar;
 import android.os.Bundle;
@@ -10,9 +10,11 @@ import android.widget.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bitsmanoj.hmt.R;
+
 /**
  * Created with IntelliJ IDEA.
- * User: pradyumnad
+ * User: BITSManoj
  * Date: 03/06/13
  * Time: 8:47 PM
  * To change this template use File | Settings | File Templates.

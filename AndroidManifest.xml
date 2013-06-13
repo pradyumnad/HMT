@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.pradyumna.hmt"
+    package="com.bitsmanoj.hmt"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.pradyumna.hmt.LoginActivity"
+            android:name="com.bitsmanoj.hmt.LoginActivity"
             android:label="@string/app_name"
             android:noHistory="false" >
             <intent-filter>
@@ -26,42 +26,42 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.pradyumna.hmt.SignupActivity" />
-        <activity android:name="com.pradyumna.hmt.HomeActivity" />
-        <activity android:name="com.pradyumna.hmt.HiringRequest" />
-        <activity android:name="com.pradyumna.hmt.ResourceDetail" />
-        <activity android:name="com.pradyumna.hmt.SearchActivityOld" />
+        <activity android:name="com.bitsmanoj.hmt.SignupActivity" />
+        <activity android:name="com.bitsmanoj.hmt.HomeActivity" />
+        <activity android:name="com.bitsmanoj.hmt.HiringRequest" />
+        <activity android:name="com.bitsmanoj.hmt.ResourceDetail" />
+        <activity android:name="com.bitsmanoj.hmt.SearchActivityOld" />
         <activity
-            android:name="com.pradyumna.hmt.HiringStatusDetailActivity"
+            android:name="com.bitsmanoj.hmt.HiringStatusDetailActivity"
             android:label="@string/title_activity_hiring_status_detail" >
         </activity>
         <activity
-            android:name="com.pradyumna.hmt.HiringStatusEditActivity"
+            android:name="com.bitsmanoj.hmt.HiringStatusEditActivity"
             android:label="@string/title_activity_hiring_status_edit" >
         </activity>
         <activity
-            android:name="com.pradyumna.hmt.BaseActivity"
+            android:name="com.bitsmanoj.hmt.BaseActivity"
             android:label="@string/title_activity_base" >
         </activity>
-        <activity android:name=".ForgotPasswordActivity"/>
+        <activity android:name="com.bitsmanoj.hmt.ForgotPasswordActivity"/>
         <activity
-            android:name="com.pradyumna.hmt.SearchTabActivity"
+            android:name="com.bitsmanoj.hmt.SearchTabActivity"
             android:label="@string/title_activity_search_tab" >
         </activity>
         <activity
-            android:name="com.pradyumna.hmt.SearchBench"
+            android:name="com.bitsmanoj.hmt.SearchBench"
             android:label="@string/title_activity_search_bench" >
         </activity>
         <activity
-            android:name="com.pradyumna.hmt.SearchHiringPool"
+            android:name="com.bitsmanoj.hmt.SearchHiringPool"
             android:label="@string/title_activity_search_hiring_pool" >
         </activity>
         <activity
-            android:name="com.pradyumna.hmt.SearchHiringReq"
+            android:name="com.bitsmanoj.hmt.SearchHiringReq"
             android:label="@string/title_activity_search_hiring_req" >
         </activity>
-        <activity android:name=".ResultsActivity"/>
-                <activity android:name="com.pradyumna.hmt.StatisticsActivity"/>
+        <activity android:name="com.bitsmanoj.hmt.ResultsActivity"/>
+                <activity android:name="com.bitsmanoj.hmt.StatisticsActivity"/>
     </application>
 
 </manifest>

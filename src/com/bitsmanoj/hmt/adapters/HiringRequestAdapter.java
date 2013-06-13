@@ -1,4 +1,4 @@
-package com.pradyumna.hmt.adapters;
+package com.bitsmanoj.hmt.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,14 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import com.pradyumna.hmt.R;
-import com.pradyumna.hmt.models.HiringStatus;
+
+import com.bitsmanoj.hmt.R;
+import com.bitsmanoj.hmt.models.HiringStatus;
 
 import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
- * User: pradyumnad
+ * User: BITSManoj
  * Date: 31/05/13
  * Time: 11:27 PM
  * To change this template use File | Settings | File Templates.

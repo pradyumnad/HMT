@@ -1,4 +1,4 @@
-package com.pradyumna.hmt;
+package com.bitsmanoj.hmt;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,10 +13,13 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
-import com.pradyumna.hmt.adapters.HiringRequestAdapter;
-import com.pradyumna.hmt.adapters.ResourceAdapter;
-import com.pradyumna.hmt.models.HiringStatus;
-import com.pradyumna.hmt.models.Resource;
+
+import com.bitsmanoj.hmt.R;
+import com.bitsmanoj.hmt.adapters.HiringRequestAdapter;
+import com.bitsmanoj.hmt.adapters.ResourceAdapter;
+import com.bitsmanoj.hmt.models.HiringStatus;
+import com.bitsmanoj.hmt.models.Resource;
+
 import helpers.WSHelper;
 import helpers.WSListener;
 import helpers.WSType;
@@ -36,7 +39,7 @@ enum Tab {
 }
 
 /**
- * Created with IntelliJ IDEA. User: pradyumnad Date: 07/05/13 Time: 11:43 PM To
+ * Created with IntelliJ IDEA. User: BITSManoj Date: 07/05/13 Time: 11:43 PM To
  * change this template use File | Settings | File Templates.
  */
 public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeListener {
