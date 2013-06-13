@@ -29,6 +29,13 @@ public class HiringStatus implements Serializable {
 	public String Approvers4Email;
 	public String Remarks;
 
+	public String technology;
+	public String role;
+	public int experience;
+	public String city;
+	public String status;
+	public String joiningDateNeededBy;
+
 	public  HiringStatus(JSONObject statusObject) {
 		try {
 			this.RequestingMgrEmailID = statusObject.getString("RequestingMgrEmailID");
@@ -51,6 +58,13 @@ public class HiringStatus implements Serializable {
 			this.Approvers3Email = statusObject.getString("Approvers3Email");
 			this.Approvers4Email = statusObject.getString("Approvers4Email");
 			this.Remarks = statusObject.getString("Remarks");
+
+			this.technology = statusObject.getString("Technology");
+			this.role = statusObject.getString("Role");
+			this.city = statusObject.getString("City");
+			this.experience = statusObject.getInt("ExpInYrs");
+			this.status = statusObject.getString("CurrentPhaseStatus");
+			this.joiningDateNeededBy = statusObject.getString("JoiningDateNeededBy");
 		} catch (JSONException e) {
 			e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
 		}

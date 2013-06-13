@@ -9,7 +9,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="New Text"
-            android:id="@+id/textViewRequestingMgrEmailID"
+            android:id="@+id/hr_text_view1"
             android:layout_gravity="left|center_vertical"
             android:textSize="18dp"/>
 
@@ -19,25 +19,64 @@
             android:layout_height="wrap_content">
 
         <TextView
-                android:layout_width="107dp"
+                android:layout_width="141dp"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/textViewExperience"
+                android:id="@+id/hr_text_view2"
                 android:layout_gravity="center_horizontal|top"/>
 
         <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/textViewTechnology"
-                android:layout_gravity="center_horizontal|top"/>
-        
-       
+                android:id="@+id/hr_text_view3"
+                android:layout_gravity="center_horizontal|top"
+                android:gravity="right"/>
+
+
     </LinearLayout>
-     <TextView
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="25dp">
+
+        <TextView
+                android:layout_width="143dp"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/hr_text_view4"
+                android:layout_gravity="center"/>
+
+        <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/textViewStatus"
-              />
+                android:id="@+id/hr_text_view5"
+                android:layout_gravity="center"
+                android:gravity="right"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="25dp">
+
+        <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/hr_text_view6"
+                    android:layout_gravity="center"/>
+
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/hr_text_view7"
+                android:layout_gravity="center"
+                android:gravity="right"/>
+
+    </LinearLayout>
+
 </LinearLayout>

@@ -13,18 +13,31 @@ import org.json.JSONObject;
 
 public class Request {
 	public String requestId;
-	public String requestingMgrEmailID;
-	public int experience;
+
 	public int soNo;
-	public String interviewStatus;
-	public String remarks;
+	public String technology;
+	public String role;
+	public int experience;
+	public String city;
+	public String status;
+	public String joiningDateNeededBy;
+
+	public String requestingMgrEmailID;
+
+//	SO #, Tech, Role, Exp, City, By Dt, Status
 
 	public Request(JSONObject request) {
 		try {
 			this.requestId = request.getString("RequestIdentifierNo");
 			this.requestingMgrEmailID = request.getString("RequestingMgrEmailID");
-			this.experience = request.getInt("ExpInYrs");
+
 			this.soNo = request.getInt("SONo");
+			this.technology = request.getString("Technology");
+			this.role = request.getString("Role");
+			this.city = request.getString("City");
+			this.experience = request.getInt("ExpInYrs");
+			this.status = request.getString("CurrentPhaseStatus");
+			this.joiningDateNeededBy = request.getString("JoiningDateNeededBy");
 		} catch (JSONException e) {
 			e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
 		}
@@ -36,7 +49,6 @@ public class Request {
 			this.requestId = request.getString("RequestIdentifierNo");
 			this.requestingMgrEmailID = request.getString("RequestingMgrEmailID");
 			this.experience = request.getInt("ExpInYrs");
-			this.remarks = request.getString("Remarks");
 		} catch (JSONException e) {
 			e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
 		}

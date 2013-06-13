@@ -56,7 +56,7 @@ public class SearchHiringPool extends Activity {
 
 
 				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(5);
-				nameValuePairs.add(new BasicNameValuePair("type", "B"));
+				nameValuePairs.add(new BasicNameValuePair("type", "IP"));
 				if (editText1.getText().toString().length() > 0) {
 					nameValuePairs.add(new BasicNameValuePair("Technology", editText1.getText().toString()));
 				}

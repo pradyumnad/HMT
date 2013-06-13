@@ -19,7 +19,7 @@ import java.util.List;
  * Time: 11:27 PM
  * To change this template use File | Settings | File Templates.
  */
-public class HiringRequestAdapter extends ArrayAdapter<HiringStatus> {
+public class  HiringRequestAdapter extends ArrayAdapter<HiringStatus> {
 	Context context;
 	List<HiringStatus> requestList;
 
@@ -37,25 +37,27 @@ public class HiringRequestAdapter extends ArrayAdapter<HiringStatus> {
 
 		HiringStatus hiringRequest = requestList.get(position);
 
-		TextView nameTextView = (TextView) rowView.findViewById(R.id.textViewRequestingMgrEmailID);
-		nameTextView.setText(hiringRequest.RequestingMgrEmailID);
+		TextView tx1 = (TextView) rowView.findViewById(R.id.hr_text_view1);
+		tx1.setText("SONo # "+hiringRequest.SONo);
 
-		TextView expTextView = (TextView) rowView.findViewById(R.id.textViewExperience);
+		TextView tx2 = (TextView) rowView.findViewById(R.id.hr_text_view2);
+		tx2.setText(hiringRequest.technology);
+
+		TextView tx3 = (TextView) rowView.findViewById(R.id.hr_text_view3);
+		tx3.setText(hiringRequest.role);
+
+		TextView expTextView = (TextView) rowView.findViewById(R.id.hr_text_view4);
 		expTextView.setText("Exp #"+hiringRequest.ExpInYrs+" years");
+		
+		TextView statusTextView = (TextView) rowView.findViewById(R.id.hr_text_view5);
+		statusTextView.setText(hiringRequest.city);
 
-		TextView techTextView = (TextView) rowView.findViewById(R.id.textViewTechnology);
-		if (hiringRequest.InterviewStatus != null) {
-//			if (hiringRequest.InterviewStatus.length() == 0) {
-//				hiringRequest.InterviewStatus = "PENDING";
-//			}
-		} else {
-			hiringRequest.InterviewStatus = "New";
-		}
-		techTextView.setText("Status #"+hiringRequest.CurrentPhaseStatus);
-		
-		TextView statusTextView = (TextView) rowView.findViewById(R.id.textViewStatus);
-		statusTextView.setText("Remarks #"+hiringRequest.Remarks);
-		
+		TextView tx6 = (TextView) rowView.findViewById(R.id.hr_text_view6);
+		tx6.setText(hiringRequest.joiningDateNeededBy);
+
+		TextView tx7 = (TextView) rowView.findViewById(R.id.hr_text_view7);
+		tx7.setText(hiringRequest.CurrentPhaseStatus);
+
 		return rowView;
 	}
 }
