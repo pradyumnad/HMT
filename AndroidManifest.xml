@@ -62,6 +62,7 @@
         </activity>
         <activity android:name="com.bitsmanoj.hmt.ResultsActivity"/>
         <activity android:name="com.bitsmanoj.hmt.StatisticsActivity"/>
+        <activity android:name="com.bitsmanoj.hmt.BenchStatisticsActivity"/>
     </application>
 
 </manifest>

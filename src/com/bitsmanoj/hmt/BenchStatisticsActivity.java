@@ -24,28 +24,18 @@ import android.widget.Spinner;
  
 import com.bitsmanoj.hmt.R;
 
-enum Options{
-	By_Technology_Resource_Count,
-	Role_Resource_Count,
-	By_Country_Resource_Count
+enum BenchOptions{
+	Technology,
+	Role,
+	Country
 }
 
-public class StatisticsActivity extends Activity {
+public class BenchStatisticsActivity extends Activity {
 
     float values[]={5,4,3,2,1};
     Spinner spinnerOptions;
     LinearLayout linear;
-    public static String tableName;
-
-	public StatisticsActivity () {
-		super();
-	}
-
-	public StatisticsActivity (String table) {
-		super();
-		this.tableName = table;
-	}
-
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -56,7 +46,7 @@ public class StatisticsActivity extends Activity {
     //settingup spinner
     spinnerOptions = (Spinner) findViewById(R.id.spinnerGraphOptions);
     String arraySpinnerOptions[] = {"By Technology Resource Count","By Role Resource Count","By Country Resource Count"};
-	ArrayAdapter<String> optionsAdapter = new ArrayAdapter<String>(StatisticsActivity.this, android.R.layout.simple_list_item_1, arraySpinnerOptions);
+	ArrayAdapter<String> optionsAdapter = new ArrayAdapter<String>(BenchStatisticsActivity.this, android.R.layout.simple_list_item_1, arraySpinnerOptions);
     spinnerOptions.setAdapter(optionsAdapter);
     final String columns[] = {"Technology","Role","Country"};
     spinnerOptions.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -82,7 +72,7 @@ public class StatisticsActivity extends Activity {
     	
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
     	nameValuePairs.add(new BasicNameValuePair("type","Stats"));
-    	nameValuePairs.add(new BasicNameValuePair("table", tableName));
+    	nameValuePairs.add(new BasicNameValuePair("table", "Bench"));
     	nameValuePairs.add(new BasicNameValuePair("field",fieldName));
     	
 

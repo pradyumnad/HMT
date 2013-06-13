@@ -105,7 +105,19 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 		statisticsBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getApplicationContext(), StatisticsActivity.class));
+				StatisticsActivity statisticsActivity = new StatisticsActivity("InternalResourcePool");
+				Intent intent = new Intent(getApplicationContext(), statisticsActivity.getClass());
+				startActivity(intent);
+			}
+		});
+
+		Button benchStatisticsBtn = (Button)findViewById(R.id.bench_statistics_button);
+		benchStatisticsBtn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				StatisticsActivity statisticsActivity = new StatisticsActivity("Bench");
+				Intent intent = new Intent(getApplicationContext(), statisticsActivity.getClass());
+				startActivity(intent);
 			}
 		});
 		
