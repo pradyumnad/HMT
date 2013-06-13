@@ -7,10 +7,17 @@
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
-        android:layout_height="120dp"
+        android:layout_height="150dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:layout_alignRight="@+id/buttonRegister">
+
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editTextASCId"
+                android:hint="ASC Id"
+                android:inputType="numberDecimal"/>
 
         <EditText
             android:id="@+id/editTextUserName"
@@ -21,7 +28,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="0dp"
-            android:hint="First Name"
+            android:hint="Name"
             android:lines="1">
             
         <requestFocus />
@@ -41,12 +48,13 @@
         <EditText
             android:id="@+id/editTextMail"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_gravity="center"
             android:hint="Email"
-            android:lines="1"/>
+            android:lines="1"
+            android:inputType="textEmailAddress"/>
     </LinearLayout>
 
     <Button

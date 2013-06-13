@@ -18,7 +18,6 @@ public class BaseActivity extends Activity {
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item){
-		
 		Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
 		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
 		startActivity(intent);

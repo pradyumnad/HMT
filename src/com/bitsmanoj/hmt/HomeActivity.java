@@ -118,7 +118,15 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 		inflater.inflate(R.menu.main, menu);
 		return true;
 	}
-	
+
+	@Override
+	public boolean onPrepareOptionsMenu(Menu menu) {
+		if (AppSettings.userType == UserType.ADMIN || AppSettings.userType == UserType.EXECUTIVE_MANAGER) {
+			menu.removeItem(R.id.new_request);
+		}
+		return true;
+	}
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {

@@ -16,9 +16,16 @@ enum UserType {
 	REQUESTING_MANAGER
 }
 
+class User {
+	String name;
+	int ASCId;
+	String emailId;
+}
 public class AppSettings {
 	public static UserType userType;
 	public static String userId;
+	public static User currentUser;
+
 	private static AppSettings ourInstance = new AppSettings();
 
 	public static AppSettings getInstance() {

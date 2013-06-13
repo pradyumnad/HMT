@@ -2,6 +2,7 @@ package com.bitsmanoj.hmt;
 
 import android.app.ActionBar;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -40,6 +41,9 @@ public class HiringRequest extends BaseActivity implements WSListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_hiring_request);
 
+		((EditText) findViewById(R.id.editTextReuqestingMgr)).setText(AppSettings.currentUser.name);
+		((EditText) findViewById(R.id.editTextRequestingMgrAscID)).setText(""+AppSettings.currentUser.ASCId);
+		((EditText) findViewById(R.id.editTextRequestingMgrEmailID)).setText(AppSettings.currentUser.emailId);
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 	}
@@ -53,13 +57,15 @@ public class HiringRequest extends BaseActivity implements WSListener {
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item.getTitle().equals("HMT")) {
+			finish();
+		}
 		switch (item.getItemId()) {
 		case R.id.req_save:
 			saveNewHiringRequest();
 			break;
 		default:
 			super.onOptionsItemSelected(item);
-			finish();
 			break;
 		}
 		return true;

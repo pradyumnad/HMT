@@ -2,6 +2,8 @@ package com.bitsmanoj.hmt;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,6 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.*;
+import helpers.WSHelper;
+import helpers.WSListener;
+import helpers.WSType;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
@@ -18,6 +23,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.bitsmanoj.hmt.R;
@@ -46,7 +52,7 @@ public class SignupActivity extends Activity  {
 		setContentView(R.layout.activity_signup);
 		
 		//Adapter for roles 
-		String rolesArray[] = {"Executive Manager","Requesting Manager","Admin"};
+		String rolesArray[] = {"--SELECT ROLE--", "Hiring Executive","Hiring Manager","Hiring Admin"};
 		ArrayAdapter<String> rolesAdapter = new ArrayAdapter<String>(SignupActivity.this, android.R.layout.simple_list_item_1, rolesArray);
 		spinnerRole = (Spinner)findViewById(R.id.spinnerRole);
 		spinnerRole.setAdapter(rolesAdapter);
@@ -56,9 +62,49 @@ public class SignupActivity extends Activity  {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				RegisterTask registerTask = new RegisterTask();
-				registerTask.execute("");
-				
+				if (spinnerRole.getSelectedItemPosition() == 0) {
+					AlertDialog.Builder alert = new AlertDialog.Builder(SignupActivity.this);
+					alert.setTitle("Signup");
+					alert.setMessage("Enter valid Role");
+					alert.setNegativeButton("Ok", new DialogInterface.OnClickListener()
+					{
+						public void onClick(DialogInterface dialog, int id)
+						{
+							// Action for 'Cancel' Button
+							dialog.cancel();
+						}
+					});
+					alert.show();
+					return;
+				}
+
+				// Add your data
+				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(5);
+				nameValuePairs.add(new BasicNameValuePair("username", ((EditText)findViewById(R.id.editTextUserName)).getText().toString().trim() ));
+				nameValuePairs.add(new BasicNameValuePair("password", ((EditText)findViewById(R.id.editTextPassword)).getText().toString().trim()));
+				nameValuePairs.add(new BasicNameValuePair("email", ((EditText)findViewById(R.id.editTextMail)).getText().toString().trim()));
+				nameValuePairs.add(new BasicNameValuePair("role", spinnerRole.getSelectedItem().toString()));
+				nameValuePairs.add(new BasicNameValuePair("ASCId", ((EditText)findViewById(R.id.editTextASCId)).getText().toString().trim()));
+				System.out.println(nameValuePairs);
+
+				WSHelper helper = new WSHelper("http://becognizant.net/HMT/register.php", nameValuePairs, getApplicationContext());
+				helper.addWSListener(new WSListener() {
+					@Override
+					public void onRequestCompleted(String response) {
+
+						try {
+							JSONObject jsonObject = new JSONObject(response);
+						} catch (JSONException e) {
+
+						}
+						finish();
+					}
+					@Override
+					public void onRequestFailed(Exception exception) {
+						Toast.makeText(SignupActivity.this, "Registraton Failed", Toast.LENGTH_SHORT).show();
+					}
+				});
+				helper.processRequest(WSType.WSPOST);
 			}
 		});
 
@@ -67,59 +113,8 @@ public class SignupActivity extends Activity  {
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
+		Log.d(">>>", ""+item);
 		finish();
 		return true;
-	}
-	
-	class RegisterTask extends AsyncTask<String, Void, String> {
-
-		private Exception exception;
-
-		protected String doInBackground(String... urls) {
-			try {
-				HttpClient httpclient = new DefaultHttpClient();
-				HttpPost httppost = new HttpPost("http://becognizant.net/HMT/register.php");
-
-				try {
-					// Add your data
-					List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-					nameValuePairs.add(new BasicNameValuePair("username", ((EditText)findViewById(R.id.editTextUserName)).getText().toString().trim() ));
-					nameValuePairs.add(new BasicNameValuePair("password", ((EditText)findViewById(R.id.editTextPassword)).getText().toString().trim()));
-					nameValuePairs.add(new BasicNameValuePair("email", ((EditText)findViewById(R.id.editTextMail)).getText().toString().trim()));
-					nameValuePairs.add(new BasicNameValuePair("role", spinnerRole.getSelectedItem().toString()));	
-					System.out.println(nameValuePairs);
-					httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
-					// Execute HTTP Post Request
-					HttpResponse response = httpclient.execute(httppost);
-					BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
-					String json = reader.readLine();
-					JSONObject jsonObject = new JSONObject(json);
-					Log.e("jsonMesage",jsonObject.get("message").toString());
-
-					if (jsonObject.getString("message").startsWith("U")) {
-//						startActivity(new Intent(SignupActivity.this, LoginActivity.class));
-						finish();
-					} else {
-						Toast.makeText(SignupActivity.this, "Registraton Failed", Toast.LENGTH_SHORT).show();
-					}
-
-				} catch (ClientProtocolException e) {
-					// TODO Auto-generated catch block
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-				}
-
-			} catch (Exception e) {
-				this.exception = e;
-				return null;
-			}
-			return null;
-		}
-
-		protected void onPostExecute(String feed) {
-			// TODO: check this.exception
-			// TODO: do something with the feed
-		}
 	}
 }

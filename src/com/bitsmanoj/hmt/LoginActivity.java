@@ -49,15 +49,20 @@ public class LoginActivity extends Activity  {
 							if (success == 1) {
 								String type = jsonObject.getString("role");
 								Log.d("LoginActivity", type);
-								if (type.equalsIgnoreCase("Executive Manager")) {
+								if (type.equalsIgnoreCase("Executive Manager") || type.equalsIgnoreCase("Hiring Executive")) {
 									AppSettings.userType = UserType.EXECUTIVE_MANAGER;
-								} else if (type.equalsIgnoreCase("Hiring Admin")) {
+								} else if (type.equalsIgnoreCase("Hiring Admin") || type.equalsIgnoreCase("Admin")) {
 									AppSettings.userType = UserType.ADMIN;
-								} else if (type.equalsIgnoreCase("Requesting Manager")) {
+								} else if (type.equalsIgnoreCase("Requesting Manager") || type.equalsIgnoreCase("Hiring Manager")) {
 									AppSettings.userType = UserType.REQUESTING_MANAGER;
 								}
 								
 								AppSettings.userId = jsonObject.getString("user_id");
+								AppSettings.currentUser = new User();
+								AppSettings.currentUser.ASCId = jsonObject.getInt("ASCId");
+								AppSettings.currentUser.name = jsonObject.getString("name");
+								AppSettings.currentUser.emailId = ((EditText)findViewById(R.id.editTextLoginEmail)).getText().toString();
+
 								startActivity(new Intent(LoginActivity.this, HomeActivity.class));
 							} else {
 								AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
