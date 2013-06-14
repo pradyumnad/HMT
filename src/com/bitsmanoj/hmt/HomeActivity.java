@@ -98,7 +98,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 		} else {
 			tabHost.addTab(tabHiringStatus);
 			tabHost.addTab(tabBench);
-			updateTabContent(Tab.INTERNAL_POOL_TAB);			
+			updateTabContent(Tab.HIRING_STATUS_TAB);
 		}
 
 		Button statisticsBtn = (Button)findViewById(R.id.statistics_button);
