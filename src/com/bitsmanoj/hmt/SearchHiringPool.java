@@ -1,10 +1,12 @@
 package com.bitsmanoj.hmt;
 
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Array;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,10 +47,10 @@ public class SearchHiringPool extends Activity {
 				EditText editText2 = (EditText)findViewById(R.id.hirPooleditText2);
 				EditText editText3 = (EditText)findViewById(R.id.hirPooleditText3);
 
-				DatePicker datePicker = (DatePicker) findViewById(R.id.hirPooldpResult);
+				EditText datePicker = (EditText) findViewById(R.id.editTexthirPooldpResult);
 				Spinner spinner = (Spinner)findViewById(R.id.hirPoolspinner1);
 
-				DatePicker datePicker2 = (DatePicker) findViewById(R.id.hirPoolenddatepicker);
+				EditText datePicker2 = (EditText) findViewById(R.id.editTexthirPoolenddatepicker);
 				Spinner spinner2 = (Spinner)findViewById(R.id.hirPoolspinner2);
 
 				String operator1 = getEncodedOperator(spinner.getSelectedItemPosition());
@@ -70,12 +72,20 @@ public class SearchHiringPool extends Activity {
 				}
 
 				if (!operator1.equals("")) {
-					nameValuePairs.add(new BasicNameValuePair("ProjectStartDate", datePicker.getYear()+"-"+datePicker.getMonth()+"-"+datePicker.getDayOfMonth()));
+					StringTokenizer tokenizer = new StringTokenizer(datePicker.getText().toString()
+							, "-");
+					String[] tokens = new String[tokenizer.countTokens()];
+					
+					nameValuePairs.add(new BasicNameValuePair("ProjectStartDate",tokens[2]+"-"+tokens[0]+"-"+tokens[1] ));
 					nameValuePairs.add(new BasicNameValuePair("ProjectStartDateOperator", operator1));
 				}
 
 				if (!operator2.equals("")) {
-					nameValuePairs.add(new BasicNameValuePair("ProjectEndDate", datePicker.getYear()+"-"+datePicker.getMonth()+"-"+datePicker.getDayOfMonth()));
+					StringTokenizer tokenizer = new StringTokenizer(datePicker2.getText().toString()
+							, "-");
+					String[] tokens = new String[tokenizer.countTokens()];
+					
+					nameValuePairs.add(new BasicNameValuePair("ProjectEndDate", tokens[2]+"-"+tokens[0]+"-"+tokens[1]));
 					nameValuePairs.add(new BasicNameValuePair("ProjectEndDateOperator", operator1));
 				}
 
@@ -131,7 +141,7 @@ public class SearchHiringPool extends Activity {
 	// display current date
 		public void setCurrentDateOnView() {
 	 
-			dpStartResult = (DatePicker) findViewById(R.id.hirPooldpResult);
+//			dpStartResult = (DatePicker) findViewById(R.id.hirPooldpResult);
 			spinner1 = (Spinner)findViewById(R.id.hirPoolspinner1);
 	        spinner2 = (Spinner)findViewById(R.id.hirPoolspinner2);
 	        
@@ -147,25 +157,25 @@ public class SearchHiringPool extends Activity {
 			adapter0 = new ArrayAdapter<String>(SearchHiringPool.this, android.R.layout.simple_spinner_item, operators);
 	        adapter0.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 	        
-	        final Calendar c = Calendar.getInstance();
-			sYear = c.get(Calendar.YEAR);
-			sMonth = c.get(Calendar.MONTH);
-			sDay = c.get(Calendar.DAY_OF_MONTH);
-	 
+//	        final Calendar c = Calendar.getInstance();
+//			sYear = c.get(Calendar.YEAR);
+//			sMonth = c.get(Calendar.MONTH);
+//			sDay = c.get(Calendar.DAY_OF_MONTH);
+//	 
 			// set current date into textview
 	 
 			// set current date into datepicker
-			dpStartResult.init(sYear, sMonth, sDay, null);
+//			dpStartResult.init(sYear, sMonth, sDay, null);
 			
-			dpEndResult = (DatePicker) findViewById(R.id.hirPoolenddatepicker);
-	 
-			final Calendar c1 = Calendar.getInstance();
-			eYear = c.get(Calendar.YEAR);
-			eMonth = c.get(Calendar.MONTH);
-			eDay = c.get(Calendar.DAY_OF_MONTH);
-	 
-			// set current date into datepicker
-			dpEndResult.init(eYear, eMonth, eDay, null);
+//			dpEndResult = (DatePicker) findViewById(R.id.hirPoolenddatepicker);
+//	 
+//			final Calendar c1 = Calendar.getInstance();
+//			eYear = c.get(Calendar.YEAR);
+//			eMonth = c.get(Calendar.MONTH);
+//			eDay = c.get(Calendar.DAY_OF_MONTH);
+//	 
+//			// set current date into datepicker
+//			dpEndResult.init(eYear, eMonth, eDay, null);
 	 
 		}
 	@Override

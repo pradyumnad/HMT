@@ -23,7 +23,7 @@ import org.json.JSONObject;
 import com.bitsmanoj.hmt.R;
 
 public class SearchBench extends Activity {
-	private DatePicker dpStartResult;
+	private EditText dpStartResult;
 	private Spinner spinner1;
 	private int sYear;
 	private int sMonth;
@@ -43,7 +43,7 @@ public class SearchBench extends Activity {
 				EditText editText1 = (EditText)findViewById(R.id.bench_TechnologyEditText);
 				EditText editText2 = (EditText)findViewById(R.id.bench_cityEditText);
 				EditText editText3 = (EditText)findViewById(R.id.bench_CountryEditText);
-				DatePicker datePicker = (DatePicker) findViewById(R.id.lastDateOnProjectDatePicker);
+				EditText datePicker = (EditText) findViewById(R.id.editTextsearch_startDatePicker);
 				Spinner spinner = (Spinner)findViewById(R.id.lastDateOnProjectOperatorSpinner);
 				CheckBox checkBox = (CheckBox)findViewById(R.id.benchPolicyInitiatedcheckBox);
 
@@ -83,7 +83,7 @@ public class SearchBench extends Activity {
 				}
 
 				if (!operator.equals("")) {
-					nameValuePairs.add(new BasicNameValuePair("LastDateOnProject", datePicker.getYear()+"-"+datePicker.getMonth()+"-"+datePicker.getDayOfMonth()));
+					nameValuePairs.add(new BasicNameValuePair("LastDateOnProject", datePicker.getText().toString()));
 					nameValuePairs.add(new BasicNameValuePair("LastDateOnProjectOperator", operator));
 				}
 
@@ -121,7 +121,7 @@ public class SearchBench extends Activity {
 	// display current date
 		public void setCurrentDateOnView() {
 	 
-			dpStartResult = (DatePicker) findViewById(R.id.lastDateOnProjectDatePicker);
+			dpStartResult = (EditText) findViewById(R.id.editTextsearch_startDatePicker);
 			spinner1 = (Spinner)findViewById(R.id.lastDateOnProjectOperatorSpinner);
 	        
 	        operators = new String[] {"-- SELECT --", "greater than", "less than", "equal to"};
@@ -130,13 +130,13 @@ public class SearchBench extends Activity {
 	        adapter0.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 	        spinner1.setAdapter(adapter0);
 			
-	        final Calendar c = Calendar.getInstance();
-			sYear = c.get(Calendar.YEAR);
-			sMonth = c.get(Calendar.MONTH);
-			sDay = c.get(Calendar.DAY_OF_MONTH);
-	
-			// set current date into datepicker
-			dpStartResult.init(sYear, sMonth, sDay, null);
+//	        final Calendar c = Calendar.getInstance();
+//			sYear = c.get(Calendar.YEAR);
+//			sMonth = c.get(Calendar.MONTH);
+//			sDay = c.get(Calendar.DAY_OF_MONTH);
+//	
+//			// set current date into datepicker
+//			dpStartResult.init(sYear, sMonth, sDay, null);
 		}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
