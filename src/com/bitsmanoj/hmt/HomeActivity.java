@@ -200,7 +200,11 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
 				break;
 
 			case HIRING_STATUS_TAB:
-				url = "http://becognizant.net/HMT/hiringstatus.php";
+				String userRole = "";
+				if (AppSettings.userType == UserType.REQUESTING_MANAGER) {
+					userRole = "Hiring%20Manager";
+				}
+				url = "http://becognizant.net/HMT/hiringstatus.php?user_type="+userRole;
 				listView = (ListView)findViewById(R.id.requestStatus_listView);
 				break;
 			case APPROVAL_STATUS_TAB:
