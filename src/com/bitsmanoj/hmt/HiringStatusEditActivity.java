@@ -27,7 +27,9 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class HiringStatusEditActivity extends BaseActivity implements OnDateChangedListener {
-	
+
+	public String[] fields;
+
 	@Override
 	public void onDateChanged(DatePicker view, int year, int monthOfYear,
 			int dayOfMonth) {
@@ -41,6 +43,50 @@ public class HiringStatusEditActivity extends BaseActivity implements OnDateChan
 		setContentView(R.layout.activity_hiring_status_edit);
 		
 		String hiringStatusString =  (String)getIntent().getStringExtra("hiringStatus");
+
+		String [] fields = {
+				"SONo",
+				"CurrentPhaseStatus",
+				"SelectionConfirmed",
+				"IdentifiedProfile",
+				"ReqAssignedTo",
+				"InternalHiringPOC",
+				"ExternalHiringPOC",
+				"InterviewerIdentified",
+				"InterviewerAscID",
+				"InterviewerEmailID",
+				"InterviewerPhone",
+				"InterviewDate",
+				"InterviewStatus",
+				"Approvers1Email",
+				"Approvers2Email",
+				"Approvers3Email",
+				"Approvers4Email",
+				"Remarks",
+				"Technology",
+				"ExpInYrs",
+				"DesiredBillingRate",
+				"JoiningDateNeededBy",
+				"ProposedRule",
+				"JobDescription",
+				"CertificationNeed",
+				"ProposedPlacementProject",
+				"Vertical",
+				"ProjectStartDate",
+				"ProjectEndDate",
+				"LongTerm_ShortTermProject",
+				"PreferredVisaStatus",
+				"Onsite_Offshore",
+				"City",
+				"State",
+				"Country",
+				"AdditionalInformation",
+				"AdditionalEmailID1",
+				"AdditionalEmailID2",
+				"ReuqestingMgr",
+				"RequestingMgrAscID",
+				"RequestingMgrEmailID"
+		};
 
 		Log.d(this.getClass().toString(), hiringStatusString);
 		try {

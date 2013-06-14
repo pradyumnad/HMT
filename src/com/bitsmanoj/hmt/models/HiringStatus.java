@@ -61,7 +61,7 @@ public class HiringStatus implements Serializable {
 			this.Remarks = statusObject.getString("Remarks");
 
 			this.technology = statusObject.getString("Technology");
-			this.role = statusObject.getString("Role");
+			this.role = statusObject.getString("JobDescription");
 			this.city = statusObject.getString("City");
 			this.experience = statusObject.getInt("ExpInYrs");
 			this.status = statusObject.getString("CurrentPhaseStatus");

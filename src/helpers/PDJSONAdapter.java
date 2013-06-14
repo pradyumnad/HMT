@@ -99,7 +99,9 @@ public class PDJSONAdapter extends BaseAdapter {
 		LayoutInflater inflater = (LayoutInflater) context
 		        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View rowView = inflater.inflate(android.R.layout.simple_list_item_2, parent, false);
+		rowView.getLayoutParams().height = 100;
 		TextView textView1 = (TextView)rowView.findViewById(android.R.id.text1);
+		textView1.setTextSize(15);
 		textView1.setTextColor(Color.GRAY);
 		TextView textView2 = (TextView)rowView.findViewById(android.R.id.text2);
 		textView2.setTextColor(Color.BLACK);
