@@ -141,13 +141,13 @@ public class HiringRequest extends BaseActivity implements WSListener {
 				.add(new BasicNameValuePair("ProjectEndDate", dateFormat));
 		nameValuePairs
 				.add(new BasicNameValuePair(
-						"LongTerm-ShortTermProject",
+						"LongTerm_ShortTermProject",
 						((EditText) findViewById(R.id.editTextLongTermShortTermProject))
 								.getText().toString().trim()));
 		nameValuePairs.add(new BasicNameValuePair("PreferredVisaStatus",
 				((EditText) findViewById(R.id.editTextPreferredVisaStatus))
 						.getText().toString().trim()));
-		nameValuePairs.add(new BasicNameValuePair("OnsiteOffshore",
+		nameValuePairs.add(new BasicNameValuePair("Onsite_Offshore",
 				((EditText) findViewById(R.id.editTextOnsite_Offshore))
 						.getText().toString().trim()));
 		nameValuePairs.add(new BasicNameValuePair("City",

@@ -58,6 +58,9 @@ public class  HiringRequestAdapter extends ArrayAdapter<HiringStatus> {
 		TextView tx7 = (TextView) rowView.findViewById(R.id.hr_text_view7);
 		tx7.setText(hiringRequest.CurrentPhaseStatus);
 
+		TextView tx8 = (TextView) rowView.findViewById(R.id.hr_text_view8);
+		tx8.setText(hiringRequest.desiredBillingRate+ " $");
+
 		return rowView;
 	}
 }

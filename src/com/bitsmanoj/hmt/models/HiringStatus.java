@@ -35,6 +35,7 @@ public class HiringStatus implements Serializable {
 	public String city;
 	public String status;
 	public String joiningDateNeededBy;
+	public int desiredBillingRate;
 
 	public  HiringStatus(JSONObject statusObject) {
 		try {
@@ -65,6 +66,7 @@ public class HiringStatus implements Serializable {
 			this.experience = statusObject.getInt("ExpInYrs");
 			this.status = statusObject.getString("CurrentPhaseStatus");
 			this.joiningDateNeededBy = statusObject.getString("JoiningDateNeededBy");
+			this.desiredBillingRate = statusObject.getInt("DesiredBillingRate");
 		} catch (JSONException e) {
 			e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
 		}

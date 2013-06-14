@@ -5,13 +5,26 @@
               android:layout_width="fill_parent"
               android:layout_height="match_parent">
 
-    <TextView
+    <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/hr_text_view1"
-            android:layout_gravity="left|center_vertical"
-            android:textSize="18dp"/>
+            android:layout_height="28dp">
+
+        <TextView
+                android:layout_width="129dp"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/hr_text_view1"
+                android:layout_gravity="center"
+                android:textSize="18dp"/>
+
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/hr_text_view8"
+                android:layout_gravity="center"
+                android:gravity="right"/>
+    </LinearLayout>
 
     <LinearLayout
             android:orientation="horizontal"
