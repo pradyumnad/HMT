@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:hint="SONo"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal" />
 
             <EditText
                 android:id="@+id/editTextReuqestingMgr"
@@ -42,21 +42,21 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:hint="Requesting Mgr EmailID"
-                android:inputType="textEmailAddress"/>
-            
+                android:inputType="textEmailAddress" />
+
             <EditText
                 android:id="@+id/editTextEmail1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:hint="Notification Email id 1"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textEmailAddress" />
 
             <EditText
                 android:id="@+id/editTextEmail2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:hint="Notification Email id 2"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textEmailAddress" />
 
             <EditText
                 android:id="@+id/editTextJobDescription"
@@ -111,22 +111,20 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:hint="Joining Date NeededBy" />
-
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="center_vertical|left"
                 android:background="#737373"
                 android:text="Project Start Date"
                 android:textColor="#ffffff"
                 android:textSize="20dp" />
-
-            <DatePicker
-                android:id="@+id/datePickerProjectStartDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
+            <EditText
+                android:id="@+id/editTextProjectStartDate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="mm/dd/yyyy" />
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="fill_parent"
@@ -136,11 +134,11 @@
                 android:text="Project End Date"
                 android:textColor="#ffffff"
                 android:textSize="20dp" />
-
-            <DatePicker
-                android:id="@+id/datePickerProjectEndDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/editTextProjectEndDate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="mm/dd/yyyy" />
 
             <EditText
                 android:id="@+id/editTextLongTermShortTermProject"

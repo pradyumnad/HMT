@@ -128,17 +128,12 @@ public class HiringRequest extends BaseActivity implements WSListener {
 				((EditText) findViewById(R.id.editTextJoiningDateNeededBy))
 						.getText().toString().trim()));
 
-		DatePicker datePicker = (DatePicker) findViewById(R.id.datePickerProjectStartDate);
-		String dateFormat = datePicker.getDayOfMonth() + "-"
-				+ datePicker.getMonth() + "-" + datePicker.getYear();
 		nameValuePairs.add(new BasicNameValuePair("ProjectStartDate",
-				dateFormat));
-		datePicker = (DatePicker) findViewById(R.id.datePickerProjectEndDate);
-		dateFormat = datePicker.getDayOfMonth() + "-" + datePicker.getMonth()
-				+ "-" + datePicker.getYear();
-
-		nameValuePairs
-				.add(new BasicNameValuePair("ProjectEndDate", dateFormat));
+				((EditText) findViewById(R.id.editTextProjectStartDate))
+						.getText().toString().trim()));
+		nameValuePairs.add(new BasicNameValuePair("ProjectEndDate",
+				((EditText) findViewById(R.id.editTextProjectEndDate))
+						.getText().toString().trim()));
 		nameValuePairs
 				.add(new BasicNameValuePair(
 						"LongTerm_ShortTermProject",
