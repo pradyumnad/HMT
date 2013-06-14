@@ -33,11 +33,62 @@ public class ResourceDetail extends BaseActivity {
 		String ascID =  (String)getIntent().getStringExtra("resourceId");
 		String type =  (String)getIntent().getStringExtra("type");
 		String url;
-		
+
+		String [] ip_fields = {
+				"AscID",
+				"Name",
+				"Designation",
+				"Technology",
+				"ExpInYrs",
+				"CurrentProject",
+				"Role",
+				"ProjRMEmailId",
+				"HCMEmailID",
+				"Vertical",
+				"CurrentBillingRate",
+				"ProjectStartDate",
+				"ProjectEndDate",
+				"ProposedReleaseDate",
+				"VisaStatus",
+				"Onsite_Offshore",
+				"City",
+				"State",
+				"Country"
+		};
+
+		String [] bench_fields = {
+				"AscID",
+				"Name",
+				"Designation",
+				"Technology",
+				"ExpInYrs",
+				"BillingRate",
+				"ReadyToRelocate",
+				"Role",
+				"VisaStatus",
+				"onsite_Offshore",
+				"LastDateOnProject",
+				"benchPolicyInitiated",
+				"OnBenchStartingDate",
+				"DurationOnBenchInDays",
+				"Account",
+				"Vertical",
+				"City",
+				"State",
+				"Country",
+				"HCMEmailID",
+				"AllocationIdentified",
+				"IdentifiedProject",
+				"IdentifiedProjectDate",
+				"Remarks"
+		};
+		final String fields [];
 		if (type.equals("IP")) {
 			url = "http://becognizant.net/HMT/internalpool.php?ascID="+ascID;
+			fields = ip_fields;
 		} else {
 			url = "http://becognizant.net/HMT/bench.php?ascID="+ascID;
+			fields = bench_fields;
 		}
 		
 		WSHelper wsHelper = new WSHelper(url, null, getApplicationContext());
@@ -55,9 +106,10 @@ public class ResourceDetail extends BaseActivity {
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				
+
 				ListView listView = (ListView)findViewById(R.id.listView);
-				PDJSONAdapter adapter = new PDJSONAdapter(resourceJsonObject, getApplicationContext());
+
+				PDJSONAdapter adapter = new PDJSONAdapter(resourceJsonObject, getApplicationContext(), fields);
 				listView.setAdapter(adapter);
 				adapter.notifyDataSetChanged();
 			}

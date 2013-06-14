@@ -23,7 +23,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/hr_text_view8"
                 android:layout_gravity="center"
-                android:gravity="right"/>
+                android:gravity="right"
+                android:text="$"/>
     </LinearLayout>
 
     <LinearLayout

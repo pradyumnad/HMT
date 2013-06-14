@@ -43,11 +43,55 @@ public class HiringStatusDetailActivity extends BaseActivity {
 			e.printStackTrace();
 		}
 
+		String [] fields = {
+				"SONo",
+				"CurrentPhaseStatus",
+				"SelectionConfirmed",
+				"IdentifiedProfile",
+				"ReqAssignedTo",
+				"InternalHiringPOC",
+				"ExternalHiringPOC",
+				"InterviewerIdentified",
+				"InterviewerAscID",
+				"InterviewerEmailID",
+				"InterviewerPhone",
+				"InterviewDate",
+				"InterviewStatus",
+				"Approvers1Email",
+				"Approvers2Email",
+				"Approvers3Email",
+				"Approvers4Email",
+				"Remarks",
+				"Technology",
+				"ExpInYrs",
+				"DesiredBillingRate",
+				"JoiningDateNeededBy",
+				"ProposedRule",
+				"JobDescription",
+				"CertificationNeed",
+				"ProposedPlacementProject",
+				"Vertical",
+				"ProjectStartDate",
+				"ProjectEndDate",
+				"LongTerm_ShortTermProject",
+				"PreferredVisaStatus",
+				"Onsite_Offshore",
+				"City",
+				"State",
+				"Country",
+				"AdditionalInformation",
+				"AdditionalEmailID1",
+				"AdditionalEmailID2",
+				"ReuqestingMgr",
+				"RequestingMgrAscID",
+				"RequestingMgrEmailID"
+		};
+
 		Log.d(this.getClass().toString(), ">>> Id : "+hiringStatus);
 
 		ListView listView = (ListView)findViewById(R.id.hiring_status_details_listView);
 
-		PDJSONAdapter pdjsonAdapter = new PDJSONAdapter(hiringStatus, getApplicationContext());
+		PDJSONAdapter pdjsonAdapter = new PDJSONAdapter(hiringStatus, getApplicationContext(), fields);
 		listView.setAdapter(pdjsonAdapter);
 		pdjsonAdapter.notifyDataSetChanged();
 		

@@ -32,6 +32,7 @@ public class PDJSONAdapter extends BaseAdapter {
 	JSONObject jsonObject;
 	List<NameValuePair> listRows;
 	Context context;
+	String[] orderedFields;
 
 	public PDJSONAdapter(JSONObject jsonObject, Context context) {
 		this.jsonObject = jsonObject;
@@ -39,21 +40,43 @@ public class PDJSONAdapter extends BaseAdapter {
 		listRows = getListRowsFromJSONObject(jsonObject);
 	}
 
-	List<NameValuePair> getListRowsFromJSONObject(JSONObject object) {
+	public PDJSONAdapter(JSONObject jsonObject, Context context, String[] fields) {
+		this.orderedFields = fields;
+		this.jsonObject = jsonObject;
+		this.context = context;
+		listRows = getListRowsFromJSONObject(jsonObject);
+	}
 
-		List<NameValuePair>list = new ArrayList<NameValuePair>(object.length());
-		Iterator<String> iterator = object.keys();
-		while (iterator.hasNext()) {
-			String key = iterator.next();
-			Log.d(">>JSON", key);
-			try {
-				list.add(new BasicNameValuePair(key, ""+object.get(key)));
-			} catch (JSONException e) {
-				list.add(new BasicNameValuePair(key, "--"));
+	List<NameValuePair> getListRowsFromJSONObject(JSONObject object) {
+		List<NameValuePair>list;
+		if (orderedFields == null) {
+			list = new ArrayList<NameValuePair>(object.length());
+			Iterator<String> iterator = object.keys();
+			while (iterator.hasNext()) {
+				String key = iterator.next();
+				Log.d(">>JSON", key);
+				try {
+					list.add(new BasicNameValuePair(key, ""+object.get(key)));
+				} catch (JSONException e) {
+					list.add(new BasicNameValuePair(key, "--"));
 //				e.printStackTrace();
+				}
 			}
+			return list;
+		} else {
+			list = new ArrayList<NameValuePair>(orderedFields.length);
+
+			for (int i =0 ; i < orderedFields.length; i++) {
+				String key = orderedFields[i];
+				Log.d(">>JSON", key);
+				try {
+					list.add(new BasicNameValuePair(key, ""+object.get(key)));
+				} catch (JSONException e) {
+					list.add(new BasicNameValuePair(key, "--"));
+				}
+			}
+			return list;
 		}
-		return list;
 	}
 
 	@Override
