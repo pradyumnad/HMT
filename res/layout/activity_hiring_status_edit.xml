@@ -77,12 +77,11 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"/>
 
-               <DatePicker
-                android:id="@+id/datePickerInterviewDate"
-                android:hint = "InterviewDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
+               <EditText
+                android:id="@+id/editTextInterviewDate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="MM-DD-YYYY" />
             <EditText
                 android:id="@+id/editTextInterviewStatus"
                 android:hint="InterviewStatus"

@@ -102,10 +102,8 @@ public class HiringStatusEditActivity extends BaseActivity implements OnDateChan
 			((EditText)findViewById(R.id.editTextInterviewerAscID)).setText(hiringStatus.getString("InterviewerAscID"));
 			((EditText)findViewById(R.id.editTextInterviewerEmailID)).setText(hiringStatus.getString("InterviewerEmailID"));
 			((EditText)findViewById(R.id.editTextInterviewerPhone)).setText(hiringStatus.getString("InterviewerPhone"));
-			String dateString =  hiringStatus.getString("InterviewDate");
-			StringTokenizer tokenizer  = new StringTokenizer(dateString, "-");
-			DatePicker datePicker = (DatePicker)findViewById(R.id.datePickerInterviewDate);
-			datePicker.init(Integer.parseInt((String) tokenizer.nextElement()),Integer.parseInt((String) tokenizer.nextElement()), Integer.parseInt((String) tokenizer.nextElement()), this);
+			
+			((EditText)findViewById(R.id.editTextInterviewDate)).setText(hiringStatus.getString("InterviewerPhone"));
 			
 			((EditText)findViewById(R.id.editTextInterviewStatus)).setText(hiringStatus.getString("InterviewStatus"));
 			((EditText)findViewById(R.id.editTextSelectionConfirmed)).setText(hiringStatus.getString("SelectionConfirmed"));
@@ -164,9 +162,12 @@ public class HiringStatusEditActivity extends BaseActivity implements OnDateChan
 			nameValuePairs.add(new BasicNameValuePair("InterviewerEmailID", ((EditText)findViewById(R.id.editTextInterviewerEmailID)).getText().toString().trim()));
 			nameValuePairs.add(new BasicNameValuePair("InterviewerPhone", ((EditText)findViewById(R.id.editTextInterviewerPhone)).getText().toString().trim()));
 			
-			DatePicker datePicker = (DatePicker)findViewById(R.id.datePickerInterviewDate); 
-			String dateFormat = datePicker.getDayOfMonth()+"-"+datePicker.getMonth()+"-"+datePicker.getYear();
-			nameValuePairs.add(new BasicNameValuePair("InterviewDate", dateFormat));
+			StringTokenizer tokenizer = new StringTokenizer(((EditText) findViewById(R.id.editTextInterviewDate)).getText().toString()
+					, "-");
+			String[] tokens = new String[tokenizer.countTokens()];
+					
+			nameValuePairs.add(new BasicNameValuePair("InterviewDate",
+					tokens[2]+"-"+tokens[0]+"-"+tokens[1] ));
 			
 			nameValuePairs.add(new BasicNameValuePair("InterviewStatus", ((EditText)findViewById(R.id.editTextInterviewStatus)).getText().toString().trim()));
 			nameValuePairs.add(new BasicNameValuePair("SelectionConfirmed", ((EditText)findViewById(R.id.editTextSelectionConfirmed)).getText().toString().trim()));
