@@ -30,7 +30,6 @@
         <activity android:name="com.bitsmanoj.hmt.HomeActivity" />
         <activity android:name="com.bitsmanoj.hmt.HiringRequest" />
         <activity android:name="com.bitsmanoj.hmt.ResourceDetail" />
-        <activity android:name="com.bitsmanoj.hmt.SearchActivityOld" />
         <activity
             android:name="com.bitsmanoj.hmt.HiringStatusDetailActivity"
             android:label="@string/title_activity_hiring_status_detail" >

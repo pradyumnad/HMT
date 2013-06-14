@@ -132,7 +132,7 @@
                 android:id="@+id/editTextProjectStartDate"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="mm-dd-yyyy" />
+                android:hint="MM-DD-YYYY" />
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="fill_parent"
@@ -146,7 +146,7 @@
                 android:id="@+id/editTextProjectEndDate"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="mm-dd-yyyy" />
+                android:hint="MM-DD-YYYY" />
 
             <EditText
                 android:id="@+id/editTextLongTermShortTermProject"

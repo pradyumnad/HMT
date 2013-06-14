@@ -76,7 +76,7 @@
                 android:id="@+id/editTexthirPooldpResult"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="mm-dd-yyyy" />
+                android:hint="MM-DD-YYYY" />
                 </LinearLayout>
 
             <TextView
@@ -105,7 +105,7 @@
                 android:id="@+id/editTexthirPoolenddatepicker"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="mm-dd-yyyy" />
+                android:hint="MM-DD-YYYY" />
                 
             </LinearLayout>
 
