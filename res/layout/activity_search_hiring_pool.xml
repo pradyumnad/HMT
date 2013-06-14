@@ -72,12 +72,12 @@
                     android:layout_weight="1"
                     android:spinnerMode="dropdown"/>
 
-                <DatePicker
-                    android:id="@+id/hirPooldpResult"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="100"/>
-            </LinearLayout>
+                <EditText
+                android:id="@+id/editTexthirPooldpResult"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="mm-dd-yyyy" />
+                </LinearLayout>
 
             <TextView
                 android:id="@+id/hirPoolenddatetv"
@@ -101,11 +101,12 @@
                     android:layout_weight="1"
                     android:spinnerMode="dropdown"/>
 
-                <DatePicker
-                    android:id="@+id/hirPoolenddatepicker"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="100"/>
+                <EditText
+                android:id="@+id/editTexthirPoolenddatepicker"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="mm-dd-yyyy" />
+                
             </LinearLayout>
 
             <Button

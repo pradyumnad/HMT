@@ -36,13 +36,13 @@
             android:id="@+id/spinner"
             android:layout_gravity="right|center_vertical"/>
 
-    <DatePicker
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/search_startDatePicker"
-            />
-
-    <TextView
+    <EditText
+                android:id="@+id/editTextsearch_startDatePicker1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="mm-dd-yyyy" />
+    
+        <TextView
             android:layout_width="163dp"
             android:layout_height="wrap_content"
             android:text="Project End Date"
@@ -55,11 +55,12 @@
             android:id="@+id/spinner1"
             android:layout_gravity="right|center_vertical"/>
 
-    <DatePicker
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/search_endDatePicker"/>
-
+        <EditText
+                android:id="@+id/editTextsearch_endDatePicker"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="mm-dd-yyyy" />
+    
     <CheckBox
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

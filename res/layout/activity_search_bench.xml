@@ -74,12 +74,13 @@
                         android:layout_weight="1"
                         android:spinnerMode="dropdown"/>
 
-                <DatePicker
-                        android:id="@+id/lastDateOnProjectDatePicker"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="100"/>
-            </LinearLayout>
+                  <EditText
+                android:id="@+id/editTextsearch_startDatePicker"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="mm-dd-yyyy" />
+                  
+             </LinearLayout>
 
             <CheckBox
                     android:layout_width="fill_parent"

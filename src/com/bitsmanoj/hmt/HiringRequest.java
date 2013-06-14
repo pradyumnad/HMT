@@ -6,8 +6,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import helpers.WSHelper;
 import helpers.WSListener;
 import helpers.WSType;
@@ -18,6 +20,7 @@ import com.bitsmanoj.hmt.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * Created with IntelliJ IDEA. User: BITSManoj Date: 29/05/13 Time: 1:21 PM To
@@ -25,6 +28,7 @@ import java.util.List;
  */
 public class HiringRequest extends BaseActivity implements WSListener {
 
+	Spinner spinner;
 	@Override
 	public void onRequestCompleted(String response) {
 		// TODO Auto-generated method stub
@@ -41,6 +45,11 @@ public class HiringRequest extends BaseActivity implements WSListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_hiring_request);
 
+		spinner = (Spinner) findViewById(R.id.spinnerOnSite_Offshore);
+		String[] values = {"OnSite", "OffShore"};
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, values);
+		spinner.setAdapter(adapter);
+		
 		((EditText) findViewById(R.id.editTextReuqestingMgr)).setText(AppSettings.currentUser.name);
 		((EditText) findViewById(R.id.editTextRequestingMgrAscID)).setText(""+AppSettings.currentUser.ASCId);
 		((EditText) findViewById(R.id.editTextRequestingMgrEmailID)).setText(AppSettings.currentUser.emailId);
@@ -76,7 +85,6 @@ public class HiringRequest extends BaseActivity implements WSListener {
 	 */
 
 	private void saveNewHiringRequest() {
-
 		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
 		nameValuePairs.add(new BasicNameValuePair("SONo",
 				((EditText) findViewById(R.id.editTexSONot)).getText()
@@ -128,12 +136,19 @@ public class HiringRequest extends BaseActivity implements WSListener {
 				((EditText) findViewById(R.id.editTextJoiningDateNeededBy))
 						.getText().toString().trim()));
 
+		StringTokenizer tokenizer = new StringTokenizer(((EditText) findViewById(R.id.editTextProjectStartDate)).getText().toString()
+				, "-");
+		String[] tokens = new String[tokenizer.countTokens()];
+				
 		nameValuePairs.add(new BasicNameValuePair("ProjectStartDate",
-				((EditText) findViewById(R.id.editTextProjectStartDate))
-						.getText().toString().trim()));
-		nameValuePairs.add(new BasicNameValuePair("ProjectEndDate",
-				((EditText) findViewById(R.id.editTextProjectEndDate))
-						.getText().toString().trim()));
+				tokens[2]+"-"+tokens[0]+"-"+tokens[1] ));
+		
+		tokenizer = new StringTokenizer((((EditText) findViewById(R.id.editTextProjectEndDate))
+				.getText().toString().trim()), "-");
+		tokens = new String[tokenizer.countTokens()];
+
+		nameValuePairs.add(new BasicNameValuePair("ProjectEndDate",tokens[2]+"-"+tokens[0]+"-"+tokens[1]));
+		
 		nameValuePairs
 				.add(new BasicNameValuePair(
 						"LongTerm_ShortTermProject",
@@ -143,8 +158,7 @@ public class HiringRequest extends BaseActivity implements WSListener {
 				((EditText) findViewById(R.id.editTextPreferredVisaStatus))
 						.getText().toString().trim()));
 		nameValuePairs.add(new BasicNameValuePair("Onsite_Offshore",
-				((EditText) findViewById(R.id.editTextOnsite_Offshore))
-						.getText().toString().trim()));
+				spinner.getSelectedItem().toString().trim()));
 		nameValuePairs.add(new BasicNameValuePair("City",
 				((EditText) findViewById(R.id.editTextCity)).getText()
 						.toString().trim()));

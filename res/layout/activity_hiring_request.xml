@@ -105,12 +105,20 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:hint="Desired Billing Rate $" />
-
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|left"
+                android:background="#737373"
+                android:text="Joining Date Needed By"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
             <EditText
                 android:id="@+id/editTextJoiningDateNeededBy"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="Joining Date NeededBy" />
+                android:hint="mm-dd-yyyy" />
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="fill_parent"
@@ -124,7 +132,7 @@
                 android:id="@+id/editTextProjectStartDate"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="mm/dd/yyyy" />
+                android:hint="mm-dd-yyyy" />
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="fill_parent"
@@ -138,7 +146,7 @@
                 android:id="@+id/editTextProjectEndDate"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="mm/dd/yyyy" />
+                android:hint="mm-dd-yyyy" />
 
             <EditText
                 android:id="@+id/editTextLongTermShortTermProject"
@@ -152,12 +160,11 @@
                 android:layout_height="wrap_content"
                 android:hint="Preferred Visa Status" />
 
-            <EditText
-                android:id="@+id/editTextOnsite_Offshore"
+            <Spinner
+                android:id="@+id/spinnerOnSite_Offshore"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:hint="Onsite/Offshore" />
-
+                android:layout_height="wrap_content" 
+                />
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="fill_parent"
