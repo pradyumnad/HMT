@@ -101,28 +101,28 @@
                 android:hint = "Approvers1Email"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName|numberDecimal" />
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextApprovers2Email"
                 android:hint="Approvers2Email"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName|numberDecimal" />
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextApprovers3Email"
                 android:hint="Approvers3Email"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName|numberDecimal" />
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextApprovers4Email"
                 android:hint = "Approvers4Email"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName|numberDecimal" />
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextRemarks"

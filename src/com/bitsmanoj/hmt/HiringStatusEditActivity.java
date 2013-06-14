@@ -152,7 +152,7 @@ public class HiringStatusEditActivity extends BaseActivity implements OnDateChan
 				e.printStackTrace();
 			}
 			nameValuePairs.add(new BasicNameValuePair("SONo", ((EditText)findViewById(R.id.editTextSONo)).getText().toString().trim()));
-			nameValuePairs.add(new BasicNameValuePair("ReqAssignedTo", AppSettings.currentUser.name));
+//			nameValuePairs.add(new BasicNameValuePair("ReqAssignedTo", AppSettings.currentUser.name));
 			nameValuePairs.add(new BasicNameValuePair("InternalHiringPOC", ((EditText)findViewById(R.id.editTextInternalHiringPOC)).getText().toString().trim()));
 			nameValuePairs.add(new BasicNameValuePair("ExternalHiringPOC", ((EditText)findViewById(R.id.editTextExternalHiringPOC)).getText().toString().trim()));
 			nameValuePairs.add(new BasicNameValuePair("IdentifiedProfile", ((EditText)findViewById(R.id.editTextIdentifiedProfile)).getText().toString().trim()));
@@ -165,9 +165,10 @@ public class HiringStatusEditActivity extends BaseActivity implements OnDateChan
 			StringTokenizer tokenizer = new StringTokenizer(((EditText) findViewById(R.id.editTextInterviewDate)).getText().toString()
 					, "-");
 			String[] tokens = new String[tokenizer.countTokens()];
-					
+			if (tokens != null && tokens.length == 3) {
 			nameValuePairs.add(new BasicNameValuePair("InterviewDate",
 					tokens[2]+"-"+tokens[0]+"-"+tokens[1] ));
+			}
 			
 			nameValuePairs.add(new BasicNameValuePair("InterviewStatus", ((EditText)findViewById(R.id.editTextInterviewStatus)).getText().toString().trim()));
 			nameValuePairs.add(new BasicNameValuePair("SelectionConfirmed", ((EditText)findViewById(R.id.editTextSelectionConfirmed)).getText().toString().trim()));
