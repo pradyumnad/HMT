@@ -1,4 +1,4 @@
-package helpers;
+package Helpers;
 
 public interface WSListener {
 	/*	Called after the WS Request is completed with response	*/

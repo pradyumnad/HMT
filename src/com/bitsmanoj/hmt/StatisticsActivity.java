@@ -3,6 +3,7 @@ package com.bitsmanoj.hmt;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.util.Log;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
@@ -96,14 +97,14 @@ public class StatisticsActivity extends Activity {
     		
     		@Override
     		public void onRequestCompleted(String response) {
-    		 	try {
+				Log.d("Statistics", response);
+				try {
     				JSONObject jsonObject = new JSONObject(response);
     				JSONArray array = jsonObject.getJSONArray("results");
     				float counts[] = new float[array.length()];
     				for (int i=0; i < array.length();i++) {
     					JSONObject object = array.getJSONObject(i);
     					counts[i] = (float) object.getDouble("Count");
-    					
     				}
     				linear.removeAllViews();
     			    linear.addView(new MyGraphview(getApplicationContext(),calculateData(counts)));

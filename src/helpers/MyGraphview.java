@@ -1,4 +1,4 @@
-package helpers;
+package Helpers;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import android.view.View;
 
 public class MyGraphview extends View
 {
-	
+	private String[] labels;
     private Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
     private float[] value_degree;
     private int[] COLORS={Color.BLUE,Color.GREEN,Color.GRAY,Color.CYAN,Color.RED,Color.BLACK,Color.MAGENTA,Color.YELLOW};
@@ -22,8 +22,14 @@ public class MyGraphview extends View
     RectF rectf = new RectF (padding, padding, width-padding, width-padding);
     int temp=0;
    
-    public MyGraphview(Context context, ArrayList<NameValuePair> values) {
+    public MyGraphview(Context context, float[] values, String []labels) {
     	super(context);
+		value_degree=new float[values.length];
+		for(int i=0;i<values.length;i++)
+		{
+			value_degree[i]=values[i];
+		}
+		this.labels = labels;
     }
     
     public MyGraphview(Context context, float[] values) {
@@ -52,6 +58,8 @@ public class MyGraphview extends View
                     paint.setColor(COLORS[i]);
                     canvas.drawArc(rectf, temp, value_degree[i], true, paint);
             }
+			paint.setTextSize(24);
+		 	canvas.drawText(labels[i], 100, 30 * i, paint);
         }
     }
   }
